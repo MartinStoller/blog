@@ -1,5 +1,5 @@
 # blog
-A summary of my blog Posts.
+A Repo for Blog Posts.
 
 Everything in this repository is licensed under:
 

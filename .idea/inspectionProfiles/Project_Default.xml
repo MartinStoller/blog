@@ -1,0 +1,23 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="asgiref" />
+          <option value="colorclass" />
+          <option value="Django" />
+          <option value="docopt" />
+          <option value="importlib-metadata" />
+          <option value="joblib" />
+          <option value="pyparsing" />
+          <option value="sqlparse" />
+          <option value="terminaltables" />
+          <option value="threadpoolctl" />
+          <option value="zipp" />
+          <option value="django-extensions" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

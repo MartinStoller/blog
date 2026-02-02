@@ -38,7 +38,7 @@ Conceptually, the UI consists of two main components:
 Our first step is to choose an appropriate architecture. We settle on what I would call a simple but reasonable approach:
 ![aunt_emma_architecture.drawio.svg](../assets/aunt_emma/aunt_emma_architecture.drawio.svg)
 
-- How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system—whether it is streamed in real time via Kafka or delivered once per day by a carrier pigeon as a CSV file on a USB stick. 
+- How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system. Whether it is streamed in real time via Kafka or delivered once per day by a carrier pigeon as a CSV file on a USB stick does not matter here. 
 - The first concrete decision, then, is how to store the data. Naturally, we default to a normalized data model in a relational database. Given what we know at this point, this is a perfectly reasonable choice.
 - On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine. We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
 - Finally, we build a frontend that provides the user interface shown above.
@@ -85,7 +85,6 @@ If I had to give a school-book overview about batch processing vs classical back
 | Performance   | Optimized for total runtime & resource utilization | Optimized for response time                  |
 
 While many backend developers are familiar with OLAP as a theoretical concept, in my experience very few are able to apply it effectively in practice. OLAP-style systems are not the norm in backend development — but they are the norm in data engineering.
-
 And if it wasn’t clear already, this is what this article is really about: building a better practical understanding of when, how, and why we should incorporate patterns from OLAP systems into backend architectures.
 
 Coming back to our application, the obvious question now is: how do we actually apply these batch-processing principles? What needs to change — and how will it help us overcome our growing performance problems?

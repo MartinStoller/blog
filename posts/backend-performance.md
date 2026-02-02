@@ -58,6 +58,12 @@ Instead, we simply precompute all target data for all products ahead of time. Th
 
 From now on, every update in our database triggers the precomputation of all affected target data.
 
+While this improvement is fairly simple—and you certainly don’t need to be a data engineer to come up with it—it already hints at a first potential pitfall.
+
+If we stay too attached to our initial architectural design, we might instead try to “fix” performance by reaching for familiar tools: more efficient algorithms, stronger hardware, smarter caching, better garbage collection, or additional tuning knobs. All of these can help, but they operate within the same fundamental request–response paradigm.
+
+Being so accustomed to this model, it is easy to overlook that some systems behave very differently—and scale far better—once this paradigm itself is questioned or even abandoned.
+
 ## Business is booming
 
 

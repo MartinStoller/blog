@@ -38,7 +38,7 @@ Conceptually, the UI consists of two main components:
 Our first step is to choose an appropriate architecture. We settle on what I would call a simple but reasonable approach:
 ![aunt_emma_architecture.drawio.svg](../assets/aunt_emma/aunt_emma_architecture.drawio.svg)
 
-- How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system—whether it is streamed in real time via Kafka or delivered once per day as a CSV file on a USB stick carried by a pigeon. 
+- How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system—whether it is streamed in real time via Kafka or delivered once per day by a carrier pigeon as a CSV file on a USB stick. 
 - The first concrete decision, then, is how to store the data. Naturally, we default to a normalized data model in a relational database. Given what we know at this point, this is a perfectly reasonable choice.
 - On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine. We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
 - Finally, we build a frontend that provides the user interface shown above.
@@ -76,21 +76,34 @@ Once again, there is no shortage of possible solutions. But instead of squeezing
 
 If I had to give a school-book overview about batch processing vs classical backend development it might look something like this:
 
-| Aspect        | Batch / Analytical Processing                          | Request-Driven / Transactional Processing    |
-|---------------|----------------------------------------------------------|----------------------------------------------|
-| Trigger       | Schedule                                                 | Request                                      |
-| Goal          | Throughput & idempotency                                 | Low latency & determinism                    |
-| Code Style    | Declarative / functional                                 | Imperative / stateful                        |
-| Logic         | Column-oriented & holistic                               | Row- / Object-oriented & single-case focused |
-| Performance   | Optimized for total runtime & resource utilization       | Optimized for response time                  |
+| Aspect        | Batch / Analytical Processing (OLAP)               | Transactional Processing (OLTP)              |
+|---------------|----------------------------------------------------|----------------------------------------------|
+| Trigger       | Schedule                                           | Request                                      |
+| Goal          | Throughput & idempotency                           | Low latency & determinism                    |
+| Code Style    | Declarative / functional                           | Imperative / stateful                        |
+| Logic         | Column-oriented & holistic                         | Row- / Object-oriented & single-case focused |
+| Performance   | Optimized for total runtime & resource utilization | Optimized for response time                  |
+
+While many backend developers are familiar with OLAP as a theoretical concept, in my experience very few are able to apply it effectively in practice. OLAP-style systems are not the norm in backend development — but they are the norm in data engineering.
+
+And if it wasn’t clear already, this is what this article is really about: building a better practical understanding of when, how, and why we should incorporate patterns from OLAP systems into backend architectures.
+
+Coming back to our application, the obvious question now is: how do we actually apply these batch-processing principles? What needs to change — and how will it help us overcome our growing performance problems?
+
+The first point—changing the trigger from request-driven to scheduled execution—we have already covered in the previous chapter. But why should we change not only when our code runs, but also how it is written and structured?
+
+The reason is that traditional object-oriented, imperative code is typically single-case focused. One object often corresponds to a single row in the database. Each row is deserialized into an object, business logic is applied case by case, and the resulting target data structures are then serialized again and written back to the database—one row at a time.
+
+For problems like ours, this is a poor fit. In our case—and in fact in most precomputable scenarios—we want to apply largely the same transformations and algorithms to all rows in a dataset. We want to compute the same KPIs for all products.
+
+Declarative, column-oriented logic is a much better match for this type of workload. By describing what should be computed instead of how to compute it, we enable the execution engine to reason about the computation as a whole. This allows for global optimizations such as reordering operations, pushing down filters, batching work, and executing transformations in parallel.
+
+In addition, column-oriented execution reduces serialization overhead, improves cache locality, and enables vectorized processing on modern CPUs. The result is not only simpler code, but also significantly better resource utilization and throughput—especially at scale.
 
 
 
 
-
-
-
-Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will ahve to scale one day.
+Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will have to scale one day.
 The prupose of this article is therefore not to tell you, that you were wrong all along with your normalized data models and object oriented imperative programming.
 I consider all choices in the intial setup to be perfectly reasonable, given what we knew at the time.
 Just know that as throughput increases more and more, you might want to deviate from your default structure more and more. It is not either OLTP or OLAP. It 

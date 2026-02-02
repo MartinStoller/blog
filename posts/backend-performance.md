@@ -66,6 +66,15 @@ If we stay too attached to our initial architectural design, we might instead tr
 Being so accustomed to this model, it is easy to overlook that some systems behave very differently—and scale far better—once this paradigm itself is questioned or even abandoned.
 
 ## Business is booming
+Thanks to our well-working piece of software, Aunt Emma’s business has been growing rapidly over the years. She has opened multiple new shops, hired dozens of new employees, and even bootstrapped a small business intelligence team that now works with our software full time.
+
+Naturally, this growth is also reflected in our data. What used to be a manageable amount of information has turned into a steadily growing data stream. While we once completed all precomputations within minutes, each update to the database now triggers hours of processing.
+
+At this point, we clearly have a problem. We need to act — but how?
+
+Once again, there is no shortage of possible solutions. But instead of squeezing more performance out of our existing setup, let me propose another paradigm shift: **Batch Processing** (also known by the less glamorous name ETL).
+
+
 
 
 

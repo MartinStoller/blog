@@ -68,7 +68,7 @@ Being so accustomed to this model, it is easy to overlook that some systems beha
 ## Business is booming
 Thanks to our well-working piece of software, Aunt Emma’s business has been growing rapidly over the years. She has opened multiple new shops, hired dozens of new employees, and even bootstrapped a small business intelligence team that now works with our software full time.
 
-Naturally, this growth is also reflected in our data. What used to be a manageable amount of information has turned into a steadily growing data stream. While we once completed all precomputations within minutes, each update to the database now triggers hours of processing.
+Naturally, this growth is also reflected in our data. What used to be a manageable amount of information has turned into a steadily growing data stream. MegaBytes turned into GigaBytes. While we once completed all precomputations within minutes, each update to the database now triggers hours of processing.
 
 At this point, we clearly have a problem. We need to act — but how?
 
@@ -96,10 +96,13 @@ The reason is that traditional object-oriented, imperative code is typically sin
 For problems like ours, this is a poor fit. In our case—and in fact in most precomputable scenarios—we want to apply largely the same transformations and algorithms to all rows in a dataset. We want to compute the same KPIs for all products.
 
 Declarative, column-oriented logic is a much better match for this type of workload. By describing what should be computed instead of how to compute it, we enable the execution engine to reason about the computation as a whole. This allows for global optimizations such as reordering operations, pushing down filters, batching work, and executing transformations in parallel.
-In addition, column-oriented execution reduces serialization overhead, improves cache locality, and enables vectorized processing on modern CPUs. The result is not only simpler code, but also significantly better resource utilization and throughput—especially at scale.
+In addition, column-oriented execution reduces serialization overhead, improves cache locality, and enables vectorized processing. The result is not only simpler code, but also significantly better resource utilization and throughput—especially at scale.
 
-
-
+So now we know when and why to turn to batch processing—but what does this mean for our specific setup? In practice, it often means moving away from Java. While the Java ecosystem certainly offers batch-processing frameworks, they are not commonly used.
+More typical approaches involve expressing large parts of the logic in SQL or using analytical libraries in Python such as Pandas, Polars, or DuckDB. SQL has the advantage of running directly inside the database engine, which can help avoid I/O-bound bottlenecks. However, once business logic reaches medium to high complexity, maintaining a large SQL-only codebase quickly becomes painful. 
+(I once had the pleasure of working with a 30,000+ line, undocumented PL/SQL codebase. Please don’t do this.)
+This is why I usually advocate for a Python-based approach. Modern analytical libraries provide an in-memory, column-oriented representation of data: so-called DataFrames. They allow us to express transformations in a declarative, SQL-like way, while still using Python’s language features to structure and modularize the code properly.
+And before you ask: no, this does not mean that the system will be slower just because Python is involved. These libraries rarely execute Python bytecode for the actual data processing. Instead, Python primarily acts as an API layer for execution engines implemented in faster technologies such as C, the JVM, or Rust.
 
 Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will have to scale one day.
 The prupose of this article is therefore not to tell you, that you were wrong all along with your normalized data models and object oriented imperative programming.

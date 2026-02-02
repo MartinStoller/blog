@@ -47,7 +47,7 @@ Our first step is to choose an appropriate architecture. We settle on what I wou
 In summary, the request flow looks like this:
 The user clicks on a product ➜ the backend requests all relevant KPIs from the pricing engine ➜ the pricing engine computes the results and returns them via the backend to the user.
 
-At this point, everything feels straightforward—and, it turns out to actually work perfectly fine. 
+At this point, everything feels straightforward—and, it turns out to actually work perfectly fine! 🎉
 
 
 

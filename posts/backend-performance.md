@@ -96,7 +96,6 @@ The reason is that traditional object-oriented, imperative code is typically sin
 For problems like ours, this is a poor fit. In our case—and in fact in most precomputable scenarios—we want to apply largely the same transformations and algorithms to all rows in a dataset. We want to compute the same KPIs for all products.
 
 Declarative, column-oriented logic is a much better match for this type of workload. By describing what should be computed instead of how to compute it, we enable the execution engine to reason about the computation as a whole. This allows for global optimizations such as reordering operations, pushing down filters, batching work, and executing transformations in parallel.
-
 In addition, column-oriented execution reduces serialization overhead, improves cache locality, and enables vectorized processing on modern CPUs. The result is not only simpler code, but also significantly better resource utilization and throughput—especially at scale.
 
 

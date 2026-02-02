@@ -29,33 +29,34 @@ Imagine our Aunt Emma running a small business: one store, two employees, and on
 Calculating all of this by hand—or with limited Excel skills—is tedious and error-prone. So, being the helpful niece or nephew that we are, we decide to automate the process by building a small web application.
 
 You can imagine the UI looking roughly like this (thanks, ChatGPT!):
-![img.png](../assets/ui_aunt_emma.png)
+![img.png](../assets/aunt_emma/ui_aunt_emma.png)
 Conceptually, the application consists of two main components:
 
 - An overview listing all sold products with some preview metrics (left side),
 - A detailed view showing all available KPIs and data for a selected product (right side).
 
 Our first step is to choose an appropriate architecture. We settle on what I would call a simple but reasonable approach:
-![aunt_emma_architecture.drawio.svg](../assets/aunt_emma_architecture.drawio.svg)
+![aunt_emma_architecture.drawio.svg](../assets/aunt_emma/aunt_emma_architecture.drawio.svg)
 
 - How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system—whether it is streamed in real time via Kafka or delivered once per day as a CSV file on a USB stick carried by a pigeon. 
 - The first concrete decision, then, is how to store the data. Naturally, we default to a normalized data model in a relational database. Given what we know at this point, this is a perfectly reasonable choice.
 - On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine. We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
 - Finally, we build a frontend that provides the user interface shown above.
-\**Of course, it does not matter in which language we write these services. I just picked Java, because it represents the traditional, best-practice kind of software development well in my mind.*
+\**Of course, it does not matter which programming language we use to implement these services. I happened to pick Java here, simply because it represents a traditional, best-practice-oriented style of software development particularly well in my mind.*
 
 In summary, the request flow looks like this:
 The user clicks on a product ➜ the backend requests all relevant KPIs from the pricing engine ➜ the pricing engine computes the results and returns them via the backend to the user.
 
-At this point, everything feels straightforward—and, it turns out to actually work perfectly fine! 🎉
+At this point, everything feels straightforward—and it turns out to actually work perfectly fine! 🎉
 
-There is just one small issue: Some of the target data is expensive to compute and it takes up to a minute until our
-beloved Aunt can see all of it in the UI. While this is acceptable for her and still a major improvement compared to what she was working with before,
-we come up with an easy and yet major improvement: Why even calculate all the data on demand?
+There is just one small issue: some of the target data is expensive to compute, and it can take up to a minute before our beloved aunt sees all results in the UI. While this delay is acceptable for her—and still a major improvement compared to what she was working with before—we quickly come up with an easy yet impactful optimization:
 
-Instead, lets just precompute all the target data for all products, then the backend can request everything directly
-from the Database:
+Why calculate all of this data on demand?
 
+Instead, we simply precompute all target data for all products ahead of time. The backend can then request everything directly from the database:
+![emma_diagram_precompute.drawio.svg](../assets/aunt_emma/emma_diagram_precompute.drawio.svg)
+
+From now on, every update in our database triggers the precomputation of all affected target data.
 
 ## Business is booming
 

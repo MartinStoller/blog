@@ -40,9 +40,7 @@ Our first step is to choose an appropriate architecture. We settle on what I wou
 
 - How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system—whether it is streamed in real time via Kafka or delivered once per day as a CSV file on a USB stick carried by a pigeon. 
 - The first concrete decision, then, is how to store the data. Naturally, we default to a normalized data model in a relational database. Given what we know at this point, this is a perfectly reasonable choice.
-- On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine.
-
-We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
+- On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine. We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
 
 - Finally, we build a frontend that provides the user interface shown above.
 

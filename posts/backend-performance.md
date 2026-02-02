@@ -117,7 +117,7 @@ For now, here is a high-level overview of what becomes relevant at truly large s
 2. Persistence Technology: File based storage(Iceberg, deltalake)...
 3. Distributed query engines: ...
 
-
+## Takeaway
 Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will have to scale one day.
 The prupose of this article is therefore not to tell you, that you were wrong all along with your normalized data models and object oriented imperative programming.
 I consider all choices in the intial setup to be perfectly reasonable, given what we knew at the time.

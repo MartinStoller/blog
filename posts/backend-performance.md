@@ -36,10 +36,10 @@ Essentially, the App consists of 2 components:
 - When clicking on a product, we see all available KPIs and data for that product (right side).
 
 Our first step is to pick a proper architecture. We go for what I would call a simple and intuitive approach:
+![aunt_emma_architecture.drawio.svg](../assets/aunt_emma_architecture.drawio.svg)
 
 
 
-
-Note this: How hard it can be sometimes to anticipate whether something will every become a high-load system or foreever 
-remain a small nice prototype.
+Note this: How hard it can be sometimes to anticipate whether something will ever become a high-load system or forever 
+remain a small nice prototype. 
 

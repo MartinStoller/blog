@@ -41,17 +41,33 @@ Our first step is to choose an appropriate architecture. We settle on what I wou
 - How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system—whether it is streamed in real time via Kafka or delivered once per day as a CSV file on a USB stick carried by a pigeon. 
 - The first concrete decision, then, is how to store the data. Naturally, we default to a normalized data model in a relational database. Given what we know at this point, this is a perfectly reasonable choice.
 - On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine. We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
-
 - Finally, we build a frontend that provides the user interface shown above.
+\**Of course, it does not matter in which language we write these services. I just picked Java, because it represents the traditional, best-practice kind of software development well in my mind.*
 
 In summary, the request flow looks like this:
 The user clicks on a product ➜ the backend requests all relevant KPIs from the pricing engine ➜ the pricing engine computes the results and returns them via the backend to the user.
 
 At this point, everything feels straightforward—and, it turns out to actually work perfectly fine! 🎉
 
+There is just one small issue: Some of the target data is expensive to compute and it takes up to a minute until our
+beloved Aunt can see all of it in the UI. While this is acceptable for her and still a major improvement compared to what she was working with before,
+we come up with an easy and yet major improvement: Why even calculate all the data on demand?
+
+Instead, lets just precompute all the target data for all products, then the backend can request everything directly
+from the Database:
+
+
+## Business is booming
 
 
 
-Note this: How hard it can be sometimes to anticipate whether something will ever become a high-load system or forever 
-remain a small nice prototype. 
+
+
+
+Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will ahve to scale one day.
+The prupose of this article is therefore not to tell you, that you were wrong all along with your normalized data models and object oriented imperative programming.
+I consider all choices in the intial setup to be perfectly reasonable, given what we knew at the time.
+Just know that as throughput increases more and more, you might want to deviate from your default structure more and more. It is not either OLTP or OLAP. It 
+can be anything in between. Finding the right balance and neither optimizing prematurely nor too late is the real challenge. So please dont throw away your relational DB and refactor your 
+entire persistence layer with Apache Iceberg, just because you had a slow response that one time.
 

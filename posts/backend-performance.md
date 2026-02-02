@@ -30,7 +30,7 @@ Calculating all of this by hand—or with limited Excel skills—is tedious and 
 
 You can imagine the UI looking roughly like this (thanks, ChatGPT!):
 ![img.png](../assets/aunt_emma/ui_aunt_emma.png)
-Conceptually, the application consists of two main components:
+Conceptually, the UI consists of two main components:
 
 - An overview listing all sold products with some preview metrics (left side),
 - A detailed view showing all available KPIs and data for a selected product (right side).
@@ -74,6 +74,15 @@ At this point, we clearly have a problem. We need to act — but how?
 
 Once again, there is no shortage of possible solutions. But instead of squeezing more performance out of our existing setup, let me propose another paradigm shift: **Batch Processing** (also known by the less glamorous name ETL).
 
+If I had to give a school-book overview about batch processing vs classical backend development it might look something like this:
+
+| Aspect        | Batch / Analytical Processing                          | Request-Driven / Transactional Processing    |
+|---------------|----------------------------------------------------------|----------------------------------------------|
+| Trigger       | Schedule                                                 | Request                                      |
+| Goal          | Throughput & idempotency                                 | Low latency & determinism                    |
+| Code Style    | Declarative / functional                                 | Imperative / stateful                        |
+| Logic         | Column-oriented & holistic                               | Row- / Object-oriented & single-case focused |
+| Performance   | Optimized for total runtime & resource utilization       | Optimized for response time                  |
 
 
 

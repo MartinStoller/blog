@@ -111,11 +111,20 @@ So, there we have it: our brand new BI-Tool 2.0:
 Once again, we have successfully addressed a critical performance bottleneck and scaled our system accordingly 🥳
 But at her weekly bingo night, Aunt Emma proudly tells her friends about the software that completely transformed her business. Among them, purely by coincidence, happens to be the CTO of Walmart—who now wants us to build a similar solution for them.
 
-When gigabytes turn into terabytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go far beyond the scope of this article—which is meant to provide backend developers with foundational concepts and guiding principles—I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
+When gigabytes turn into terabytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go beyond the scope of this article—which is meant to provide backend developers with foundational concepts and guiding principles—I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
 For now, here is a high-level overview of what becomes relevant at truly large scale:
-1. Data Modelling: Denormalization... Partitioning... Bucketing ...
-2. Persistence Technology: File based storage(Iceberg, deltalake)...
-3. Distributed query engines: ...
+1. **Data Modelling**: 
+At large scale, we can apply a number of well-known storage strategies such as partitioning or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
+
+In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
+
+That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling.
+
+A useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns and analytical use cases.
+
+In practice, this often results in multiple modeling layers—ranging from normalized core datasets to increasingly denormalized, query-optimized tables—each serving a distinct purpose within the overall architecture.
+2. **Persistence Technology**: File based storage(Iceberg, deltalake)... But querying the data with jdbc from the backend would become a challenge
+3. **Distributed query engines**: ...
 
 ## Takeaway
 Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will have to scale one day.

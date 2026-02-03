@@ -53,7 +53,7 @@ At this point, everything feels straightforward—and it turns out to actually w
 There is just one small issue: some of the target data is expensive to compute, and it can take up to a minute before our beloved aunt sees all results in the UI. While this delay is acceptable for her—and still a major improvement compared to what she was working with before—we quickly come up with an easy yet impactful optimization:
 
 Why calculate all of this data on demand?
-
+[LICENSE](../LICENSE)
 Instead, we simply precompute all target data for all products ahead of time. The backend can then request everything directly from the database:
 ![emma_diagram_precompute.drawio.svg](../assets/aunt_emma/emma_diagram_precompute.drawio.svg)
 
@@ -114,7 +114,8 @@ But at her weekly bingo night, Aunt Emma proudly tells her friends about the sof
 When gigabytes turn into terabytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go beyond the scope of this article—which is meant to provide backend developers with foundational concepts and guiding principles—I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
 For now, here is a high-level overview of what becomes relevant at truly large scale:
 1. **Data Modelling**: 
-At large scale, we can apply a number of well-known storage strategies such as partitioning or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
+
+2. At large scale, we can apply a number of well-known storage strategies such as partitioning or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
 
 In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
 

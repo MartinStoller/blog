@@ -140,11 +140,17 @@ This is where lakehouse architectures come into play. By adding a metadata layer
 The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases — making it a natural fit for large-scale analytical workloads.
 
 In our case, switching to technologies like Iceberg or Delta Lake introduces an additional architectural challenge: these systems are storage layers, not query engines. Unlike a traditional database, they do not expose a JDBC interface themselves.
-
 This means that our Java backend can no longer query the data directly via a standard JDBC connection, as it likely did before. Instead, we need to introduce an analytical query engine—such as Trino, Spark, or a similar system—that understands the lakehouse metadata and provides a SQL interface on top of the file-based storage.
 
 3. **Distributed query engines**:
 
+Speaking of Trino and Spark: Not only for querying our data but also for processing it, distributed compute engines become a must at certain data quantaties.
+Horizontal scaling is the only way and there are amazingly powerful options out there: BigQuery, Snowflake and Spark are probably the most popular ones.
+
+This is another pitfall i have seen in practice: A team of software engineers runs into OOM Errors and critical performance issues as their data grows. So they turn to 
+the tools they know to fix that: Improving memory efficiency via chunking techniques. Improve parallelism and concurrency. Add more hardware.
+And before they know it they created a monster of complexity which essentially is just their own distirubuted compute engine. Needless to say:
+your team is likely not gonna create a better engine than the creators of Spark, so you realize way too late you that you just should have used their framework from the get go.
 
 
 ## Takeaway

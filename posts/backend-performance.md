@@ -148,6 +148,7 @@ A common pitfall I’ve seen in practice: a team of software engineers runs into
 
 Here’s the hard truth: your team is very unlikely to build a system more efficient or reliable than Spark or Snowflake. By the time you realize it, you’ve spent months creating what these frameworks already provide out-of-the-box. The lesson is simple: at this scale, use battle-tested distributed compute engines from the start.
 
+
 ## Takeaway
 Let’s recap the main messages of this article:
 

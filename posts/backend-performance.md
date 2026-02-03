@@ -125,7 +125,9 @@ A useful rule of thumb is this: every denormalized data structure should be deri
 
 In practice, this often results in multiple modeling layers—ranging from normalized core datasets to increasingly denormalized, query-optimized tables—each serving a distinct purpose within the overall architecture.
 
-2. **Persistence Technology**: File based storage(Iceberg, deltalake)... But querying the data with jdbc from the backend would become a challenge
+2. **Persistence Technology**: 
+
+File based storage(Iceberg, deltalake)... But querying the data with jdbc from the backend would become a challenge
 
 A file format that is still surprisingly unknown outside the world of data engineering is Parquet. I say “surprisingly” because once you understand how it works, it feels like a complete game changer.
 
@@ -139,7 +141,9 @@ This is where lakehouse architectures come into play. By adding a metadata layer
 
 The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases — making it a natural fit for large-scale analytical workloads.
 
-3. **Distributed query engines**: ...
+3. **Distributed query engines**:
+
+
 
 ## Takeaway
 Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will have to scale one day.

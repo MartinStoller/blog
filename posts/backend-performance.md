@@ -115,7 +115,7 @@ When gigabytes turn into terabytes, things change fundamentally. At this scale, 
 For now, here is a high-level overview of what becomes relevant at truly large scale:
 1. **Data Modelling**: 
 
-2. At large scale, we can apply a number of well-known storage strategies such as partitioning or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
+At large scale, we can apply a number of well-known storage strategies such as partitioning or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
 
 In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
 
@@ -124,7 +124,12 @@ That said, denormalization done right does not mean throwing all structure away 
 A useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns and analytical use cases.
 
 In practice, this often results in multiple modeling layers—ranging from normalized core datasets to increasingly denormalized, query-optimized tables—each serving a distinct purpose within the overall architecture.
+
 2. **Persistence Technology**: File based storage(Iceberg, deltalake)... But querying the data with jdbc from the backend would become a challenge
+
+A file format, which is surprisingly unpopular outside the world of data engineering is the .parquet file format. I say "surprisingly" because, once you learn about it, it feels like a complete gamechanger.
+It´s a column based binary file format, including metadata and compression techniques like run-length-encoding. 
+
 3. **Distributed query engines**: ...
 
 ## Takeaway

@@ -1,5 +1,5 @@
 # Blog
-A personal blog focused on data engineering, scalability in high-throughput systems, PySpark and whatever else currently interests me.
+A personal blog focused on data engineering, high-load systems, PySpark and whatever else currently interests me.
 
 ## License
 © 2026 Martin Stoller.  

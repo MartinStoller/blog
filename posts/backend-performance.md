@@ -148,12 +148,13 @@ A common pitfall I’ve seen in practice: a team of software engineers runs into
 
 Here’s the hard truth: your team is very unlikely to build a system more efficient or reliable than Spark or Snowflake. By the time you realize it, you’ve spent months creating what these frameworks already provide out-of-the-box. The lesson is simple: at this scale, use battle-tested distributed compute engines from the start.
 
-
 ## Takeaway
-Note this: If you think back to the initial setup with Aunt Emmas small shop: note how it was almost impossible to anticipate how much we will have to scale one day.
-The prupose of this article is therefore not to tell you, that you were wrong all along with your normalized data models and object oriented imperative programming.
-I consider all choices in the intial setup to be perfectly reasonable, given what we knew at the time.
-Just know that as throughput increases more and more, you might want to deviate from your default structure more and more. It is not either OLTP or OLAP. It 
-can be anything in between. Finding the right balance and neither optimizing prematurely nor too late is the real challenge. So please dont throw away your relational DB and refactor your 
-entire persistence layer with Apache Iceberg, just because you had a slow response that one time.
+Let’s recap the main messages of this article:
 
+- Think holistically about performance. When performance problems arise, resist the urge to treat only the symptoms. Instead of immediately optimizing hot spots, take a step back and ask why these issues appear and whether your current architectural approach is still a good fit for the problem you are trying to solve.
+
+- Not all scalability problems can be anticipated. In our example, it was impossible to foresee from the beginning the scale at which the system would eventually operate. Having to refactor or even rethink core architectural decisions is often a natural consequence of growth — not a failure, and not necessarily anyone’s fault.
+
+- OLAP vs. OLTP is not a binary choice. There is a spectrum, and many real-world systems live somewhere in between. You can perform ETL on top of normalized data models, and for small to medium scales it is perfectly reasonable to implement batch-style pipelines using tools like Java’s Streams API. At the same time, OLAP-style components often exist as subsystems within larger architectures that continue to rely on OLTP systems for transactional workloads.
+
+- Be open to paradigm shifts and deliberate exceptions to your defaults. The strategies discussed in this article are not a universal solution to every performance problem. However, when facing scalability challenges, it is worth actively looking for subsystems that could be modeled using OLAP-style patterns. These opportunities are often not obvious — especially when the system is currently framed and implemented as a classic OLTP service.

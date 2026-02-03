@@ -1,15 +1,17 @@
-# blog
-A Repo for Blog Posts.
+# Blog
+A personal blog focused on data engineering, scalability in high-throughput systems, PySpark and whatever else currently interests me.
 
-Everything in this repository is licensed under:
+## License
+© 2026 Martin Stoller.  
 
-© 2026 Your Name. Licensed under CC BY-NC 4.0. https://creativecommons.org/licenses/by-nc/4.0/
+Licensed under **CC BY-NC 4.0**  
 
+https://creativecommons.org/licenses/by-nc/4.0/
 
 ### Overview
-- 🚀 Backend-Performance in High-Throughput Systems - A Data Engineer's Perspective: [backend-performance.md](posts/backend-performance.md)
+- 🚀 **Backend Performance in High-Throughput Systems – A Data Engineer’s Perspective**  
+  [backend-performance.md](posts/backend-performance.md)
 
-
-### Ideas for future work:
-- The case for TDD when building pipelines
-- Functional Column Expressions: How to write more mature pyspark code
+### Ideas for future posts
+- The case for TDD when building data pipelines
+- Functional column expressions: writing more mature PySpark code

@@ -125,9 +125,7 @@ A useful rule of thumb is this: every denormalized data structure should be deri
 
 In practice, this often results in multiple modeling layers—ranging from normalized core datasets to increasingly denormalized, query-optimized tables—each serving a distinct purpose within the overall architecture.
 
-2. **Persistence Technology**: 
-
-File based storage(Iceberg, deltalake)... But querying the data with jdbc from the backend would become a challenge
+2. **Persistence Technology**:
 
 A file format that is still surprisingly unknown outside the world of data engineering is Parquet. I say “surprisingly” because once you understand how it works, it feels like a complete game changer.
 
@@ -140,6 +138,10 @@ Of course, we cannot simply throw raw files onto a server and call that our pers
 This is where lakehouse architectures come into play. By adding a metadata layer on top of file-based storage, lakehouses turn collections of Parquet files into something that behaves much more like a traditional database. Technologies such as Iceberg or Delta Lake provide schema management, versioning, transactional guarantees, and query planning — all while retaining the scalability and performance benefits of simple file-based storage.
 
 The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases — making it a natural fit for large-scale analytical workloads.
+
+In our case, switching to technologies like Iceberg or Delta Lake introduces an additional architectural challenge: these systems are storage layers, not query engines. Unlike a traditional database, they do not expose a JDBC interface themselves.
+
+This means that our Java backend can no longer query the data directly via a standard JDBC connection, as it likely did before. Instead, we need to introduce an analytical query engine—such as Trino, Spark, or a similar system—that understands the lakehouse metadata and provides a SQL interface on top of the file-based storage.
 
 3. **Distributed query engines**:
 

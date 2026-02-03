@@ -53,7 +53,7 @@ At this point, everything feels straightforward—and it turns out to actually w
 There is just one small issue: some of the target data is expensive to compute, and it can take up to a minute before our beloved aunt sees all results in the UI. While this delay is acceptable for her—and still a major improvement compared to what she was working with before—we quickly come up with an easy yet impactful optimization:
 
 Why calculate all of this data on demand?
-[LICENSE](../LICENSE)
+
 Instead, we simply precompute all target data for all products ahead of time. The backend can then request everything directly from the database:
 ![emma_diagram_precompute.drawio.svg](../assets/aunt_emma/emma_diagram_precompute.drawio.svg)
 
@@ -137,20 +137,17 @@ If you have never worked with Parquet before, I highly encourage you to run a qu
 Of course, we cannot simply throw raw files onto a server and call that our persistence layer. Doing so would result in what is commonly referred to as a data lake — and while raw data lakes are extremely useful as ingestion and storage layers, they are a poor foundation for application-facing logic. Without structure, guarantees, or coordination, they quickly become chaotic to work with.
 
 This is where lakehouse architectures come into play. By adding a metadata layer on top of file-based storage, lakehouses turn collections of Parquet files into something that behaves much more like a traditional database. Technologies such as Iceberg or Delta Lake provide schema management, versioning, transactional guarantees, and query planning — all while retaining the scalability and performance benefits of simple file-based storage.
-
 The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases — making it a natural fit for large-scale analytical workloads.
 
 In our case, switching to technologies like Iceberg or Delta Lake introduces an additional architectural challenge: these systems are storage layers, not query engines. Unlike a traditional database, they do not expose a JDBC interface themselves. This means that our Java backend can no longer query the data directly via a standard JDBC connection, as it likely did before. Instead, we need to introduce an analytical query engine—such as Trino, Spark, or a similar system—that understands the lakehouse metadata and provides a SQL interface on top of the file-based storage.
 
 3. **Distributed query engines**:
 
-Speaking of Trino and Spark: Not only for querying our data but also for processing it, distributed compute engines become a must at certain data quantaties.
-Horizontal scaling is the only way and there are amazingly powerful options out there: BigQuery, Snowflake and Spark are probably the most popular ones.
+At terabyte scale and beyond, distributed compute engines become essential — not just for querying data, but also for processing it. Horizontal scaling is the only practical approach at these volumes, and there are many powerful options available. Open-source engines such as Trino and Spark, as well as managed services like BigQuery and Snowflake, are among the most widely used.
 
-This is another pitfall i have seen in practice: A team of software engineers runs into OOM Errors and critical performance issues as their data grows. So they turn to 
-the tools they know to fix that: Improving memory efficiency via chunking techniques. Improve parallelism and concurrency. Add more hardware.
-And before they know it they created a monster of complexity which essentially is just their own distirubuted compute engine. Needless to say:
-your team is likely not gonna create a better engine than the creators of Spark, so you realize way too late you that you just should have used their framework from the get go.
+A common pitfall I’ve seen in practice: a team of software engineers runs into memory errors and severe performance issues as data volumes grow. They try to fix the problem with the tools they know: optimizing memory usage with chunking, increasing parallelism, spinning up more or stronger instances. Before long, they’ve built their own Frankenstein-style distributed compute engine — complex, fragile, and hard to maintain.
+
+Here’s the hard truth: your team is very unlikely to build a system more efficient or reliable than Spark or Snowflake. By the time you realize it, you’ve spent months creating what these frameworks already provide out-of-the-box. The lesson is simple: at this scale, use battle-tested distributed compute engines from the start.
 
 
 ## Takeaway

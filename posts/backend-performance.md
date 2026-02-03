@@ -131,7 +131,7 @@ A file format that is still surprisingly unknown outside the world of data engin
 
 Parquet is a column-oriented, binary file format that stores rich metadata and applies advanced compression techniques such as run-length encoding and dictionary encoding. This makes it extremely efficient for analytical workloads and has turned it into the de facto standard file format in the big data ecosystem.
 
-If you have never worked with Parquet before, I highly encourage you to run a quick benchmark yourself. Generate a few gigabytes of synthetic data and compare reading and writing Parquet files to formats like CSV or to row-oriented databases in analytical queries. The difference in performance is usually dramatic. I even vibe-coded a quick, basic benchmarking notebook myself: [parquet_benchmark.ipynb](../code/parquet_benchmark.ipynb)
+If you have never worked with Parquet before, I highly encourage you to run a quick benchmark yourself. Generate a few gigabytes of synthetic data and compare reading and writing Parquet files to formats like CSV or to row-oriented databases in analytical queries. The difference in performance is usually dramatic. Feel free to use the basic benchmarking notebook from this repo: [parquet_benchmark.ipynb](../code/parquet_benchmark.ipynb)
 
 
 Of course, we cannot simply throw raw files onto a server and call that our persistence layer. Doing so would result in what is commonly referred to as a data lake — and while raw data lakes are extremely useful as ingestion and storage layers, they are a poor foundation for application-facing logic. Without structure, guarantees, or coordination, they quickly become chaotic to work with.

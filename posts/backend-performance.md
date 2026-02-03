@@ -50,7 +50,7 @@ The user clicks on a product ➜ the backend requests all relevant KPIs from the
 
 At this point, everything feels straightforward—and it turns out to actually work perfectly fine! 🎉
 
-There is just one small issue: some of the target data is expensive to compute, and it can take up to a minute before our beloved aunt sees all results in the UI. While this delay is acceptable for her—and still a major improvement compared to what she was working with before—we quickly come up with an easy yet impactful optimization:
+There is just one small issue: some of the target data is expensive to compute, and it can take up to a minute before our beloved aunt sees all results in the UI after clicking on a product. While this delay is acceptable for her—and still a major improvement compared to what she was working with before—we quickly come up with an easy yet impactful optimization:
 
 Why calculate all of this data on demand?
 

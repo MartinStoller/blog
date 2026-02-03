@@ -120,7 +120,6 @@ At large scale, we can apply a number of well-known storage strategies such as p
 In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
 
 That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling.
-
 A useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns.
 
 In practice, this often results in multiple modeling layers—ranging from normalized core datasets to increasingly denormalized, query-optimized tables—each serving a distinct purpose within the overall architecture.

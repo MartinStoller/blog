@@ -121,14 +121,23 @@ In distributed, scan-heavy analytical systems, joins quickly become one of the m
 
 That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling.
 
-A useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns and analytical use cases.
+A useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns.
 
 In practice, this often results in multiple modeling layers—ranging from normalized core datasets to increasingly denormalized, query-optimized tables—each serving a distinct purpose within the overall architecture.
 
 2. **Persistence Technology**: File based storage(Iceberg, deltalake)... But querying the data with jdbc from the backend would become a challenge
 
-A file format, which is surprisingly unpopular outside the world of data engineering is the .parquet file format. I say "surprisingly" because, once you learn about it, it feels like a complete gamechanger.
-It´s a column based binary file format, including metadata and compression techniques like run-length-encoding. 
+A file format that is still surprisingly unknown outside the world of data engineering is Parquet. I say “surprisingly” because once you understand how it works, it feels like a complete game changer.
+
+Parquet is a column-oriented, binary file format that stores rich metadata and applies advanced compression techniques such as run-length encoding and dictionary encoding. This makes it extremely efficient for analytical workloads and has turned it into the de facto standard file format in the big data ecosystem.
+
+If you have never worked with Parquet before, I highly encourage you to run a quick benchmark yourself. Generate a few gigabytes of synthetic data and compare reading and writing Parquet files to formats like CSV or to row-oriented databases in analytical queries. The difference in performance is usually dramatic.
+
+Of course, we cannot simply throw raw files onto a server and call that our persistence layer. Doing so would result in what is commonly referred to as a data lake — and while raw data lakes are extremely useful as ingestion and storage layers, they are a poor foundation for application-facing logic. Without structure, guarantees, or coordination, they quickly become chaotic to work with.
+
+This is where lakehouse architectures come into play. By adding a metadata layer on top of file-based storage, lakehouses turn collections of Parquet files into something that behaves much more like a traditional database. Technologies such as Iceberg or Delta Lake provide schema management, versioning, transactional guarantees, and query planning — all while retaining the scalability and performance benefits of simple file-based storage.
+
+The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases — making it a natural fit for large-scale analytical workloads.
 
 3. **Distributed query engines**: ...
 

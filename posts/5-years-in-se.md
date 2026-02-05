@@ -69,7 +69,6 @@ What I **actually** said was:
 
 He didn't just agree, but thanked me for my constructive feedback and good idea.
 And just like that, a project that had started as a disaster turned into one of the best experiences I’ve ever had at work.
-
 As a junior developer, I suddenly had real responsibility. I got to work with an amazing technology, make fundamental architectural decisions, and lead the development of a major service.
 
 There it was—my next chance to grow. And this time, I did not only take it. I created it.

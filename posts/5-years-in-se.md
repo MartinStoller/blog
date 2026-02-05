@@ -31,7 +31,7 @@ I vividly remember multiple moments early on where I was so frustrated by a prob
 After finishing university, both of us decided to try our luck as self-taught developers—and somehow, we both landed jobs.
 (Try that again in today’s market ☘️.)
 
-That’s how I started my first job as a Java backend developer at an IT consulting company: Haeger Consulting.
+That’s how I started my first job as a Java backend developer at an IT consulting company.
 
 ## Year 1: A shaky start
 Technically, I didn’t start as a Java developer, but with a six-month traineeship. And I have to admit: I didn’t do a great job.
@@ -76,6 +76,21 @@ I enjoyed this new role so much that, at some point, I realized I didn’t want 
 I was entering a world I probably never would have discovered if I’d been staffed as a Java developer as originally planned (☘️).
 
 ## Year 3: Becoming a Teacher
+Unfortunately, this project came to an end after one and a half exciting years due to budget issues. Thankfully, I found my next project almost immediately—as a data engineer at a large bank.
+On paper, it was the perfect follow-up. In reality, it was rather disappointing.
+
+The project was heavily mismanaged and extremely bureaucratic. Beyond a few basic pipelines, there wasn’t much I could contribute. It often felt like 90% of my time was spent waiting—for access to data, cloud resources, or yet another approval.
+But once again, I found a way to create my own opportunities to grow.
+
+My employer was primarily focused on Java backend development. My gradual drift into data engineering had been somewhat accidental, but it made me stand out. So I approached my manager with an idea: offering internal data engineering courses for colleagues who were curious about the field.
+
+He loved it.
+
+Suddenly, the time I spent waiting for access rights at the bank became useful. I prepared workshops, explained concepts, answered questions, and helped others take their first steps into data engineering.
+
+That’s when I discovered something unexpected: teaching forced me to understand things properly. Explaining why something works is very different from just making it work yourself—and it accelerated my own learning more than any project ever had.
+
+
 
 ## Year 4: Tech Lead
 
@@ -86,9 +101,9 @@ I was entering a world I probably never would have discovered if I’d been staf
 
 Lessons:
 - Softskills > Hardskills
+- Sure i created my chances but i had bosses that liked and supported me
 - Have friends that share your passion and pain
 - Hard work > Intelligence
-- Poker -> analytical thinking???
 - Its my hobby and it genuienly interests me
 - I am humble and can tell when others are better. Then I can learn with and from them.
 - Degree is overestimated but not useless
@@ -96,6 +111,7 @@ Lessons:
 - Companies want results, not perfect Code
 - I had time to learn: Simon kucher showed me that there is such a thing as too much work where you just resolve tickets with the tools you know but stop learning (Thomas). I think you have to find th esweet spot where you do have responsibility and pressure to perform well, but not so much that it paralizes your ability to reflect, learn and grow
 - IT consulting -> steeper learning curve
+- Yes you have to get lucky, but over years you can create much of that luck yourself
 - Everybody has their own learning technique. i asked the most impressive SEs i have ever met on what their secret is and the top 5 people i asked gave me 5 different answers: Reading Books, Just build stuff (doesnt work at all fo rme because i always stop as soon as soemthing works so i dont learn because i dont get deep enough), visit conferences, Open source contributions and for me: Teaching (see feyneman technique)
 - Teaching became my secret weapon for learning. I have always been looking for this
 - 2 good years can turn a lot around. I had roughly 2 years were i was lazy and had very bad approach. But it is incredible and everyone underestimates what you can achieve in a year. so if you lock in for 2 years, this can already make all the difference over a 5 year period

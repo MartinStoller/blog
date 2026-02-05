@@ -54,7 +54,27 @@ For months, I had been taught how to build REST APIs with Java. Now I was expect
 I did my best for about half a year, but I wasn’t happy—and I wasn’t making meaningful progress either.
 That’s when I discovered a hidden strength of mine…
 
-## Year 2: Literally getting paid for my hobby
+## Year 2: Creating Opportunities
+Through a random coincidence (☘️), I had recently learned about Apache Spark and realized it might be exactly the right tool for the SQL disaster I was responsible for. I asked my product owner for a meeting and laid out the problems with our current codebase—problems nobody on the team truly understood anymore.
+
+A massive refactoring was inevitable anyway. And if we were going to do that, why not use a technology that actually fit the problem?
+
+What I wanted to say was:
+
+“Working with this codebase feels impossible. I can’t do this, and I’ll probably quit if nothing changes.”
+
+What I actually said was:
+
+“We have the following problems. Don’t worry—I have an idea how to solve them. I’ll take full responsibility and lead the entire refactoring.”
+
+He didn't just agree, but thanked me for my constructive feedback and good idea.
+And just like that, a project that had started as a disaster turned into one of the best experiences I’ve ever had at work.
+
+As a junior developer, I suddenly had real responsibility. I got to work with an amazing technology, make fundamental architectural decisions, and lead the development of a major service.
+
+There it was—my next chance to grow. And this time, I did not only take it. I created it.
+I enjoyed this new role so much that, at some point, I realized I didn’t want to go back to classical backend development at all. Working with raw data—and lots of it—was what I wanted to do long term.
+I was entering a world I probably never would have discovered if I’d been staffed as a Java developer as originally planned (☘️).
 
 ## Year 3: Becoming a Teacher
 

@@ -55,15 +55,15 @@ I did my best for about half a year, but I wasn’t happy—and I wasn’t makin
 That’s when I discovered a hidden strength of mine…
 
 ## Year 2: Creating Opportunities
-Through a random coincidence (☘️), I had recently learned about Apache Spark and realized it might be exactly the right tool for the SQL disaster I was responsible for. I asked my product owner for a meeting and laid out the problems with our current codebase—problems nobody on the team truly understood anymore.
+…**communication**. Through a random coincidence (☘️), I had recently learned about Apache Spark and realized it might be exactly the right tool for the SQL disaster I was responsible for. I asked my product owner for a meeting and laid out the problems with our current codebase—problems nobody on the team truly understood anymore.
 
 A massive refactoring was inevitable anyway. And if we were going to do that, why not use a technology that actually fit the problem?
 
-What I wanted to say was:
+What I **wanted** to say was:
 
 “Working with this codebase feels impossible. I can’t do this, and I’ll probably quit if nothing changes.”
 
-What I actually said was:
+What I **actually** said was:
 
 “We have the following problems. Don’t worry—I have an idea how to solve them. I’ll take full responsibility and lead the entire refactoring.”
 

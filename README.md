@@ -14,3 +14,4 @@ https://creativecommons.org/licenses/by-nc/4.0/
 ### Ideas for future posts
 - The case for TDD when building data pipelines
 - Functional column expressions: writing more mature PySpark code
+- Reflecting on 5 years of professional Software Development: From subpar Junior to Tech Lead and beyond

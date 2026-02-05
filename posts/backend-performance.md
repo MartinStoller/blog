@@ -103,9 +103,8 @@ More typical approaches involve expressing large parts of the logic in SQL or us
 (I once had the pleasure of working with a 30,000+ line, undocumented PL/SQL codebase. It’s not fun. Don’t do it.)
 This is why I usually advocate for a Python-based approach. Modern analytical libraries provide an in-memory, column-oriented representation of data: so-called DataFrames. They allow us to express transformations in a declarative, SQL-like way, while still using Python’s language features to structure and modularize the code properly.
 And before you ask: no, this does not mean that the system will be slower just because Python is involved. These libraries rarely execute Python bytecode for the actual data processing. Instead, Python primarily acts as an API layer for execution engines implemented in faster technologies such as C, the JVM, or Rust.
+However, most popular programming languages have solid batch-processing options and I certainly have a personal bias towards python. So don´t let me discourage you from picking the language that you want to pick.
 
-So, there we have it: our brand new BI-Tool 2.0:
-![haeger_diagr_py.svg](../assets/aunt_emma/haeger_diagr_py.svg)
 
 ## Welcome to the World of Big Data
 Once again, we have successfully addressed a critical performance bottleneck and scaled our system accordingly 🥳

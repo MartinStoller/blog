@@ -90,7 +90,20 @@ Suddenly, the time I spent waiting for access rights at the bank became useful. 
 
 That’s when I discovered something unexpected: teaching forced me to understand things properly. Explaining why something works is very different from just making it work yourself—and it accelerated my own learning more than any project ever had.
 
+Over the years, I’ve asked many of the strongest engineers I know what they believe is the most effective way to get really good. The answers were all different: conferences, side projects, books, teaching, open-source contributions.
+For me personally, teaching is the clear winner. There’s even some science backing this up—the Feynman Technique describes exactly this effect.
 
+Another realization during this year was just how important soft skills really are.
+The cliché says engineers only need to be technically strong. I’d been told many times by mentors and coaches that this isn’t true—that communication and people skills matter just as much—but I never fully believed it. Probably because those skills came relatively easily to me, so I assumed they did for everyone.
+
+Year three was when that illusion broke.
+
+In a corporate environment, your hard skills are worth very little if you’re impossible to work with. You need both. And in many situations, soft skills matter more.
+Yes, people like to bring up the Linus Torvalds example—brilliant, difficult, and somehow still successful. I can’t speak to that. I’ve never met him.
+
+What I have seen multiple times are technically strong people being let go because they were rude, uncooperative, unpopular, or simply unable to work on the things they were expected to work on.
+
+I would deepen—and later confirm—this realization a year later, when I had to lead a team of engineers myself for the first time.
 
 ## Year 4: Tech Lead
 

@@ -116,7 +116,7 @@ This realization became especially clear to me on that project. From my perspect
 That leads to another lesson: you have to actively choose growth.
 
 At some point, you’ll always have the option to stay in a comfortable team, doing familiar work with minimal effort. There’s nothing wrong with that path, and I’d never judge anyone for choosing it. But it should be obvious that it rarely leads to exceptional growth—either in skills or in career.
-Choosing growth means deliberately avoiding the comfort of familiar problems and instead picking the scary unknown. The more often you do it, the better you get at handling uncertainty—but it never fully stops being scary (At least for me, after 5 years).
+Choosing growth means deliberately avoiding the comfort of familiar problems and instead picking the scary unknown. The more often you do it, the better you get at handling uncertainty—but it never fully stops being scary.
 
 As it turned out, moving on was exactly the right decision.
 

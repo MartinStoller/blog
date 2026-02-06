@@ -87,7 +87,6 @@ My employer was primarily focused on Java backend development. My gradual drift 
 He loved it.
 
 Suddenly, the time I spent waiting for access rights at the bank became useful. I prepared workshops, explained concepts, answered questions, and helped others take their first steps into data engineering.
-
 That’s when I discovered something unexpected: teaching forced me to understand things properly. Explaining why something works is very different from just making it work yourself—and it accelerated my own learning more than any project ever had.
 
 Over the years, I’ve asked many of the strongest engineers I know what they believe is the most effective way to get really good. The answers were all different: conferences, side projects, books, teaching, open-source contributions.

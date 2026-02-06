@@ -75,6 +75,12 @@ There it was—my next chance to grow. And this time, I did not only take it. I 
 I enjoyed this new role so much that, at some point, I realized I didn’t want to go back to classical backend development at all. Working with raw data—and lots of it—was what I wanted to do long term.
 I was entering a world I probably never would have discovered if I’d been staffed as a Java developer as originally planned (☘️).
 
+There’s one more important takeaway here: was I actually ready—with just a few months of experience—to take on such a massive project using a technology I had never worked with before?
+
+Absolutely not.
+
+But I grew into it. And in hindsight, the more important question is: what was the worst that could realistically have happened?
+
 ## Year 3: Becoming a Teacher
 Unfortunately, this project came to an end after one and a half exciting years due to budget issues. Thankfully, I found my next project almost immediately—as a data engineer at a large bank.
 On paper, it was the perfect follow-up. In reality, it was rather disappointing.
@@ -135,24 +141,36 @@ There is such a thing as too much work—or at least too much pressure—for lea
 
 When you’re so busy that you no longer have time to think deeply about problems, and more importantly to reflect and refactor after implementing a solution, learning slows down—or stops entirely. The dangerous part is that this is hard to notice while it’s happening, because you’re too busy to reflect in the first place.
 For me, thankfully, this phase was short, and we still delivered on time. But it’s something I’ll actively watch out for in the future.
+
 ## Year 5: Head of Data Engineering
+After about half a year on that project, I was approached by the product owner and asked whether I’d consider switching jobs. They were very happy with my work and wanted me to stay beyond my limited contract.
+
+I hadn’t considered that option at all—I was genuinely happy in my role as it was. But after thinking it through, I realized this could be a great opportunity.
+When I told my employer that I was considering the switch, he asked me to give him some time to come back with a counteroffer.
+
+The result was unexpected.
+
+My company—until then focused almost exclusively on Java backend development and DevOps—decided to bootstrap a data engineering department.
+
+With me as its head.
+
+Now, to be fair, becoming “Head of Data Engineering” isn’t exactly difficult when you’re the only data engineer in the company. But titles aside, it very clearly marked the beginning of a new chapter...
 
 
+# Takeaway
+The following are my personal takeaways, most of which I could hopefully contextualize in the story above. So to my past self I would say:
+- Dont underestimate the importance of soft skills. They are at least half the job.
+- Concentrate on Solutions, not problems. As an engineer your job is to be a problem solver. If you get frustrated or panic every time there is a problem you are at the wrong job. Whenever discussing a problem I try to communicate in a highly optimistic, positive and solution oriented manner. Don't be the guy who always just complains. Be the guy people turn to because he always has an idea how to solve things.
+- Luck played a big role in how fast many things happened. But you can have big impact on creating that luck.
+- Don't do it alone. Look for friends, mentors & colleagues who share you interests and learn together.
+- My secret weapons were consistency & passion - no crazy working hours or IQ.
+- Stay humble / don't be so defensive when comparing your work to the work of others. You can learn from almost anybody. 
+- In contrast to aboves point: Be brave, ambitious and have high self-esteem when it comes to taking opportunities you might not fully be ready for yet. You'll grow into it and even if not: you'll learn. I recently read about a Siemens Board member, who was asked what her advice to women in business would be and I liked her answer (which applies not only to women): "You don´t have to be perfect to lead. Just be brave."
+- My work style is very outcome focus and based on the feedback I received, that worked very well for me. While it is important to know about best practices & theoretical background and I have cetainly disregared school-book knowledge too much at times, in the end a company wants you to fix their problems and not to write the most beautiful code in the companies history. As always, it's about finding the right balance of good quality but also good quantity of output.
+- The fact that I ended up in IT consulting was quite random. It turned out to be a blessing. The frequently changing environments boosted my learning curve. There are certainly other ways, too, but I recommend frequently changing projects and tasks.
+- Be a teacher, for your own learning curves's sake.
+- In this article I focused mainly on positive stories in order to highlight things that worked for me. Don't let that fool you, I made tons of poor decisions as well. I had many months were I felt unmotivated and did the bare minimum. I had moments of poor communication and made foolish choices in every possible way. The point is: no need to stress out and obsess over career or growth on a daily basis.
 
-
-Lessons:
-- Softskills > Hardskills
-- Sure i created my chances but i had bosses that liked and supported me
-- Have friends that share your passion and pain
-- Hard work > Intelligence
-- Its my hobby and it genuienly interests me
-- I am humble and can tell when others are better. Then I can learn with and from them.
-- Degree is overestimated but not useless
-- I am very effective (sometimes try to be too effective, though)
-- Companies want results, not perfect Code
-- I had time to learn: Simon kucher showed me that there is such a thing as too much work where you just resolve tickets with the tools you know but stop learning (Thomas). I think you have to find th esweet spot where you do have responsibility and pressure to perform well, but not so much that it paralizes your ability to reflect, learn and grow
-- IT consulting -> steeper learning curve
-- Yes you have to get lucky, but over years you can create much of that luck yourself
 - Everybody has their own learning technique. i asked the most impressive SEs i have ever met on what their secret is and the top 5 people i asked gave me 5 different answers: Reading Books, Just build stuff (doesnt work at all fo rme because i always stop as soon as soemthing works so i dont learn because i dont get deep enough), visit conferences, Open source contributions and for me: Teaching (see feyneman technique)
 - Teaching became my secret weapon for learning. I have always been looking for this
 - 2 good years can turn a lot around. I had roughly 2 years were i was lazy and had very bad approach. But it is incredible and everyone underestimates what you can achieve in a year. so if you lock in for 2 years, this can already make all the difference over a 5 year period

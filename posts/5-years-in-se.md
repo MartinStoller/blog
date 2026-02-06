@@ -1,5 +1,3 @@
-# ⚙️ Work in Progress...
-
 # Reflecting on 5 Years of Software Engineering: From Struggling Junior to Tech Lead and beyond
 I’m approaching my five-year anniversary as a professional data/software engineer, and—by most external measures—my career has gone surprisingly well.
 I say 'surprisingly' because, on paper, there wasn’t much pointing in that direction.

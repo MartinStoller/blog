@@ -158,16 +158,27 @@ Now, to be fair, becoming “Head of Data Engineering” isn’t exactly difficu
 
 
 # Takeaway
-The following are my personal takeaways, most of which I could hopefully contextualize in the story above. So to my past self I would say:
-- Dont underestimate the importance of soft skills. They are at least half the job.
-- Concentrate on Solutions, not problems. As an engineer your job is to be a problem solver. If you get frustrated or panic every time there is a problem you are at the wrong job. Whenever discussing a problem I try to communicate in a highly optimistic, positive and solution oriented manner. Don't be the guy who always just complains. Be the guy people turn to because he always has an idea how to solve things.
-- Luck played a big role in how fast many things happened. But you can have big impact on creating that luck.
-- Don't do it alone. Look for friends, mentors & colleagues who share you interests and learn together. it´s not only more effective but also more fun.
-- My secret weapons were consistency & passion - no crazy working hours or IQ.
-- Stay humble / don't be so defensive when comparing your work to the work of others. You can learn from almost anybody. 
-- In contrast to aboves point: Be brave, ambitious and have high self-esteem when it comes to taking opportunities you might not fully be ready for yet. You'll grow into it and even if not: you'll learn. I recently read about a Siemens Board member, who was asked what her advice to women in business would be and I liked her answer (which applies not only to women): "You don´t have to be perfect to lead. Just be brave."
-- My work style is very outcome focus and based on the feedback I received, that worked very well for me. While it is important to know about best practices & theoretical background and I have cetainly disregared school-book knowledge too much at times, in the end a company wants you to fix their problems and not to write the most beautiful code in the companies history. As always, it's about finding the right balance of good quality but also good quantity of output.
-- The fact that I ended up in IT consulting was quite random. It turned out to be a blessing. The frequently changing environments boosted my learning curve. There are certainly other ways, too, but I recommend frequently changing projects and tasks.
-- Be a teacher, for your own learning curves's sake.
-- Finding the learning technique that fits you best. I can not stress enogh how teaching was a total gamechanger for me
-- In this article I focused mainly on positive stories in order to highlight things that worked for me. Don't let that fool you, I made tons of poor decisions as well. I had many months were I felt unmotivated and did the bare minimum. I had moments of poor communication and made foolish choices in every possible way. The point is: no need to stress out and obsess over career or growth on a daily basis. As long as you are having good months you can afford to have bad ones, too.
+These are my personal takeaways—things I wish I could tell my past self. Most of them are already embedded in the story above, but here they are explicitly:
+
+Don’t underestimate soft skills. They are at least half the job—often more. Strong communication, empathy, and reliability amplify your technical skills; without them, even great technical ability has limited impact.
+
+Focus on solutions, not problems. As an engineer, your job is to solve problems. If every issue triggers frustration or panic, this might not be the right role for you. When discussing problems, try to communicate in an optimistic, solution-oriented way. Don’t be the person who only complains—be the person people turn to because you always have an idea.
+
+Luck mattered—but you can influence it. Many things happened quickly for me thanks to good timing and chance. Still, you can create surface area for luck by being proactive, curious, visible, and willing to take responsibility.
+
+Don’t do it alone. Look for friends, mentors, and colleagues who share your interests and learn together. It’s more effective—and much more fun—than trying to grind through everything on your own.
+
+Consistency and passion beat raw intelligence. My “secret weapons” weren’t extreme working hours or a high IQ. They were steady effort and genuine interest over time.
+
+Stay humble. Don’t get defensive when comparing your work to others’. You can learn something from almost anyone if you’re open to it.
+
+At the same time: be brave. Be ambitious and confident when opportunities arise—even if you don’t feel fully ready. You’ll grow into them, and if you don’t, you’ll still learn. I recently read advice from a Siemens board member that stuck with me:
+“You don’t have to be perfect to lead. Just be brave.”
+
+Be outcome-focused. Based on the feedback I received, this worked very well for me. Best practices and theory matter—and I’ve certainly ignored them too much at times—but companies ultimately pay you to solve problems, not to write the most beautiful code in their history. As always, it’s about balance: good quality and meaningful output.
+
+Changing environments accelerates learning. Ending up in IT consulting was fairly random, but it turned out to be a blessing. Frequently changing projects, teams, and problem domains boosted my learning curve significantly. There are other paths—but I strongly recommend varying your challenges early on.
+
+Find the learning technique that fits you. For me, teaching worked best. For others, it might be something else. But learning how to learn effectively makes all the difference.
+
+Don’t be fooled by the highlight reel. I focused mostly on positive stories here, but I made plenty of bad decisions too. I had months where I was unmotivated and did the bare minimum. I communicated poorly at times and made foolish choices in more ways than I’d like to admit. The point is: you don’t need to optimize your career every single day. If you have good months, you can afford bad ones too.

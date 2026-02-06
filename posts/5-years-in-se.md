@@ -104,7 +104,7 @@ The cliché says engineers only need to be technically strong. I’d been told m
 Year three was when that illusion broke.
 
 In a corporate environment, your hard skills are worth very little if you’re impossible to work with. You need both. And in many situations, soft skills matter more.
-Yes, people like to bring up the Linus Torvalds example—brilliant, difficult, and somehow still successful. I can’t speak to that. I’ve never worked with him.
+Yes, people like to bring up the Linus Torvalds example—brilliant, difficult, and somehow still successful. I can’t speak to that. I’ve never seen him work.
 
 What I have seen multiple times, though, are technically strong people being let go because they were rude, uncooperative, unpopular, or simply unable to work on the things they were expected to work on.
 

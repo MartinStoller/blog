@@ -105,6 +105,28 @@ What I have seen multiple times, though, are technically strong people being let
 I would deepen—and later confirm—this realization a year later, when I had to lead a team of engineers myself for the first time.
 
 ## Year 4: Tech Lead
+After the disappointing project at the bank, I joined a new project at an engine manufacturing company. It started out promising: my first exposure to Databricks, plenty of modern, machine-learning-driven topics, and a healthy amount of responsibility, ownership, and freedom to make my own choices.
+
+I also had something new: a technically very strong manager who became a mentor to me for a while.
+Looking back, that’s probably another thing I did right in my career so far—recognizing when someone is better at something than I am, regardless of age, title, or seniority, and learning from them.
+
+The software engineering world has no shortage of big egos. I’ve met many people who are so busy proving how great they are—and how much worse everyone else’s solutions are—that they stop learning altogether. In my experience, that mindset is one of the biggest growth killers there is.
+This realization became especially clear to me on that project. From my perspective, much of the team fell into that category. After about a year, even though I could have stayed, I decided to move on. Neither my tasks nor my environment seemed to offer meaningful potential for growth anymore.
+
+That leads to another lesson: you have to actively choose growth.
+
+At some point, you’ll always have the option to stay in a comfortable team, doing familiar work with minimal effort. There’s nothing wrong with that path, and I’d never judge anyone for choosing it. But it should be obvious that it rarely leads to exceptional growth—either in skills or in career.
+
+As it turned out, moving on was exactly the right decision.
+
+I almost immediately found my next project—this time as a Tech Lead for a prestigious consulting company. They were building price recommendation models and needed to migrate to Spark for scalability reasons. The existing team had no Spark experience, so they hired me.
+During the interview, they asked a reasonable question: why did I believe I could fulfill a Tech Lead role when I had never officially been one before?
+I told them about my coaching and teaching initiatives, about my very first customer project where I had led a large-scale refactoring, and about several situations across different projects where I had taken ownership and responsibility beyond my role.
+
+It worked. Only three and a half years into my professional career, I landed my first Tech Lead position.
+
+Was this a stretch of my capabilities? Even though at the time I would have said "No, I am 100% ready!" (I have an ego, too!)
+
 
 ## Year 5: Head of Data Engineering
 

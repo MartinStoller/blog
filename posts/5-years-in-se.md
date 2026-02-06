@@ -160,6 +160,8 @@ These are my personal takeaways—things I wish I could tell my past self. Most 
 
 - **Don’t underestimate soft skills.** They are at least half the job—often more. Strong communication, empathy, and reliability amplify your technical skills; without them, even great technical ability has limited impact.
 
+- **Don't just wait for chances**. Create your chances by being proactive. Don't keep your ideas to yourself.
+
 - **Focus on solutions, not problems.** As an engineer, your job is to solve problems. If every issue triggers frustration or panic, this might not be the right role for you. When discussing problems, try to communicate in an optimistic, solution-oriented way. Don’t be the person who only complains—be the person people turn to because you always have an idea.
 
 - **Luck mattered—but you can influence it.** Many things happened quickly for me thanks to good timing and chance. Still, you can create surface area for luck by being proactive, curious, visible, and willing to take responsibility.

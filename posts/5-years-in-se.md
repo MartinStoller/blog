@@ -183,4 +183,4 @@ These are my personal takeaways—things I wish I could tell my past self. Most 
 
 - **Find the learning technique that fits you**. For me, teaching worked best. For others, it might be something else. But learning how to learn effectively makes all the difference.
 
-- Don’t be fooled by the highlight reel. I focused mostly on positive stories here, but I made plenty of bad decisions too. I had months where I was unmotivated and did the bare minimum. I communicated poorly at times and made foolish choices in more ways than I’d like to admit. The point is: you don’t need to optimize your career every single day. If you have good months, you can afford bad ones too.
+- **Don’t be fooled by the highlight reel.** I focused mostly on positive stories here, but I made plenty of bad decisions too. I had months where I was unmotivated and did the bare minimum. I communicated poorly at times and made foolish choices in more ways than I’d like to admit. The point is: you don’t need to optimize your career every single day. If you have good months, you can afford bad ones too.

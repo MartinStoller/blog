@@ -127,7 +127,7 @@ I told them about my coaching and teaching initiatives, about my very first cust
 It worked. Only three and a half years into my professional career, I landed my first Tech Lead position.
 
 Thankfully, this project turned out to be amazing. I loved my team, and the problems we were working on were genuinely interesting.
-It was also a lot of work and pressure—probably a mix of having a lead role combined with the general consultancy work ethic.
+It was a lot of work and pressure—probably a mix of having a lead role combined with the general consultancy work ethic.
 I worked a ton. I learned a ton. And because I enjoyed it so much, I didn’t mind—at least at first.
 
 As deadlines approached, the pressure increased even further. That taught me another important lesson:

@@ -160,25 +160,27 @@ Now, to be fair, becoming “Head of Data Engineering” isn’t exactly difficu
 # Takeaway
 These are my personal takeaways—things I wish I could tell my past self. Most of them are already embedded in the story above, but here they are explicitly:
 
-Don’t underestimate soft skills. They are at least half the job—often more. Strong communication, empathy, and reliability amplify your technical skills; without them, even great technical ability has limited impact.
+- **Don’t underestimate soft skills.** They are at least half the job—often more. Strong communication, empathy, and reliability amplify your technical skills; without them, even great technical ability has limited impact.
 
-Focus on solutions, not problems. As an engineer, your job is to solve problems. If every issue triggers frustration or panic, this might not be the right role for you. When discussing problems, try to communicate in an optimistic, solution-oriented way. Don’t be the person who only complains—be the person people turn to because you always have an idea.
+- **Focus on solutions, not problems.** As an engineer, your job is to solve problems. If every issue triggers frustration or panic, this might not be the right role for you. When discussing problems, try to communicate in an optimistic, solution-oriented way. Don’t be the person who only complains—be the person people turn to because you always have an idea.
 
-Luck mattered—but you can influence it. Many things happened quickly for me thanks to good timing and chance. Still, you can create surface area for luck by being proactive, curious, visible, and willing to take responsibility.
+- **Luck mattered—but you can influence it.** Many things happened quickly for me thanks to good timing and chance. Still, you can create surface area for luck by being proactive, curious, visible, and willing to take responsibility.
 
-Don’t do it alone. Look for friends, mentors, and colleagues who share your interests and learn together. It’s more effective—and much more fun—than trying to grind through everything on your own.
+- **Don’t do it alone.** Look for friends, mentors, and colleagues who share your interests and learn together. It’s more effective—and much more fun—than trying to grind through everything on your own.
 
-Consistency and passion beat raw intelligence. My “secret weapons” weren’t extreme working hours or a high IQ. They were steady effort and genuine interest over time.
+- **Consistency and passion beat raw intelligence.** My “secret weapons” weren’t extreme working hours or a high IQ. They were steady effort and genuine interest over time.
 
-Stay humble. Don’t get defensive when comparing your work to others’. You can learn something from almost anyone if you’re open to it.
+- **Stay humble.** Don’t get defensive when comparing your work to others’. You can learn something from almost anyone if you’re open to it.
 
-At the same time: be brave. Be ambitious and confident when opportunities arise—even if you don’t feel fully ready. You’ll grow into them, and if you don’t, you’ll still learn. I recently read advice from a Siemens board member that stuck with me:
+- At the same time: **be brave**. Be ambitious and confident when opportunities arise—even if you don’t feel fully ready. You’ll grow into them, and if you don’t, you’ll still learn. I recently read advice from a Siemens board member that stuck with me:
 “You don’t have to be perfect to lead. Just be brave.”
 
-Be outcome-focused. Based on the feedback I received, this worked very well for me. Best practices and theory matter—and I’ve certainly ignored them too much at times—but companies ultimately pay you to solve problems, not to write the most beautiful code in their history. As always, it’s about balance: good quality and meaningful output.
+- **Be outcome-focused at work.** Based on the feedback I received, this worked very well for me. Best practices and theory matter—and I’ve certainly ignored them too much at times—but companies ultimately pay you to solve problems, not to write the most beautiful code in their history. As always, it’s about balance: good quality and meaningful output.
 
-Changing environments accelerates learning. Ending up in IT consulting was fairly random, but it turned out to be a blessing. Frequently changing projects, teams, and problem domains boosted my learning curve significantly. There are other paths—but I strongly recommend varying your challenges early on.
+- **Don’t be outcome-focused when you want to learn.** This was probably my biggest mistake for a long time. Real learning happens when you go deep instead of stopping the moment something works. Finding the right balance between this and the point above is hard, which is why I consciously separate the two: at work, I allow myself to be more output-driven; outside of work, I create space for depth—by teaching, writing about things I’ve built, reflecting on decisions, or analyzing them over lunch with colleagues.
 
-Find the learning technique that fits you. For me, teaching worked best. For others, it might be something else. But learning how to learn effectively makes all the difference.
+- **Changing environments accelerates learning**. Ending up in IT consulting was fairly random, but it turned out to be a blessing. Frequently changing projects, teams, and problem domains boosted my learning curve significantly. There are other paths—but I strongly recommend varying your challenges early on.
 
-Don’t be fooled by the highlight reel. I focused mostly on positive stories here, but I made plenty of bad decisions too. I had months where I was unmotivated and did the bare minimum. I communicated poorly at times and made foolish choices in more ways than I’d like to admit. The point is: you don’t need to optimize your career every single day. If you have good months, you can afford bad ones too.
+- **Find the learning technique that fits you**. For me, teaching worked best. For others, it might be something else. But learning how to learn effectively makes all the difference.
+
+- Don’t be fooled by the highlight reel. I focused mostly on positive stories here, but I made plenty of bad decisions too. I had months where I was unmotivated and did the bare minimum. I communicated poorly at times and made foolish choices in more ways than I’d like to admit. The point is: you don’t need to optimize your career every single day. If you have good months, you can afford bad ones too.

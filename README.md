@@ -10,8 +10,8 @@ https://creativecommons.org/licenses/by-nc/4.0/
 
 ### Overview
 - 🚀 [Backend Performance in High-Throughput Systems – A Data Engineer’s Perspective](posts/backend-performance.md)
+- 📖 [Recap: 5 years in Tech](posts/5-years-in-se.md)
 
 ### Ideas for future posts
 - The case for TDD when building data pipelines
 - Functional column expressions: writing more mature PySpark code
-- Reflecting on 5 years of professional Software Development: From subpar Junior to Tech Lead and beyond

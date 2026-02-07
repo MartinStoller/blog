@@ -59,7 +59,7 @@ A massive refactoring was inevitable anyway. And if we were going to do that, wh
 
 What I **wanted** to say was:
 
-“Working with this codebase feels impossible. I can’t do this, and I’ll probably quit if nothing changes.”
+“Working with this codebase feels impossible. It's ridiculous you even staffed me on this. I can’t do this, and I’ll probably quit if nothing changes.”
 
 What I **actually** said was:
 

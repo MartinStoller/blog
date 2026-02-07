@@ -2,7 +2,7 @@
 I’m approaching my five-year anniversary as a professional data/software engineer, and—by most external measures—my career has gone surprisingly well.
 I say 'surprisingly' because, on paper, there wasn’t much pointing in that direction.
 
-I didn’t study anything technical. I wrote my first line of code at the relatively late age of 24. My school grades were average, and I’ve almost never felt particularly gifted or “above average.” I also struggle to put in long hours of truly productive work per week (please don’t forward this to my boss).
+I didn’t study anything technical. I wrote my first line of code at the relatively late age of 24. My school grades were average, and I’ve almost never felt particularly gifted or “above average.” I also struggle to put in long hours of truly productive work.
 
 And yet, five years later, I’ve grown from a shaky junior into a tech lead, taken on real responsibility, and built a career I genuinely enjoy.
 

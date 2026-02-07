@@ -163,7 +163,7 @@ These are my personal takeaways—things I wish I could tell my past self. Most 
 
 - **Don't just wait for chances**. Create your chances by being proactive. Don't keep your ideas to yourself. If you want more responsibility, ask for it. It'll likely be appreciated.
 
-- **Learning is an active choice**. Something I wish I would have realized a bit sooner. For quite a while I assumed the learning would just happen while doing my regular work. But real growth occurs when you actively chase it. 
+- **Learning is a constant, active choice**. Something I wish I would have realized a bit sooner. For quite a while I assumed the learning would just happen while doing my regular work. But fast and meaningful growth occurs when you actively chase it. 
 
 - **Focus on solutions, not problems.** As an engineer, your job is to solve problems. If every issue triggers frustration or panic, this might not be the right role for you. When discussing problems, try to communicate in an optimistic, solution-oriented way. Don’t be the person who only complains—be the person people turn to because you always have an idea.
 

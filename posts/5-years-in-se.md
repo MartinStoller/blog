@@ -148,7 +148,7 @@ When I told my employer that I was considering the switch, he asked me to give h
 
 The result was unexpected.
 
-My company—until then focused almost exclusively on Java backend development and DevOps—decided offered to bootstrap a data engineering department.
+My company—until then focused almost exclusively on Java backend development and DevOps—offered to bootstrap a data engineering department.
 
 With me as its head.
 

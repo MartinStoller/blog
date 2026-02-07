@@ -6,7 +6,7 @@ I didn’t study anything technical. I wrote my first line of code at the relati
 
 And yet, five years later, I’ve grown from a shaky junior into a tech lead, taken on real responsibility, and built a career I genuinely enjoy.
 
-This isn’t a victory lap, and it’s definitely not a “how to become a tech lead in 5 easy steps” story. Instead, it’s an honest look at what actually moved the needle for me—what worked, what didn’t, and which mistakes were oddly useful in hindsight.
+This isn’t a victory lap, and it’s definitely not a “how to become a tech lead in 3 easy steps” story. Instead, it’s an honest look at what actually moved the needle for me—what worked, what didn’t, and which mistakes were oddly useful in hindsight.
 If you’re early in your career, switching into tech late, or quietly wondering whether everyone else has some secret you missed, this might save you a few wrong turns.
 
 ## Year 0: How did I even end up here

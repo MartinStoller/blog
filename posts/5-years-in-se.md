@@ -148,10 +148,11 @@ When I told my employer that I was considering the switch, he asked me to give h
 
 The result was unexpected.
 
-My company—until then focused almost exclusively on Java backend development and DevOps—decided to bootstrap a data engineering department.
+My company—until then focused almost exclusively on Java backend development and DevOps—decided offered to bootstrap a data engineering department.
 
 With me as its head.
 
+They immediately posted job openings for two senior data engineers and asked me to design and launch a trainee program for juniors as well, so we could start building the team right away.
 Now, to be fair, becoming “Head of Data Engineering” isn’t exactly difficult when you’re the only data engineer in the company. But titles aside, it very clearly marked the beginning of a new chapter...
 
 

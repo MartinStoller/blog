@@ -60,23 +60,21 @@ And that, to me, is the real extent of the “collapse” AI has caused in our f
 
 
 # Conclusion
-I feel sorry for Junior Engineers as they are among the most underrated and least appreciated among us. But I believe it won't be long until
-the AI hype becomes more realistic and they will get the chances and appreciation they deserve again.
+I feel for junior engineers. They are currently among the most underrated and least appreciated members of our field. But I believe the current AI hype will settle into something more realistic — and when it does, their value will become clearer again.
 
-For local optimization it is incredibly helpful and we should be happy to have such an extremely powerful tool at our disposal. 
-However, when it comes to systemic optimizations and understanding the consequences of individual decisions, AI still has a lot to catch up on.
+AI is incredibly powerful when it comes to local optimization. It helps us write code faster, explore alternatives, and automate repetitive tasks. We should be grateful to have such a capable tool at our disposal.
 
-AI does have its rightful place in Engineering teams, but it plays a complementary and **different** role than human engineers and thus cannot replace them.
+However, systemic optimization — understanding architecture, trade-offs, long-term consequences, and business impact — remains a fundamentally human responsibility. In that regard, AI still has significant ground to cover.
 
-Let me close with an admitatly weird but still fitting metaphor (I dont know much about lumberjacks myself):
-Wanting to replace Humans with the current AI models is like replacing a lumberjack with a chainsaw. Just because it made parts of his job more efficient, 
-doesnt mean he is not needed anymore. Sure, he spends less time actively cutting down trees, but once the tree is cut, the job hasn´t really changed.
-Even though we might imagine the job of a lumberjack to be cutting down trees all day that is not what it is in reality.
-The whole logistics before and after the cutting of the tree hasnt been changed by the chainsaw. Also we might feel like we could do it as well because we saw our
-neighbor cut his tiny in the garden once with a chainsaw and he is not a professional lumberjack and all went well. But 
-the reality is: you should still know what you are doing even - and maybe especially - when using such a powerful and potentially dangerous tool.
+AI has its rightful place in engineering teams. But it plays a complementary and fundamentally different role than human engineers. It does not replace them.
 
+Let me close with an admittedly imperfect but fitting metaphor.
 
+Wanting to replace engineers with current AI models is like trying to replace a lumberjack with a chainsaw. The chainsaw makes parts of the job dramatically more efficient — but it does not eliminate the need for the lumberjack. Cutting the tree is only one part of the work. Planning, logistics, safety, judgment, and experience still matter just as much as before.
+
+From the outside, it might look simple. You might see your neighbor cut down a small tree in his garden and think the job is easy. But professional forestry is far more complex than that. The same is true for engineering.
+
+You should still know what you’re doing — even, and perhaps especially, when using such a powerful and potentially dangerous tool.
 
 
 

@@ -15,7 +15,7 @@ This oversimplified view of a junior’s role within a company reminds me of Ror
 
 Reducing junior developers to “coding monkeys” who spend their days grinding through small, well-defined tickets is similarly detached from reality - and, in my view, highly misguided.
 
-Being bad at coding, lacking original ideas, or being unable to think critically or anticipate consequences has nothing to do with being junior - that’s simply being bad at your job. And that exists at every level.
+Not understanding the technology you are working with, lacking original ideas, or being unable to think critically or anticipate consequences has nothing to do with being junior - that’s simply being bad at your job. And that exists at every level.
 
 Being a junior means having limited practical experience - nothing more. If a company hires well, its junior developers often have a broad and deep theoretical understanding of important concepts and technologies. They ask the right questions when requirements are incomplete. They propose ideas. And most importantly, they care. They think beyond the immediate ticket in front of them and engage with the bigger picture.
 
@@ -27,8 +27,8 @@ But first of all, this is a rather small subset, compared to the things AI doesn
 Let me visualize this with a table, by listing the most important task of a typical software engineer:
 
 | Category                                                                        | AI       | Senior    | Junior    |
-| ------------------------------------------------------------------------------- | -------- |-----------|-----------|
-| Translating well-defined logic into code                                        | Very good| Very good | medium    |
+|---------------------------------------------------------------------------------| -------- |-----------|-----------|
+| Translating well-defined logic into code                                        | Very good| Very good | good      |
 | Finding complex solutions to complex problems (conceptually — not just in code) | Poor     | Very good | medium    |
 | General knowledge across domains and technologies                               | Amazing  | Good      | medium    |
 | Specific knowledge about the domain in question                                 | Poor     | Very good | medium    |
@@ -48,6 +48,15 @@ I rarely see an engineer who feels like they will be obsolete soon.
 Since the age of AI it's no longer our well kept secret how easy it is to build prototypes, which look as if they were already half way there towards the final product. 
 But this was always easy. Now it just got so much easier that even a non technical person can do it so they feel like they dont need us anymore.
 But the truth is, even before AI prototyping often took only a day or two. Building the real thing is so much harder than most people understand.
+
+If you want to build an online shop for your self brewed beer, go ahead and use AI for that. There were no-code-tools for that
+before the age of AI as well, but ok...
+
+If you dont want to do your programming homework yourself, feel free to ask AI for the solution.
+
+Having to insert 20 rows of config values via liquibase .xml files? I would never do this by hand anymore!
+
+But let´s not pretend this is what software engineers existed for, before AI appeared.
 
 # Conclusion
 Did the bar rise? Sure, for all of us! You cant make a career anymore by translating the logic someone else spelled out to you into code.

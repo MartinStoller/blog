@@ -1,4 +1,4 @@
-# Are Junior Devs useless in the age of A.I.?
+# Has AI made Junior Developers obsolete by now?
 It took some time, but by now there is little serious debate about AI replacing senior engineers anytime soon. A number of companies tried - and failed spectacularly. The limitations of AI and its rapidly flattening learning curve have become increasingly clear. Most of us have quietly canceled our plumbing or bricklaying bootcamps.
 
 There’s no denying it: AI’s coding abilities are impressive. For many of us, it has become an incredibly powerful tool that boosts productivity across a wide range of tasks. But its limited context window, its dependence on the skill of the person prompting it, its lack of true uncertainty awareness, and its limited ability to think several steps ahead are just a few of the reasons why it cannot replace an experienced software developer. For the foreseeable future, it will likely remain what it is best suited to be: a highly effective tool.
@@ -20,45 +20,52 @@ Not understanding the technology you are working with, lacking original ideas, o
 Being a junior means having limited practical experience - nothing more. If a company hires well, its junior developers often have a broad and deep theoretical understanding of important concepts and technologies. They ask the right questions when requirements are incomplete. They propose ideas. And most importantly, they care. They think beyond the immediate ticket in front of them and engage with the bigger picture.
 
 ### Let's analyze
-I suppose my opinion is obvious by now: AI doesn't replace engineers, it just shifts the focus away from certain tasks.
-There is a subset of Software Development Tasks where AI is in deed better than humans - especially when you factor in 
-cost, time and versatility.
-But first of all, this is a rather small subset, compared to the things AI doesn't do better and interestingly enough these are things it often does better than seniors as well (especially if you factor in costs)
-Let me visualize this with a table, by listing the most important task of a typical software engineer:
+There is a subset of software development tasks where AI is indeed better than humans — especially when you factor in cost, speed, and versatility.
 
-| Category                                                                        | AI       | Senior    | Junior    |
-|---------------------------------------------------------------------------------| -------- |-----------|-----------|
-| Translating well-defined logic into code                                        | Very good| Very good | good      |
-| Finding complex solutions to complex problems (conceptually — not just in code) | Poor     | Very good | medium    |
-| General knowledge across domains and technologies                               | Amazing  | Good      | medium    |
-| Specific knowledge about the domain in question                                 | Poor     | Very good | medium    |
-| Ability to work with incomplete information                                     | Poor     | Very good | good      |
-| Understanding of the big picture (building systems vs. implementing features)   | Poor     | Medium    | Very good |
-| Having ideas of your own within and across projects                             | Horrible | Good      | Very good |
+However, this subset is relatively small compared to the areas where AI does not outperform humans. Interestingly, the areas where AI performs well are often the same areas where seniors outperform juniors (particularly when you factor in cost).
 
-As you can see there are only 2 things in which AI might be superior: 
-1. Writing code for either small, well-defined units or prototypes for standard functionality. 
-2. If you ask the right questions the depth of AIs knowledge in almost all fields is absolutely impressive and can help a ton.
-These 2 things are helpful, but it is impossible (or at least not recommended) to automate the entire development process based on them while ignoring the rest.
-Humans still have to come up with the proper algorithm for the most part. It`s just that the AI translates that algorithm into code well. 
-I believe this is why a lot of non-technical people believe AI replaces engineers. They just see how it writes code and believe thats the job. But they dont understand that writing small code peaces was always the easy part.
-The hard part is to come up with the logic that you want to encode in the first place and AI is not great with that in my experience.
-To me, that explains why its either non technical people or CEOs of AI companies who claim that software engineering is dead. 
-I rarely see an engineer who feels like they will be obsolete soon.
-Since the age of AI it's no longer our well kept secret how easy it is to build prototypes, which look as if they were already half way there towards the final product. 
-But this was always easy. Now it just got so much easier that even a non technical person can do it so they feel like they dont need us anymore.
-But the truth is, even before AI prototyping often took only a day or two. Building the real thing is so much harder than most people understand.
+Let me illustrate this with a table listing some of the most important tasks and skills of a typical software engineer:
 
-If you want to build an online shop for your self brewed beer, go ahead and use AI for that. There were no-code-tools for that
-before the age of AI as well, but ok...
+Category	AI	Senior	Junior
+Translating well-defined logic into code	Very good	Very good	Good
+Finding complex solutions to complex problems (conceptually — not just in code)	Poor	Very good	Medium
+General knowledge across domains and technologies	Amazing	Good	Medium
+Highly specific knowledge about your project's domain	Poor	Very good	Medium
+Ability to work with incomplete information	Poor	Very good	Good
+Understanding the big picture (building systems vs. implementing features)	Poor	Medium	Good
+Having original ideas within and across projects	Very poor	Good	Good
 
-If you dont want to do your programming homework yourself, feel free to ask AI for the solution.
+As you can see, there are only two areas where AI might be superior:
 
-Having to insert 20 rows of config values via liquibase .xml files? I would never do this by hand anymore!
+Writing code for small, well-defined units or prototyping standard functionality.
 
-But let´s not pretend this is what software engineers existed for, before AI appeared.
+Providing impressively broad knowledge across many fields — if you ask the right questions.
+
+These two strengths are undeniably helpful. However, it is impossible — or at least not advisable — to automate the entire development process based solely on them while ignoring everything else.
+
+For the most part, humans still need to come up with the right algorithms and conceptual solutions. AI is very good at translating that logic into code — when guided by someone skilled. But the hard part is developing the logic in the first place, and in my experience, AI is not particularly strong at that.
+
+To me, this explains why it is often non-technical people or CEOs of AI companies who claim that software engineering is dead. I rarely meet engineers who genuinely believe they will soon become obsolete.
+
+Since the rise of AI, it is no longer a well-kept secret how easy it is to build prototypes that look as though they are already halfway to a finished product. But the truth is: prototyping was always relatively easy. Now it has become so easy that even non-technical people can do it. And that creates the illusion that AI enables them to do real software engineering.
+
+But even before AI, building a prototype often took only a day or two. Building the real product has always been — and still is — far more difficult than most people realize.
+
+So who has actually been made obsolete by AI?
+
+Developers who relied on low-hanging fruit. Those who neither thought deeply about their product nor truly understood the technology they worked with. People who built things that have been built thousands of times before — online shops, simple dashboards, basic homepages.
+
+In other words, AI has raised the bar for all of us by making superficial, low-quality engineering obsolete. Being able to write code — in any quality — is no longer something we can hide behind. It was nice while it lasted, but writing a nested loop to sort an array of integers no longer impresses anyone.
+
+We now have to solve genuinely hard problems to justify our far-above-average working conditions.
+
+And that, to me, is the real extent of the “collapse” AI has caused in our field.
+
 
 # Conclusion
+I feel sorry for Junior Engineers as they are among the most underrated and least appreciated among us. But I believe it won't be long until
+the AI hype becomes more realistic and they will get the chances and appreciation they deserve again.
+
 Did the bar rise? Sure, for all of us! You cant make a career anymore by translating the logic someone else spelled out to you into code.
 But even before AI this was not what Software Engineering was about. It wasnt just that obvious to outsiders.
 

@@ -1,4 +1,4 @@
-# Has AI made Junior Developers obsolete by now?
+# Has AI made Junior Developers obsolete?
 It took some time, but by now there is little serious debate about AI replacing senior engineers anytime soon. A number of companies tried - and failed spectacularly. The limitations of AI and its rapidly flattening learning curve have become increasingly clear. Most of us have quietly canceled our plumbing or bricklaying bootcamps.
 
 There’s no denying it: AI’s coding abilities are impressive. For many of us, it has become an incredibly powerful tool that boosts productivity across a wide range of tasks. But its limited context window, its dependence on the skill of the person prompting it, its lack of true uncertainty awareness, and its limited ability to think several steps ahead are just a few of the reasons why it cannot replace an experienced software developer. For the foreseeable future, it will likely remain what it is best suited to be: a highly effective tool.
@@ -32,15 +32,15 @@ Let me illustrate this with a table listing some of the most important tasks and
 | General knowledge across domains and technologies                              | Amazing   | Good      | Medium |
 | Highly specific knowledge about your project's domain                          | Poor      | Very good | Medium |
 | Ability to work with incomplete information                                    | Poor      | Very good | Good   |
-| Understanding the big picture (building systems vs. implementing features)     | Poor      | Very good | medium |
-| Having original ideas within and across projects                               | Very poor | Good      | Good   |
+| Understanding the big picture (building systems vs. implementing features)     | Poor      | Very good | Medium |
+| Having original ideas within and across projects                               | Very poor | Very Good | Good   |
 
 
 As you can see, there are only two areas where AI might be superior:
 
-Writing code for small, well-defined units or prototyping standard functionality.
+1. Writing code for either small, well-defined units or prototyping standard functionality.
 
-Providing impressively broad knowledge across many fields — if you ask the right questions.
+2. Providing impressively broad knowledge across many fields — if you ask the right questions.
 
 These two strengths are undeniably helpful. However, it is impossible — or at least not advisable — to automate the entire development process based solely on them while ignoring everything else.
 

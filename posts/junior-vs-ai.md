@@ -22,18 +22,20 @@ Being a junior means having limited practical experience - nothing more. If a co
 ### Let's analyze
 There is a subset of software development tasks where AI is indeed better than humans — especially when you factor in cost, speed, and versatility.
 
-However, this subset is relatively small compared to the areas where AI does not outperform humans. Interestingly, the areas where AI performs well are often the same areas where seniors outperform juniors (particularly when you factor in cost).
+However, this subset is relatively small compared to the areas where AI does not outperform humans. Interestingly, in the areas where AI performs well, it arguably outperforms even senior engineers.
 
 Let me illustrate this with a table listing some of the most important tasks and skills of a typical software engineer:
 
-Category	AI	Senior	Junior
-Translating well-defined logic into code	Very good	Very good	Good
-Finding complex solutions to complex problems (conceptually — not just in code)	Poor	Very good	Medium
-General knowledge across domains and technologies	Amazing	Good	Medium
-Highly specific knowledge about your project's domain	Poor	Very good	Medium
-Ability to work with incomplete information	Poor	Very good	Good
-Understanding the big picture (building systems vs. implementing features)	Poor	Medium	Good
-Having original ideas within and across projects	Very poor	Good	Good
+| Category                                                                        | AI        | Senior    | Junior |
+| ------------------------------------------------------------------------------- | --------- | --------- | ------ |
+| Translating well-defined logic into code                                        | Very good | Very good | Good   |
+| Finding complex solutions to complex problems (conceptually — not just in code) | Poor      | Very good | Medium |
+| General knowledge across domains and technologies                               | Amazing   | Good      | Medium |
+| Highly specific knowledge about your project's domain                           | Poor      | Very good | Medium |
+| Ability to work with incomplete information                                     | Poor      | Very good | Good   |
+| Understanding the big picture (building systems vs. implementing features)      | Poor      | Medium    | Good   |
+| Having original ideas within and across projects                                | Very poor | Good      | Good   |
+
 
 As you can see, there are only two areas where AI might be superior:
 

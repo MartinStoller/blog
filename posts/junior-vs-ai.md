@@ -21,7 +21,6 @@ Being a junior means having limited practical experience - nothing more. If a co
 
 ### Let's analyze
 There is a subset of software development tasks where AI is indeed better than humans — especially when you factor in cost, speed, and versatility.
-
 However, this subset is relatively small compared to the areas where AI does not outperform humans. Interestingly, in the areas where AI performs well, it arguably outperforms even senior engineers.
 
 Let me illustrate this with a table listing some of the most important tasks and skills of a typical software engineer:

@@ -66,13 +66,7 @@ AI is incredibly powerful when it comes to local optimization. It helps us write
 
 AI has earned its rightful place in engineering teams. But it plays a complementary and fundamentally different role than human engineers. It does not replace them.
 
-Let me close with an admittedly imperfect attempt at a metaphor - similar to the one I began with.
-
-Wanting to replace engineers with current AI models is like trying to replace a lumberjack with a chainsaw. The chainsaw makes parts of the job dramatically more efficient - but it does not eliminate the need for the lumberjack. Cutting the tree is only one part of the work. Planning, logistics, safety, judgment, and experience still matter just as much as before.
-From the outside, it might look simple. You might see your neighbor cut down a small tree in his garden and think the job is easy - anybody can do it now. But professional forestry is far more complex than that.
-
-But the truth is, you should still know what you’re doing - even, and perhaps especially, when using such a powerful and potentially dangerous tool.
-
-
+Since AI has removed a lot of the low-hanging fruit for us, it has become harder to contribute to professional engineering projects. But we need to stop thinking and speaking about grown-up engineers — with a year of real working experience and many years of study and practice beyond that — as if they were 16-year-old interns unable to write their own name without our help. Yes, there are plenty of bad engineers out there, but I have seen many junior-level engineers throughout my career who impressed me with high effort, intelligence, skill, and deep knowledge of their domain and current technology.
+When a company hires well, its junior engineers can have huge impact completely different from what AI can do.
 
 

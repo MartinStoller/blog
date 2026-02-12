@@ -48,18 +48,14 @@ For the most part, humans still need to come up with the right algorithms and co
 
 To me, this explains why it is often non-technical people or CEOs of AI companies who claim that software engineering is dead. I rarely meet engineers who genuinely believe they will soon become obsolete.
 
-Since the rise of AI, it is no longer a well-kept secret how easy it is to build prototypes that look as though they are already halfway to a finished product. But the truth is: prototyping was always relatively easy. Now it has become so easy that even non-technical people can do it. And that creates the illusion that AI enables them to do real software engineering.
-
-But even before AI, building a prototype often took only a day or two. Building the real product has always been — and still is — far more difficult than most people realize.
+Since the rise of AI, it is no longer our well-kept secret how easy it is to build prototypes that look as though they are already halfway to a finished product. But the truth is: prototyping was always relatively easy and even before AI it often took only a day or two. When it's not about scalability, detail, resilience, security and maintainability, engineering is and always has been easy. Now it has become so easy that even non-technical people can do it. And that creates the illusion that AI enables them to do real software engineering.
+Not realizing that building the real product has always been — and still is — far more difficult than most people realize.
 
 So who has actually been made obsolete by AI?
 
 Developers who relied on low-hanging fruit. Those who neither thought deeply about their product nor truly understood the technology they worked with. People who built things that have been built thousands of times before — online shops, simple dashboards, basic homepages.
-
 In other words, AI has raised the bar for all of us by making superficial, low-quality engineering obsolete. Being able to write code — in any quality — is no longer something we can hide behind. It was nice while it lasted, but writing a nested loop to sort an array of integers no longer impresses anyone.
-
 We now have to solve genuinely hard problems to justify our far-above-average working conditions.
-
 And that, to me, is the real extent of the “collapse” AI has caused in our field.
 
 
@@ -67,16 +63,19 @@ And that, to me, is the real extent of the “collapse” AI has caused in our f
 I feel sorry for Junior Engineers as they are among the most underrated and least appreciated among us. But I believe it won't be long until
 the AI hype becomes more realistic and they will get the chances and appreciation they deserve again.
 
-Did the bar rise? Sure, for all of us! You cant make a career anymore by translating the logic someone else spelled out to you into code.
-But even before AI this was not what Software Engineering was about. It wasnt just that obvious to outsiders.
+For local optimization it is incredibly helpful and we should be happy to have such an extremely powerful tool at our disposal. 
+However, when it comes to systemic optimizations and understanding the consequences of individual decisions, AI still has a lot to catch up on.
 
-Developers - no matter at which level of experience - play a complementary but **different** role than AI, hence AI can not replace them.
+AI does have its rightful place in Engineering teams, but it plays a complementary and **different** role than human engineers and thus cannot replace them.
 
+Let me close with an admitatly weird but still fitting metaphor (I dont know much about lumberjacks myself):
 Wanting to replace Humans with the current AI models is like replacing a lumberjack with a chainsaw. Just because it made parts of his job more efficient, 
 doesnt mean he is not needed anymore. Sure, he spends less time actively cutting down trees, but once the tree is cut, the job hasn´t really changed.
+Even though we might imagine the job of a lumberjack to be cutting down trees all day that is not what it is in reality.
+The whole logistics before and after the cutting of the tree hasnt been changed by the chainsaw. Also we might feel like we could do it as well because we saw our
+neighbor cut his tiny in the garden once with a chainsaw and he is not a professional lumberjack and all went well. But 
+the reality is: you should still know what you are doing even - and maybe especially - when using such a powerful and potentially dangerous tool.
 
-Making one or two aspects of a complex job much more efficient does not replace the necessity for
-the job. Especially when these aspects were never the core challenge of the job to begin with...
 
 
 

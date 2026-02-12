@@ -66,6 +66,6 @@ AI is incredibly powerful when it comes to local optimization. It helps us write
 AI has earned its rightful place in engineering teams. But it plays a complementary and fundamentally different role than human engineers. It does not replace them.
 
 Since AI has removed a lot of the low-hanging fruit for us, it has become harder to contribute to professional engineering projects. But we need to stop thinking and speaking about grown-up engineers - with a year of real working experience and many years of study and practice beyond that - as if they were 16-year-old interns unable to write their own name without our help. Yes, there are plenty of bad engineers out there, but I have seen many junior-level engineers throughout my career who impressed me with high effort, intelligence, skill, and deep knowledge of their domain and current technology.
-When a company hires well, its junior engineers can have huge impact completely different from what AI can do.
+When a company hires well, its junior engineers can have huge impact - much different from what AI can do.
 
 

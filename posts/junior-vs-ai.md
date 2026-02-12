@@ -62,19 +62,16 @@ And that, to me, is the real extent of the “collapse” AI has caused in our f
 # Conclusion
 I feel for junior engineers. They are currently among the most underrated and least appreciated members of our field. But I believe the current AI hype will settle into something more realistic - and when it does, their value will become clearer again.
 
-AI is incredibly powerful when it comes to local optimization. It helps us write code faster, explore alternatives, and automate repetitive tasks. We should be grateful to have such a capable tool at our disposal.
+AI is incredibly powerful when it comes to local optimization. It helps us write code faster, explore alternatives, and automate repetitive tasks. We should be grateful to have such a capable tool at our disposal. However, systemic optimization - understanding architecture, trade-offs, long-term consequences, and business impact - remains a fundamentally human responsibility. In that regard, AI still has significant ground to cover.
 
-However, systemic optimization - understanding architecture, trade-offs, long-term consequences, and business impact - remains a fundamentally human responsibility. In that regard, AI still has significant ground to cover.
+AI has earned its rightful place in engineering teams. But it plays a complementary and fundamentally different role than human engineers. It does not replace them.
 
-AI has its rightful place in engineering teams. But it plays a complementary and fundamentally different role than human engineers. It does not replace them.
-
-Let me close with an admittedly imperfect but fitting metaphor.
+Let me close with an admittedly imperfect attempt at a metaphor - similar to the one I began with.
 
 Wanting to replace engineers with current AI models is like trying to replace a lumberjack with a chainsaw. The chainsaw makes parts of the job dramatically more efficient - but it does not eliminate the need for the lumberjack. Cutting the tree is only one part of the work. Planning, logistics, safety, judgment, and experience still matter just as much as before.
+From the outside, it might look simple. You might see your neighbor cut down a small tree in his garden and think the job is easy - anybody can do it now. But professional forestry is far more complex than that.
 
-From the outside, it might look simple. You might see your neighbor cut down a small tree in his garden and think the job is easy. But professional forestry is far more complex than that. The same is true for engineering.
-
-You should still know what you’re doing - even, and perhaps especially, when using such a powerful and potentially dangerous tool.
+But the truth is, you should still know what you’re doing - even, and perhaps especially, when using such a powerful and potentially dangerous tool.
 
 
 

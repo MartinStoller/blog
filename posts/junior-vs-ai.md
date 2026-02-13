@@ -7,17 +7,21 @@ Yet one group of engineers continues to struggle in the job market. Many argue t
 
 This raises an uncomfortable question: Is the only reason to hire a junior engineer to turn them into a senior one someday? Or do junior developers still have a valuable role to play in today’s AI-augmented world?
 
-### The Doorman Fellacy
+### The Doorman Fallacy
 The main argument against junior engineers usually goes something like this:
 “Junior developers are typically assigned small, well-defined tasks. AI is great at handling those. So why keep expensive and relatively slow junior devs?”
 
 This oversimplified view of a junior’s role within a company reminds me of Rory Sutherland’s “Doorman Fallacy.” A luxury hotel decides to cut costs by replacing its doorman with an automatic door opener. Surprisingly, after the change, business declines. A deeper analysis reveals that the doorman did far more than simply open the door: he carried luggage, provided a sense of prestige, made late-arriving guests feel safe, kept an eye on the entrance, and ensured the front area always looked presentable.
 
-Reducing junior developers to “coding monkeys” who spend their days grinding through small, well-defined tickets is similarly detached from reality - and, in my view, highly misguided.
+Reducing junior developers to “coding monkeys” who spend their days grinding through small, well-defined tickets is similarly detached from reality - and, in my view, highly misguided. Sure, there are companies that assign roles like that to their juniors. But AI or not, such a role neither fosters meaningful growth nor allows them to contribute anywhere close to their full potential.
 
-Not understanding the technology you are working with, lacking original ideas, or being unable to think critically or anticipate consequences has nothing to do with being junior - that’s simply being bad at your job. And that exists at every level.
+The second “argument” I’ve heard many times is that seniors are simply better than AI, while juniors are too incompetent. This is typically said by the gatekeeping, big-ego-but-secretly-insecure type of programmer.
 
-Being a junior means having limited practical experience - nothing more. If a company hires well, its junior developers often have a broad and deep theoretical understanding of important concepts and technologies. They ask the right questions when requirements are incomplete. They propose ideas. And most importantly, they care. They think beyond the immediate ticket in front of them and engage with the bigger picture.
+Not understanding the technology you’re working with, lacking original ideas, or being unable to think critically or anticipate consequences has nothing to do with being a junior - that’s simply being bad at your job. And it exists at every level.
+
+Being a junior means having limited practical experience - nothing more. If a company hires well, its junior developers often have a deep theoretical understanding of important concepts and technologies. They ask the right questions when requirements are incomplete. They propose ideas. And most importantly, they care. They think beyond the immediate ticket in front of them and engage with the bigger picture.
+
+As I will try to illustrate in the next chapter, claiming that some programmers are better or worse than AI misses the point entirely.
 
 ### Let's analyze
 There is a subset of software development tasks where AI is indeed better than humans - especially when you factor in cost, speed, and versatility.
@@ -50,6 +54,8 @@ To me, this explains why it is often non-technical people or CEOs of AI companie
 
 Since the rise of AI, it is no longer our well-kept secret how easy it is to build prototypes that look as though they are already halfway to a finished product. But the truth is: prototyping was always relatively easy and even before AI it often took only a day or two. When it's not about scalability, detail, resilience, security and maintainability, engineering is and always has been easy. Now it has become so easy that even non-technical people can do it. And that creates the illusion that AI enables them to do real software engineering.
 Not realizing that building the real product has always been - and still is - far more difficult than most people realize.
+
+This is probably the third reason, some people - especially in management - feel like juniors might be obsolete: The illusion that they could do it themselves now.
 
 So who has actually been made obsolete by AI?
 

@@ -75,4 +75,11 @@ In a sense I might even agree with some people who claim that AI already replace
 Since AI has removed a lot of the low-hanging fruit for us, it has become harder to contribute to professional engineering projects. But we need to stop thinking and speaking about grown-up engineers - with a year of real working experience and many years of study and practice beyond that - as if they were 16-year-old interns unable to write their own name without our help. Yes, there are plenty of bad engineers out there, but I have seen many junior-level engineers throughout my career who impressed me with high effort, intelligence, skill, and deep knowledge of their domain and current technology.
 When a company hires well, its junior engineers can have huge impact - much different from what AI can do.
 
+# Addendum
+I recently watched a podcast with Peter Steinberger. As someone who is a very capable engineer but also fully convinced that AI-generated code is the future, he made a point that really resonated with me.
 
+He draws a clear distinction between “vibecoding” and “agentic software engineering.” According to him, vibecoding means generating unmaintainable mess by relying 100% on AI. It’s essentially letting the model produce code without applying engineering discipline.
+
+Agentic software engineering, on the other hand, is - in his view - the real future of the profession. It involves carefully designing, planning, refactoring, benchmarking, testing, and developing software in collaboration with AI agents that act as infinitely patient colleagues, sometimes even teachers, and eventually code generators.
+
+But he also makes it very clear that this is not something just anyone can do. You still need to be an engineer - even if you don’t end up writing most of the code yourself.

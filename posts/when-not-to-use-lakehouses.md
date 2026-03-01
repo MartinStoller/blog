@@ -1,7 +1,20 @@
 # When (not) to use Databricks
-Modern Lakehouse Platforms such as Databricks or Snowflake are amazingly powerful and as a Data Engineer they are currently 
-among my favorite tools to work with. But the way I`ve seen them (not) being used or miss-understood by multiple companies
-was at times shocking. Here are three examples:
+Throughout my career as a data engineering consultant, I’ve seen modern lakehouse platforms such as Databricks introduced into organizations with great enthusiasm — and very mixed results. Not because the technology is flawed, but because the problems it solves are often misunderstood.
+
+These experiences made me realize that the real challenge isn’t choosing the “most modern” platform. It’s understanding what problem you are actually trying to solve.
+
+I’ve worked with teams that should have modernized their infrastructure but didn’t. I’ve also seen companies introduce the hottest big data platform on the market without having the use case — or the team — to support it.
+
+This article is my attempt to explain how Databricks works, what problems lakehouse platforms are designed to solve, and what has — and hasn’t — worked in the projects I’ve been involved in. 
+After reading this, you should not only have a better theoretical understanding of my favorite data platform, but also be better equipped to answer a more important question:
+
+Should you use it at all?
+
+
+
+
+
+Examples to mention throughout article:
 
 - I am not kidding: There is a German multi-billion dollar company storing almost all of its central data on a single physical machine, 
 which stands in their DB Admins private basement. The good news is, they understood at some point that having all their data in this guy's basement, is not a

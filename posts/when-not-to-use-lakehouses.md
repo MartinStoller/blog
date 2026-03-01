@@ -3,7 +3,7 @@ Modern Lakehouse Platforms such as Databricks or Snowflake are amazingly powerfu
 under my favorite tools to work with. But the way I`ve seen them (not) being used or miss-understood by multiple companies
 was at times shocking. Here are three examples:
 
-- I am not kidding: There is a German multi-billion company storing almost all of its central data on a single physical machine, 
+- I am not kidding: There is a German multi-billion dollar company storing almost all of its central data on a single physical machine, 
 which stands in their DB Admins private basement. The good news is, they understood at some point that having all your data in this guy's basement, is not a
 great idea and decided to fix it by setting up Snowflake. The bad news: Only after they had Snowflake all set-up, they realized
 not only is there no plan at all about how to migrate the data there, but there is not a single person with Snowflake experience.

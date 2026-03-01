@@ -10,9 +10,39 @@ After reading this, you should not only have a better theoretical understanding 
 
 Should you use it at all?
 
+# The Lakehouse Idea
+To understand whether Databricks is the right tool for your team, it helps to first understand the problems that motivated its development.
 
+Historically, organizations had two very different options for centralizing their data:
 
+Data Lakes – file-based storage systems designed for scalability and cost-efficiency. They can store large volumes of raw data but often lack structure, governance, and reliability.
 
+Data Warehouses – structured systems optimized for analytics and reporting. They provide ACID transactions, schema enforcement, and query optimization, but are less flexible and often expensive at scale.
+
+Choosing one or the other meant making significant trade-offs — trade-offs that more and more organizations were unwilling to accept. In response, Databricks introduced the lakehouse in 2020: an approach designed to combine the best of both worlds, offering both scalable file-based storage and structured, reliable analytics.
+
+With this in mind, the first question to ask when considering a lakehouse platform is:
+
+Does my system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?
+
+The lakehouse concept achieves this balance through three main components layered on top of your data lake:
+
+1. Table Format Layer (e.g., Delta Lake)
+
+Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability.
+
+2. Metadata & Governance Layer (e.g., Unity Catalog)
+
+Manages metadata, access control, and governance policies across your datasets, enabling secure and compliant analytics at scale.
+
+3. Distributed Compute Engine (e.g., Spark)
+
+Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. While Spark is common, other engines (Trino, Flink, Presto, Databricks SQL) can also operate on a lakehouse.
+
+This framework — table format, metadata/governance, and distributed compute — provides a mental model to evaluate whether a lakehouse is a good fit for your organization.
+
+# Learn from the mistakes of other companies
+here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
 
 Examples to mention throughout article:
 

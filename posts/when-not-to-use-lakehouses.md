@@ -14,7 +14,7 @@ After reading this, you should not only have a better theoretical understanding 
 
 Is it a good fit for YOUR team?
 
-# The Lakehouse Idea
+## The Lakehouse Idea
 To understand whether Databricks is the right tool for your team, it helps to first understand the problems that motivated its development.
 Historically, organizations had two very different options for centralizing their data:
 
@@ -28,7 +28,7 @@ With this in mind, the first question to ask when considering a lakehouse platfo
 
 _Does my system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_
 
-# Databricks under the hood
+## Databricks under the hood
 
 The lakehouse concept achieves a balance between data lake and warehouse through three main components layered on top of your data lake:
 
@@ -47,7 +47,7 @@ Executes queries and transformations efficiently across large datasets, supporti
 
 With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little or no prior experience.
-# Learn from the mistakes of other companies
+## Learn from the mistakes of other companies
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
 
 Examples to mention throughout article:
@@ -70,7 +70,7 @@ In the hopes of giving people a better understanding of when (not) to use modern
 mechanism for these traumatizing experiences, let me summarize how Databricks works, what
 problems it solves and a few guidelines to figure out whether it's a proper tool for your team or not.
 
-### Conclusion
+## Conclusion
 Lakehouses have proven so powerful so that even Data Warehouses such as Snowflake or BigQuery keep adding lakehouse-like features.
 
 Once you have a usecase for a lakehouse architecture the next questions would be which one to pick. This is a much more detailed but

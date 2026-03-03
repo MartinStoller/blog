@@ -1,6 +1,6 @@
-| date       | target audience     |
-|------------|---------------------|
-| 10.01.2026 | Backend Developers  |
+| Date       | Target Audience    |
+|------------|--------------------|
+| 10.01.2026 | Backend Developers |
 
 # Backend-Performance in High-Throughput Systems - A Data Engineer's Perspective
 Throughout my career in IT consulting, I have seen this pattern repeat itself over and over again:

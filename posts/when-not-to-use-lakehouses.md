@@ -1,4 +1,4 @@
-| date       | target audience                                                                 |
+| Date       | Target Audience                                                                 |
 |------------|---------------------------------------------------------------------------------|
 | 06.03.2026 | Data Engineers, Architects or anybody involved in strategic decisions like this |
 

@@ -1,4 +1,4 @@
-| date       | target audience |
+| Date       | Target Audience |
 |------------|-----------------|
 | 05.02.2026 | Everyone        |
 

@@ -12,39 +12,41 @@ I’ve worked with teams that should have modernized their infrastructure but di
 This article is my attempt to explain how Databricks works, what problems lakehouse platforms are designed to solve, and what has — and hasn’t — worked in the projects I’ve been involved in. 
 After reading this, you should not only have a better theoretical understanding of my favorite data platform, but also be better equipped to answer a more important question:
 
-Should you use it at all?
+Is it a good fit for YOUR team?
 
 # The Lakehouse Idea
 To understand whether Databricks is the right tool for your team, it helps to first understand the problems that motivated its development.
-
 Historically, organizations had two very different options for centralizing their data:
 
-Data Lakes – file-based storage systems designed for scalability and cost-efficiency. They can store large volumes of raw data but often lack structure, governance, and reliability.
+- Data Lakes – file-based storage systems designed for scalability and cost-efficiency. They can store large volumes of raw data but often lack structure, governance, and reliability.
 
-Data Warehouses – structured systems optimized for analytics and reporting. They provide ACID transactions, schema enforcement, and query optimization, but are less flexible and often expensive at scale.
+- Data Warehouses – structured systems optimized for analytics and reporting. They provide ACID transactions, schema enforcement, and query optimization, but are less flexible and often expensive at scale. Essentially, they are read-optimized relational Databases.
 
 Choosing one or the other meant making significant trade-offs — trade-offs that more and more organizations were unwilling to accept. In response, Databricks introduced the lakehouse in 2020: an approach designed to combine the best of both worlds, offering both scalable file-based storage and structured, reliable analytics.
 
 With this in mind, the first question to ask when considering a lakehouse platform is:
 
-Does my system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?
+_Does my system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_
 
-The lakehouse concept achieves this balance through three main components layered on top of your data lake:
+# Databricks under the hood
 
-1. Table Format Layer (e.g., Delta Lake)
+The lakehouse concept achieves a balance between data lake and warehouse through three main components layered on top of your data lake:
 
-Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability.
+1. **Table Format Layer (also called Open Table Format, e.g., Delta Lake)**
 
-2. Metadata & Governance Layer (e.g., Unity Catalog)
+Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability. With it, concurrent reads and writes are handled safely, and changes are tracked accurately.  
+Databricks uses Delta Lake to implement this layer. Delta Lake stores raw data as **immutable .parquet files** and maintains a **_delta-log_** directory containing metadata about the table’s transactions. This metadata enables ACID transactions, time travel, schema enforcement, and rollback, turning a raw data lake into a reliable, analytics-ready foundation.
 
-Manages metadata, access control, and governance policies across your datasets, enabling secure and compliant analytics at scale.
+2. **Metadata & Governance Layer (e.g., Unity Catalog)**
 
-3. Distributed Compute Engine (e.g., Spark)
+Manages metadata, access control, and governance policies across your datasets, enabling secure and compliant analytics at scale. Databricks uses Unity Catalog to provide this functionality.
 
-Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. While Spark is common, other engines (Trino, Flink, Presto, Databricks SQL) can also operate on a lakehouse.
+3. **Distributed Compute Engine (e.g., Spark)**
 
-This framework — table format, metadata/governance, and distributed compute — provides a mental model to evaluate whether a lakehouse is a good fit for your organization.
+Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. Spark is the primary compute engine in Databricks, but other engines such as Trino, Flink, Presto, and Databricks SQL can also operate on a lakehouse while respecting the table format’s transactional guarantees.
 
+With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
+Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little or no prior experience.
 # Learn from the mistakes of other companies
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
 
@@ -68,3 +70,9 @@ In the hopes of giving people a better understanding of when (not) to use modern
 mechanism for these traumatizing experiences, let me summarize how Databricks works, what
 problems it solves and a few guidelines to figure out whether it's a proper tool for your team or not.
 
+### Conclusion
+Lakehouses have proven so powerful so that even Data Warehouses such as Snowflake or BigQuery keep adding lakehouse-like features.
+
+Once you have a usecase for a lakehouse architecture the next questions would be which one to pick. This is a much more detailed but
+also less important question. I might write another Snowflake vs Databricks article one day, but generally speaking you should usually
+be fine with either of them.

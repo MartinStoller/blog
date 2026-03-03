@@ -33,7 +33,6 @@ _Does my system or organization truly have the demands — both in terms of data
 The lakehouse concept achieves a balance between data lake and warehouse through three main components layered on top of your data lake:
 
 1. **Table Format Layer (also called Open Table Format)**
-
 Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability. With it, concurrent reads and writes are handled safely, and changes are tracked accurately.  
 Databricks uses Delta Lake to implement this layer. Delta Lake stores raw data as **immutable .parquet files** and maintains a **_delta-log_** directory containing metadata about the table’s transactions. This metadata enables ACID transactions, time travel, schema enforcement, and rollback, turning a raw data lake into a reliable, analytics-ready foundation.
 

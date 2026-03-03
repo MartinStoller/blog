@@ -48,6 +48,7 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
 With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little or no prior experience.
+
 ## Learn from the mistakes of other companies
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
 

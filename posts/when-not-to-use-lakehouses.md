@@ -33,16 +33,18 @@ _Does my system or organization truly have the demands — both in terms of data
 The lakehouse concept achieves a balance between data lake and warehouse through three main components layered on top of your data lake:
 
 1. **Table Format Layer (also called Open Table Format)**
-Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability. With it, concurrent reads and writes are handled safely, and changes are tracked accurately.  
-Databricks uses Delta Lake to implement this layer. Delta Lake stores raw data as **immutable .parquet files** and maintains a **_delta-log_** directory containing metadata about the table’s transactions. This metadata enables ACID transactions, time travel, schema enforcement, and rollback, turning a raw data lake into a reliable, analytics-ready foundation.
+
+   Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability. With it, concurrent reads and writes are handled safely, and changes are tracked accurately.  
+
+   Databricks uses Delta Lake to implement this layer. Delta Lake stores raw data as **immutable .parquet files** and maintains a **_delta-log_** directory containing metadata about the table’s transactions. This metadata enables ACID transactions, time travel, schema enforcement, and rollback, turning a raw data lake into a reliable, analytics-ready foundation.
 
 2. **Metadata & Governance Layer**
 
-Manages metadata, access control, and governance policies across your datasets, enabling secure and compliant analytics at scale. Databricks uses Unity Catalog to provide this functionality.
+   Manages metadata, access control, and governance policies across your datasets, enabling secure and compliant analytics at scale. Databricks uses Unity Catalog to provide this functionality.
 
 3. **Distributed Compute Engine**
 
-Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. Spark is the primary compute engine in Databricks, but other engines such as Trino, Flink, Presto, and Databricks SQL can also operate on a lakehouse while respecting the table format’s transactional guarantees.
+   Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. Spark is the primary compute engine in Databricks, but other engines such as Trino, Flink, Presto, and Databricks SQL can also operate on a lakehouse while respecting the table format’s transactional guarantees.
 
 With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little or no prior experience.

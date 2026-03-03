@@ -1,3 +1,7 @@
+| date       | target audience |
+|------------|-----------------|
+| 01.03.2026 | Everyone        |
+
 # Five Years in Software Engineering: From Struggling Junior to Tech Lead and beyond
 I’m approaching my five-year anniversary as a professional data/software engineer, and - by most external measures - my career has gone surprisingly well.
 I say 'surprisingly' because, on paper, there wasn’t much pointing in that direction.

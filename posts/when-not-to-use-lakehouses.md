@@ -1,3 +1,7 @@
+| date       | target audience                                                                 |
+|------------|---------------------------------------------------------------------------------|
+| 06.03.2026 | Data Engineers, Architects or anybody involved in strategic decisions like this |
+
 # When (not) to use Databricks
 Throughout my career as a data engineering consultant, I’ve seen modern lakehouse platforms such as Databricks introduced into organizations with great enthusiasm — and very mixed results. Not because the technology is flawed, but because the problems it solves are often misunderstood.
 

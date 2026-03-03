@@ -1,3 +1,7 @@
+| date       | target audience |
+|------------|-----------------|
+| 05.02.2026 | Everyone        |
+
 # Has AI made Junior Developers obsolete?
 It took some time, but by now there is little serious debate about AI replacing senior engineers anytime soon. A number of companies tried - and failed spectacularly. The limitations of AI and its rapidly flattening learning curve have become increasingly clear. Most of us have quietly canceled our plumbing or bricklaying bootcamps.
 

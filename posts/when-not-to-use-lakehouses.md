@@ -26,7 +26,7 @@ Choosing one or the other meant making significant trade-offs — trade-offs tha
 
 With this in mind, the first question to ask when considering a lakehouse platform is:
 
-_Does my system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_ (more on that later)
+_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_ (don't worry, we'll dissect this question later)
 
 ## Databricks under the hood
 
@@ -36,7 +36,7 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
    Provides ACID transactions, schema enforcement, versioning, and optimized file management. Without this layer, your data lake would remain just a collection of files with limited reliability. With it, concurrent reads and writes are handled safely, and changes are tracked accurately.  
 
-   Databricks uses Delta Lake to implement this layer. Delta Lake stores raw data as **immutable .parquet files** and maintains a **_delta-log_** directory containing metadata about the table’s transactions. This metadata enables ACID transactions, time travel, schema enforcement, and rollback, turning a raw data lake into a reliable, analytics-ready foundation.
+   Databricks uses Delta Lake to implement this layer. Delta Lake stores raw data as **immutable** .parquet files and maintains a **_delta-log_** directory containing metadata about the table’s transactions. This metadata enables ACID transactions, time travel, schema enforcement, and rollback, turning a raw data lake into a reliable, analytics-ready foundation.
 
 2. **Metadata & Governance Layer**
 
@@ -44,12 +44,13 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
 3. **Distributed Compute Engine**
 
-   Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. Spark is the primary compute engine in Databricks, but other engines such as Trino, Flink, Presto, and Databricks SQL can also operate on a lakehouse while respecting the table format’s transactional guarantees.
+   Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. Spark is the primary compute engine in Databricks, but other engines such as Trino, Flink, and Databricks SQL can also operate on a lakehouse while respecting the table format’s transactional guarantees.
 
 This brings us to the second key question when it comes to using Databricks:
 
-_Do we have a usecase for all of these components?_ (more on that in the next section)
+_Do you have a usecase for all of these components?_ (more on that in the next section)
 
+Now that we determined three key questions to ask yourself, when considering to use Databricks, lets dive in a bit deeper.
 With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and liquid clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little prior experience.
 
@@ -58,7 +59,8 @@ Which leads to another key question:
 _Do we have the team, experience and knowledge to work with it?_
 
 ## Learn from the mistakes of other companies
-I have experienced violations against all three rules in practice, so lets disect them further and support them with practical examples to make this more clear.
+I have experienced violations against all three questions in practice. Hopefully, sharing these experiences makes it easier for you to answer them for yourself and enables you to learn from the mistakes of others.
+
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
 
 Examples to mention throughout article:

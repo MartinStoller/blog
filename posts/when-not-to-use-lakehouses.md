@@ -50,15 +50,16 @@ This brings us to the second key question when it comes to using Databricks:
 
 _Do you have a usecase for all of these components?_ (more on that in the next section)
 
-Now that we determined three key questions to ask yourself, when considering to use Databricks, lets dive in a bit deeper.
 With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and liquid clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little prior experience.
 
 Which leads to another key question:
 
-_Do we have the team, experience and knowledge to work with it?_
+_Do you have the team, experience and knowledge to work with it?_
 
 ## Learn from the mistakes of other companies
+Now that we determined three key questions to ask yourself, when considering to use Databricks, lets dissect and support them with actual experiences of mine.
+
 I have experienced violations against all three questions in practice. Hopefully, sharing these experiences makes it easier for you to answer them for yourself and enables you to learn from the mistakes of others.
 
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not

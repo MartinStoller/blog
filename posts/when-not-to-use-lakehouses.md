@@ -48,7 +48,13 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
 3. **Distributed Compute Engine**
 
-   Executes queries and transformations efficiently across large datasets, supporting both batch and streaming workloads. Spark is the primary compute engine in Databricks, but other engines such as Trino, Flink, and Databricks SQL can also operate on a lakehouse while respecting the table format’s transactional guarantees.
+   This layer is responsible for executing queries and transformations across large datasets, supporting both batch and streaming workloads.
+
+    In Databricks, Spark serves as the primary compute engine. However, other engines such as Trino, Flink, or Databricks SQL can also operate on a lakehouse, as long as they respect the transactional guarantees provided by the underlying table format.
+    
+    The key advantage of a distributed compute engine is its ability to automatically parallelize workloads across multiple nodes. Instead of manually partitioning data, orchestrating batch splits, or dealing with memory limitations on a single machine, distributed engines are designed to scale horizontally and handle large volumes of data more efficiently.
+    
+    If you frequently find yourself manually batching workloads, running into memory constraints, or repeatedly adjusting infrastructure to keep pipelines running, it may be a sign that your current setup has outgrown itself. In such cases, adopting a distributed engine like Spark can significantly simplify both performance optimization and operational complexity. (see also: [Backend Performance](posts/backend-performance.md))
 
 This brings us to the second key question when it comes to using Databricks:
 

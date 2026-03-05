@@ -40,7 +40,11 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
 2. **Metadata & Governance Layer**
 
-   Manages metadata, access control, and governance policies across your datasets, enabling secure and compliant analytics at scale. Databricks uses Unity Catalog to provide this functionality.
+   In Databricks, this layer is implemented through Unity Catalog. It centralizes metadata management across your lakehouse and supports improved query planning, fine-grained access control, and consistent governance policies.
+
+    Beyond access management, Unity Catalog provides data lineage capabilities, allowing you to trace dependencies between tables, jobs, and other assets. This transparency is essential in larger environments where understanding how data flows through the system becomes increasingly complex.
+    
+    More recently, Unity Catalog has introduced features such as UC functions and volumes, which allow controlled access not only to datasets but also to defined functionality. These capabilities make it possible to expose data and operations to automated workflows or AI-driven applications in a governed and auditable way.
 
 3. **Distributed Compute Engine**
 

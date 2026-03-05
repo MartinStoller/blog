@@ -2,7 +2,7 @@
 |------------|---------------------------------------------------------------------------------|
 | 06.03.2026 | Data Engineers, Architects or anybody involved in strategic decisions like this |
 
-# When (not) to use Databricks
+# When (not) to move into a lake house
 Throughout my career as a data engineering consultant, I’ve seen modern lakehouse platforms such as Databricks introduced into organizations with great enthusiasm — and very mixed results. Not because the technology is flawed, but because the problems it solves are often misunderstood.
 
 These experiences made me realize that the real challenge isn’t choosing the “most modern” platform. It’s understanding what problem you are actually trying to solve.

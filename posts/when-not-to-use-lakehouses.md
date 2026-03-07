@@ -9,7 +9,7 @@ I’ve worked with teams that should have modernized their infrastructure but di
 
 These experiences made me realize that the real challenge isn’t choosing the “most modern” platform. It’s understanding what problem you are actually trying to solve.
 
-This article is my attempt to explain how Databricks works, what problems lakehouse platforms are designed to solve, and what has — and hasn’t — worked in the projects I’ve been involved in. 
+This article is my attempt to explain how Databricks - as the leading lake house platform - works, what problems lakehouse platforms are designed to solve, and what has — and hasn’t — worked in the projects I’ve been involved in. 
 After reading this, you should not only have a better theoretical understanding of my favorite data platform, but also be better equipped to answer a more important question:
 
 Is it a good fit for YOUR team?

@@ -54,7 +54,7 @@ The lakehouse concept achieves a balance between data lake and warehouse through
     
     The key advantage of a distributed compute engine is its ability to automatically parallelize workloads across multiple nodes. Instead of manually partitioning data, orchestrating batch splits, or dealing with memory limitations on a single machine, distributed engines are designed to scale horizontally and handle large volumes of data more efficiently.
     
-    If you frequently find yourself manually batching workloads, running into memory constraints, or repeatedly adjusting infrastructure to keep pipelines running, it may be a sign that your current setup has outgrown itself. In such cases, adopting a distributed engine like Spark can significantly simplify both performance optimization and operational complexity. ([Dont end up building your own compute engine](posts/backend-performance.md))
+    If you frequently find yourself manually batching workloads, running into memory constraints, or repeatedly adjusting infrastructure to keep pipelines running, it may be a sign that your current setup has outgrown itself. In such cases, adopting a distributed engine like Spark can significantly simplify both performance optimization and operational complexity. ([Dont end up building your own engine](posts/backend-performance.md))
 
 This brings us to the second key question when it comes to using Databricks:
 
@@ -69,7 +69,6 @@ _Do you have the team, experience and knowledge to work with it?_
 
 ## Learn from the mistakes of other companies
 Now that we determined three key questions to ask yourself, when considering to use Databricks, lets dissect and support them with actual experiences of mine.
-
 I have experienced violations against all three questions in practice. Hopefully, sharing these experiences makes it easier for you to answer them for yourself and enables you to learn from the mistakes of others.
 
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not

@@ -26,7 +26,7 @@ Choosing one or the other meant making significant trade-offs — trade-offs tha
 
 With this in mind, the first question to ask when considering a lakehouse platform is:
 
-    _Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_ (don't worry, we'll dissect this question later)
+_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_ (don't worry, we'll dissect this question later)
 
 ## Databricks under the hood
 
@@ -58,14 +58,14 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
 This brings us to the second key question when it comes to using Databricks:
 
-    _Do you have a usecase for most of these components?_ (more on that in the next section)
+_Do you have a usecase for most of these components?_ (more on that in the next section)
 
 With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and liquid clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little prior experience.
 
 Which leads to another key question:
 
-    _Do you have the team, experience and knowledge to work with it?_
+_Do you have the team, experience and knowledge to work with it?_
 
 ## Learn from the mistakes of other companies
 Now that we determined three key questions to ask yourself, when considering to use Databricks, lets dissect and support them with actual experiences of mine.

@@ -58,7 +58,7 @@ The lakehouse concept achieves a balance between data lake and warehouse through
 
 This brings us to the second key question when it comes to using Databricks:
 
-_Do you have a usecase for most of these components?_ (more on that in the next section)
+_Do you have a use case for most of these components?_ (more on that in the next section)
 
 With this increase in capability comes increase in responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and liquid clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little prior experience.
@@ -98,7 +98,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
 
     There is nothing wrong with prototyping in Databricks. However, if none of those experiments ever transition into production workloads, it may be a sign that the platform was introduced before the problem truly required it.
 
-2. **_Do you have a usecase for most of its components?_**
+2. **_Do you have a use case for most of its components?_**
    
     To answer this question with yes, you should be able to check at least a few of the following statements:
 

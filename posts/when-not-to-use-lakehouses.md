@@ -60,7 +60,7 @@ This brings us to the second key question when it comes to using Databricks:
 
 _Do you have a usecase for most of these components?_ (more on that in the next section)
 
-With this increased capability comes increased responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
+With this increase in capability comes increase in responsibility. Delta Lake metadata must be handled appropriately through careful data retention and optimization. Unity Catalog needs to be understood in terms of both its capabilities and proper usage. Distributed compute engines must also be used with knowledge of their architecture and best practices. 
 Features like Delta’s automatic optimizations, Spark’s Adaptive Query Execution (AQE), and liquid clustering have simplified management compared with the past, but it is still not advisable to deploy these technologies on a team with little prior experience.
 
 Which leads to another key question:

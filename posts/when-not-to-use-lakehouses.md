@@ -109,8 +109,6 @@ Over the past few years, I’ve seen situations where organizations ignored each
    - You plan to make use of Databricks’ machine learning tooling and require scalable compute to run those workloads. 
    - Your environment contains a large number of tables and pipelines that need orchestration and coordination. 
    - Storing your data in a file-based format (e.g., object storage) is a viable option.
-   
-   One of the strongest counterindicators for adopting Databricks is when key datasets must remain in an external relational database for business or technical reasons. In such cases, the constant data movement between systems often turns I/O into a major bottleneck and undermines many of the advantages a lakehouse architecture provides. 
 
    If only two or three of the points above apply to your situation, it is worth remembering that many of Databricks’ core components are available as open-source technologies and can be used independently.
 
@@ -127,6 +125,8 @@ Over the past few years, I’ve seen situations where organizations ignored each
     In one project, a team adopted Databricks primarily for its automatic resource management and access to machine learning tooling. However, all of their data remained in an external PostgreSQL database. They had no practical use for Unity Catalog or Delta Lake, and most of their notebooks relied on Pandas and standard Python rather than Spark. 
 
     As a result, the platform’s main strengths - distributed processing and integrated data management - were never really utilized. Which leads to the final question...
+
+    One of the strongest counterindicators for adopting Databricks is when key datasets must remain in an external relational database for business or technical reasons. In such cases, the constant data movement between systems often turns I/O into a major bottleneck and undermines many of the advantages a lakehouse architecture provides. 
 
 3. **_Do you have the team, experience and knowledge to work with it?_**
 

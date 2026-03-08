@@ -3,13 +3,13 @@
 | 10.03.2026 | Data Engineers, Architects or anybody involved in strategic decisions like this |
 
 # When (not) to move into a lake house 🌊🏡
-Throughout my data engineering career, I’ve seen modern lakehouse platforms such as Databricks introduced into organizations with great enthusiasm — and very mixed results. Not because the technology is flawed, but because the problems it solves are often misunderstood.
+Throughout my data engineering career, I’ve seen modern lakehouse platforms such as Databricks introduced into organizations with great enthusiasm - and very mixed results. Not because the technology is flawed, but because the problems it solves are often misunderstood.
 
-I’ve worked with teams that should have modernized their infrastructure but didn’t. I’ve also seen companies introduce the hottest big data platform on the market without having the use case — or the team — to support it.
+I’ve worked with teams that should have modernized their infrastructure but didn’t. I’ve also seen companies introduce the hottest big data platform on the market without having the use case - or the team - to support it.
 
 These experiences made me realize that the real challenge isn’t choosing the “most modern” platform. It’s understanding what problem you are actually trying to solve.
 
-This article is my attempt to explain how Databricks - as the leading lake house platform - works, what problems it is designed to solve, and what has — and hasn’t — worked in the projects I’ve been involved in. 
+This article is my attempt to explain how Databricks - as the leading lake house platform - works, what problems it is designed to solve, and what has - and hasn’t - worked in the projects I’ve been involved in. 
 After reading this, you should not only have a better theoretical understanding of my favorite data platform, but also be better equipped to answer a more important question:
 
 Is it a good fit for YOUR team?
@@ -22,11 +22,11 @@ Historically, organizations had two very different options for centralizing thei
 
 - Data Warehouses – structured systems optimized for analytics and reporting. They provide ACID transactions, schema enforcement, and query optimization, but are less flexible and often expensive at scale. Essentially, they are read-optimized relational Databases.
 
-Choosing one or the other meant making significant trade-offs — trade-offs that more and more organizations were unwilling to accept. In response, Databricks introduced the lakehouse in 2020: an approach designed to combine the best of both worlds, offering both scalable file-based storage and structured, reliable analytics.
+Choosing one or the other meant making significant trade-offs - trade-offs that more and more organizations were unwilling to accept. In response, Databricks introduced the lakehouse in 2020: an approach designed to combine the best of both worlds, offering both scalable file-based storage and structured, reliable analytics.
 
 With this in mind, the first question to ask when considering a lakehouse platform is:
 
-_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_ (don't worry, we'll dissect this question later)
+_Does your system or organization truly have the demands - both in terms of data volume and computational complexity - that justify this level of infrastructure?_ (don't worry, we'll dissect this question later)
 
 ## Databricks under the hood
 
@@ -69,12 +69,12 @@ _Do you have the team, experience and knowledge to work with it?_
 
 ## Learn from the mistakes of other companies
 Now that we have established a few key questions to ask when considering Databricks, let’s look at how these questions play out in practice.
-Over the past few years, I’ve seen situations where organizations ignored each of them in one way or another. Sharing these experiences may help you evaluate your own situation more realistically — and hopefully avoid some common pitfalls.
+Over the past few years, I’ve seen situations where organizations ignored each of them in one way or another. Sharing these experiences may help you evaluate your own situation more realistically - and hopefully avoid some common pitfalls.
 
-1. **_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_**
+1. **_Does your system or organization truly have the demands - both in terms of data volume and computational complexity - that justify this level of infrastructure?_**
     
     To confidently answer this question with yes, you should be able to check at least a few of the following statements:
-    - You already experience — or expect to experience — performance issues with your current stack.
+    - You already experience - or expect to experience - performance issues with your current stack.
     - These issues are primarily caused by infrastructure limitations or increasing data volumes.
     - You manage a large number of tables and data pipelines that require orchestration.
     - Multiple teams depend on the same data platform.
@@ -87,7 +87,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
 
     **What I've seen in practice**: 
     In one case, a small two-person team decided they needed a Databricks environment to run some experimental pipelines on a 20 GB dataset.
-    For a few weeks, they explored the data and experimented with different ideas — something that could easily have been done using many simpler tools. Eventually, the project was abandoned, and the Databricks environment remained mostly unused.
+    For a few weeks, they explored the data and experimented with different ideas - something that could easily have been done using many simpler tools. Eventually, the project was abandoned, and the Databricks environment remained mostly unused.
 
     Occasionally, someone would run a small experiment there, but it never became part of any production workflow, and nobody was responsible for maintaining or governing it.
 
@@ -125,7 +125,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
 
     In one project, a team adopted Databricks primarily for its automatic resource management and access to machine learning tooling. However, all of their data remained in an external PostgreSQL database. They had no practical use for Unity Catalog or Delta Lake, and most of their notebooks relied on Pandas and standard Python rather than Spark. 
 
-    As a result, the platform’s main strengths — distributed processing and integrated data management — were never really utilized. Which leads to the final question...
+    As a result, the platform’s main strengths - distributed processing and integrated data management - were never really utilized. Which leads to the final question...
 
 3. **_Do you have the team, experience and knowledge to work with it?_**
 
@@ -137,7 +137,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
 
     In one case, a company’s management decided to acquire a Snowflake environment to replace their outdated company-wide storage system. Only after the platform had been set up did they realize that no one on the team had experience with anything like it. Most team members were skeptical about the decision, and there was neither a concrete migration plan nor the necessary expertise to operate the new environment.
 
-    In another project, Databricks was introduced into a team that primarily worked with Pandas because they had little experience with Spark. As a result, most workloads ran entirely on the driver node while the executors remained largely unused. The platform technically worked, but many of its advantages — especially distributed computation — were never utilized.
+    In another project, Databricks was introduced into a team that primarily worked with Pandas because they had little experience with Spark. As a result, most workloads ran entirely on the driver node while the executors remained largely unused. The platform technically worked, but many of its advantages - especially distributed computation - were never utilized.
 
     **The opposite Situation:**
 
@@ -153,8 +153,8 @@ Over the past few years, I’ve seen situations where organizations ignored each
 ## Conclusion
 Clearly, deciding whether or not to use Databricks can be tricky. Introducing it without a real use case can create unnecessary complexity, just as avoiding it despite clear limitations in your current infrastructure can hold a team back.
 
-One thing my experience has taught me is that the decision to move to platforms such as Databricks, Snowflake, or BigQuery — especially as the boundaries between data warehouses and lakehouses become increasingly blurry — should largely come from the team working with the data.
+One thing my experience has taught me is that the decision to move to platforms such as Databricks, Snowflake, or BigQuery - especially as the boundaries between data warehouses and lakehouses become increasingly blurry - should largely come from the team working with the data.
 
 In my experience, the biggest mistakes tend to happen when someone high up in management falls into the marketing trap of wanting the company to adopt a modern, powerful, AI-supported data platform, only to discover later that the team neither needs nor wants it.
 
-The opposite can be just as problematic. If your data professionals tell you that your current infrastructure is reaching its limits and that an upgrade is necessary, it may be worth listening — even if you still have three years left on your Oracle license.
+The opposite can be just as problematic. If your data professionals tell you that your current infrastructure is reaching its limits and that an upgrade is necessary, it may be worth listening - even if you still have three years left on your Oracle license.

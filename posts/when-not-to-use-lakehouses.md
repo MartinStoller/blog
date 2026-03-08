@@ -72,7 +72,8 @@ Now that we've determined three key questions to ask yourself, when considering 
 I have experienced violations against all three questions in practice. Hopefully, sharing these experiences makes it easier for you to answer them for yourself and enables you to learn from the mistakes of others.
 
 1. **_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_**
-    To answer this question with yes, you should be able to make a few checkmarks behind at least a few of the following statements: 
+    
+    To answer this question with yes, you should be able to make a few checkmarks behind at least a few of the following statements:
     - You currently experience or expect to experience performance issues with your current stack.
     - These issues are mostly caused by your current infrastructure and/or data quantity
     - You have a large number of tables and pipelines to orchestrate

@@ -74,6 +74,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
 1. **_Does your system or organization truly have the demands - both in terms of data volume and computational complexity - that justify this level of infrastructure?_**
     
     To confidently answer this question with yes, you should be able to check at least a few of the following statements:
+
     - You already experience - or expect to experience - performance issues with your current stack.
     - These issues are primarily caused by infrastructure limitations or increasing data volumes.
     - You manage a large number of tables and data pipelines that require orchestration.

@@ -78,7 +78,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
     - These issues are primarily caused by infrastructure limitations or increasing data volumes.
     - You manage a large number of tables and data pipelines that require orchestration.
     - Multiple teams depend on the same data platform.
-    - Some of your datasets exceed 100 GB in size.
+    - Some of your datasets exceed 50 GB in size.
     - Your workflows go beyond simple ingestion and querying. For example:
       - transforming and remodeling data for downstream users 
       - generating new datasets from existing ones 

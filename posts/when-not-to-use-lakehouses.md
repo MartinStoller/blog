@@ -68,8 +68,20 @@ Which leads to another key question:
 _Do you have the team, experience and knowledge to work with it?_
 
 ## Learn from the mistakes of other companies
-Now that we determined three key questions to ask yourself, when considering to use Databricks, lets dissect and support them with actual experiences of mine.
+Now that we've determined three key questions to ask yourself, when considering to use Databricks, lets dissect and support them with actual experiences of mine.
 I have experienced violations against all three questions in practice. Hopefully, sharing these experiences makes it easier for you to answer them for yourself and enables you to learn from the mistakes of others.
+
+1. **_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_**
+    To answer this question with yes, you should be able to make a few checkmarks behind at least a few of the following statements: 
+    - You currently experience or expect to experience performance issues with your current stack.
+    - These issues are mostly caused by your current infrastructure and/or data quantity
+    - You have a large number of tables and pipelines to orchestrate
+    - You have multiple teams, which would benefit from a big data platform.
+    - Your current file based storage system suffers from quality issues
+    - Some of the datasets you need to store are > 100GB large
+    - You don't only need to ingest and query your data, but you plan to actively work with it: remodeling for downstream users, generation of additional data from the imported data, run Machine Learning Workflows on the data, do real time processing on streams, ... These are regular tasks in your environment
+
+2. 
 
 here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
 

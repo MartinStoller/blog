@@ -1,6 +1,6 @@
 | Date       | Target Audience                                                                 |
 |------------|---------------------------------------------------------------------------------|
-| 06.03.2026 | Data Engineers, Architects or anybody involved in strategic decisions like this |
+| 10.03.2026 | Data Engineers, Architects or anybody involved in strategic decisions like this |
 
 # When (not) to move into a lake house 🌊🏡
 Throughout my data engineering career, I’ve seen modern lakehouse platforms such as Databricks introduced into organizations with great enthusiasm — and very mixed results. Not because the technology is flawed, but because the problems it solves are often misunderstood.
@@ -73,42 +73,53 @@ I have experienced violations against all three questions in practice. Hopefully
 
 1. **_Does your system or organization truly have the demands — both in terms of data volume and computational complexity — that justify this level of infrastructure?_**
     
-    To answer this question with yes, you should be able to make a few checkmarks behind at least a few of the following statements:
+    To answer this question with yes, you should be able to make checkmarks behind at least a few of the following statements:
     - You currently experience or expect to experience performance issues with your current stack.
     - These issues are mostly caused by your current infrastructure and/or data quantity
     - You have a large number of tables and pipelines to orchestrate
     - You have multiple teams, which would benefit from a big data platform.
-    - Your current file based storage system suffers from quality issues
     - Some of the datasets you need to store are > 100GB large
     - You don't only need to ingest and query your data, but you plan to actively work with it: remodeling for downstream users, generation of additional data from the imported data, run Machine Learning Workflows on the data, do real time processing on streams, ... These are regular tasks in your environment
 
-2. 
+    What I've seen in practice: A single 2-person-team, decided they needed a databricks environment to run some prototypical pipelines on 20GB Dataset. 
+    What ended up happening is they played around with their dataset for a couple of weeks - which could have been worked on in many other ways, that didn't require the setup of a full lakehouse. Then they abandoned the project and the databricks environment became something mostly unused. Every once in a while people would run some more experiments in there, but there was no productive use, nor someone supervising anything in there.
+    If anything, it should be the other way around: run tests and develop prototypes anywhere, and if successful use databricks as the production environment. There is nothing to be said against prototyping in Databricks, but if no experiment ever makes it into production in that environment, something is off.
 
-here i can put my horrorstories and summarize the decisive questions whether to use databricks or not
+   2. **_Do you have a usecase for most of its components?_**
+   
+       To answer this question with yes, you should be able to make checkmarks behind at least a few of the following statements:
+      - Your current file based storage system suffers from quality issues due to a messy history or concurrent workflows.
+      - You work with a diverse team or stakeholders with individual accessibility to the data, making data governance a complex but important issue.
+      - Your current runtime environment struggles with parallelism and memory management.
+      - Reads and Writes in your current storage system have become too expensive.
+      - You need access to Databricks' Machine Learning Functionality and the compute to run it on.
+      - You work in a complex landscape, with a large number of tables and pipelines.
+      - Storing your data in a file-based format is possible for you. The biggest contraindicator against using databricks is, if for business reasons, some key tables you need to work with have to live in an external Database. Almost always, I/O will become a massive bottleneck for you in those cases.
 
-Examples to mention throughout article:
+       If only two or three of these points are applicable to you, please note that most of Databricks' components are open-source and can be used outside of Databricks. So if you only need a distributed compute engine, use Spark on whatever infrastructure you already use. If you mostly need data Governance, add Unity Catalog to your current setup. If you actually only need access to sparks Machine Learning functionality: Just download ML-lib for free and you're good. If you want to introduce ACID transactions to your S3, just use Iceberg or Deltalake. Getting Databricks makes sense, if you plan on working with multiple of these components and you want a platform on top of that, which manages all resources for you.
+        The mistake I've seen in practice: A team getting databricks only for the automatic resource management and access to some ML functionality, but their data lived in an external postgres DB, they had no usecase for unity or deltalake and in their notebooks they mostly worked with pandas and python instead of Spark, which leads us to the last point...
 
-- I am not kidding: There is a German multi-billion dollar company storing almost all of its central data on a single physical machine, 
-which stands in their DB Admins private basement. The good news is, they understood at some point that having all their data in this guy's basement, is not a
-great idea and decided to fix it by setting up a Snowflake cloud environment. The bad news: Only after they had Snowflake all set-up, they realized
-not only is there no plan at all on how to migrate the data there, but there is not a single person with Snowflake experience in the team.
+   3. **_Do you have the team, experience and knowledge to work with it?_**
 
-- A company telling me proudly about their state-of-the-art modern cloud environment including Databricks "for some advanced Machine Learning workflows". 
-All of their data lived in an external relational Database and noone in the team had ever written a single line 
-of Spark Code. Neither using Databricks' Storage Systems nor its' primary Compute Engine, they essentially used it for nothing else than running regular python scripts that could be hosted anywhere.
+        While Databricks' marketing team might want to tell you that in the age of AI, anybody can and should work with Databricks, I strongly disagree. While it is true that over the years they made many things simpler and found some strong defaults and auto configurations, you still need data professionals to handle a proper data landscape. And not only that: At least some of them need to have prior exposure to databricks, distributed compute and data governance.
+        
+        What I've seen in practice: A company's management acquiring a Snowflake environment to migrate their very outdated company wide storage. Only after the Snowflake set-up, they realize there is noone in the team who has ever worked with anything like it and most of the team does not support the decision. There was neither an action plan nor the personal to work with this new environment.
+        And as mentioned above, I have seen databricks being introduced into a team that worked with pandas because they had not experience with spark, having all of their code run in the driver node and leaving the executors stale, leading to big inefficiencies.
 
-- I once worked in a project which used 30.000+ lines of undocumented PL/SQL Code for a set of highly complex batch processing pipelines, generating multiple Terabytes a day.
-Thankfully, we made the decision to refactor and migrate to PySpark, hoping for cleaner code and much better performance. However, they were unwilling to move away from their relational Database as the primary
-storage system and refused to host spark anywhere but on their on premise server with scalability issues. At the same time they were unable to provide an infrastructure specialist 
-to host, scale and maintain a spark cluster in that environment.
-
-In the hopes of giving people a better understanding of when (not) to use modern lakehouse architectures, but at the very least as a coping 
-mechanism for these traumatizing experiences, let me summarize how Databricks works, what
-problems it solves and a few guidelines to figure out whether it's a proper tool for your team or not.
+On the flip-side I have also worked at a company once, who had a solid usecase for a managed data platform like Databricks:
+Their Entire Logic was written in PL/SQL and had grown into a 30.000+ line undocumented monster. They generated 2TB of Data a day, 
+with their largest frequently used table being 200GB large. They tried to solve it by just installing Spark on their on prem machine, 
+but sticking to their OracleDB. Spark did help, but as mentioned above, the external relational DB always posed a massive challenge in terms of I/O bottleneck.
+Moreover, there was no platform team that had experience with managing a spark cluster on prem, leading to instabilities there as well.
+For them, switching to Databricks would have probably solved a couple of critical problems.
 
 ## Conclusion
-Lakehouses have proven so powerful so that even Data Warehouses such as Snowflake or BigQuery keep adding lakehouse-like features.
+Clearly, whether to use or not use Databricks can be a tricky decision. Using it, while not really having the usecase
+for it, can lead to problems, just like avoiding it even though your current infrastructure is having big problems.
 
-Once you have a usecase for a lakehouse architecture the next questions would be which one to pick. This is a much more detailed but
-also less important question. I might write another Snowflake vs Databricks article one day, but generally speaking you should usually
-be fine with either of them.
+One thing my experience taught me is that the decision to move to Databricks, Snowflake, BigQuery (the borders between warehouses and lakehouses get increasingly blurry) or whatever platform you are
+trying to adopt should come mostly from the team. The biggest mistakes happened in my experience when someone high up in management
+falls into a marketing trap and wants to make sure the company uses a modern, powerful, AI-Supported Dataplatform only to learn 
+that the team doesn't want it or need it. The same is true for the opposite: if your data professionals tells you, you need to upgrade, don't let 
+the fact that you have 3 years left on your Oracle license stop you. 
+

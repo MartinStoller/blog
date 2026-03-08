@@ -100,7 +100,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
 
 2. **_Do you have a usecase for most of its components?_**
    
-    To answer this question with yes, you should be able to check at least a few of the following statements:Your current file-based storage system suffers from data quality issues due to a messy history or conflicting workflows.
+    To answer this question with yes, you should be able to check at least a few of the following statements:
 
    - Your current file-based storage system suffers from data quality issues due to a messy history or conflicting workflows. 
    - You work with multiple teams or stakeholders who require controlled access to shared datasets, making governance an important concern. 

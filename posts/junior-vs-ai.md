@@ -1,3 +1,7 @@
+| Date       | Target Audience |
+|------------|-----------------|
+| 05.02.2026 | Everyone        |
+
 # Has AI made Junior Developers obsolete?
 It took some time, but by now there is little serious debate about AI replacing senior engineers anytime soon. A number of companies tried - and failed spectacularly. The limitations of AI and its rapidly flattening learning curve have become increasingly clear. Most of us have quietly canceled our plumbing or bricklaying bootcamps.
 
@@ -64,8 +68,7 @@ In other words, AI has raised the bar for all of us by making superficial, low-q
 We now have to solve genuinely hard problems to justify our far-above-average working conditions.
 And that, to me, is the real extent of the “collapse” AI has caused in our field.
 
-
-# Conclusion
+## Conclusion
 I feel for junior engineers. They are currently among the most underrated and least appreciated members of our field. But I believe the current AI hype will settle into something more realistic - and when it does, their value will become clearer again.
 
 AI is incredibly powerful when it comes to local optimization. It helps us write code faster, explore alternatives, and automate repetitive tasks. We should be grateful to have such a capable tool at our disposal. However, systemic optimization - understanding architecture, trade-offs, long-term consequences, and business impact - remains a fundamentally human responsibility. In that regard, AI still has significant ground to cover.

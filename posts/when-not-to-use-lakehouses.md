@@ -115,7 +115,7 @@ Over the past few years, I’ve seen situations where organizations ignored each
     For example:
    - If you primarily need distributed compute, you can run Spark on your existing infrastructure.
    - If data governance is your main concern, you may only need a metadata and governance layer.
-   - If you need machine learning tooling, Spark’s MLlib is freely available.
+   - If you need machine learning tooling, Spark’s MLlib and Databricks' MLflow is freely available.
    - If your goal is to introduce ACID transactions to object storage, table formats like Iceberg or Delta Lake can be used without adopting the full Databricks platform.
    
    Databricks becomes most valuable when you plan to use several of these components together and want a managed platform that integrates them and handles infrastructure, orchestration, and scaling.

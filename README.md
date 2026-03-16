@@ -10,6 +10,7 @@ A personal blog focused on data engineering, high-load systems, PySpark and what
 ### Ideas for future posts
 - The case for TDD when building data pipelines
 - Functional column expressions: writing more mature PySpark code
+- Streaming vs Micro-Batching: A concept many stakeholders should better understand
 
 ## License
 © 2026 Martin Stoller.  

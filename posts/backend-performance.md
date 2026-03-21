@@ -36,7 +36,7 @@ You can imagine the UI looking roughly like this (thanks, ChatGPT!):
 ![img.png](../assets/aunt_emma/ui_aunt_emma.png)
 Conceptually, the UI consists of two main components:
 
-- An overview listing all sold products with some preview metrics (left side),
+- An overview listing all products with some preview metrics (left side),
 - A detailed view showing all available KPIs and data for a selected product (right side).
 
 Our first step is to choose an appropriate architecture. We settle on what I would call a simple but reasonable approach:

@@ -42,7 +42,7 @@ Conceptually, the UI consists of two main components:
 Our first step is to choose an appropriate architecture. We settle on what I would call a simple but reasonable approach:
 ![aunt_emma_architecture.drawio.svg](../assets/aunt_emma/aunt_emma_architecture.drawio.svg)
 
-- How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system. Whether it is streamed in real time via Kafka or delivered once per day by a carrier pigeon as a CSV file on a USB stick does not matter here. 
+- How Aunt Emma stores her raw data does not matter for now. For the sake of simplicity, we also ignore how the data is ingested into our system. Whether it is streamed in real time via Kafka or delivered once per day by a carrier pigeon as a CSV file on a USB stick does not matter here. All that matters to us is: we regularly receive updated data from her business.
 - The first concrete decision, then, is how to store the data. Naturally, we default to a normalized data model in a relational database. Given what we know at this point, this is a perfectly reasonable choice.
 - On top of that, we introduce two backend services. The first one is the Pricing Engine, where all calculations and business logic live. The second is a generic Backend service, responsible for authentication, session and user management, and for orchestrating requests to the pricing engine. We already anticipate that these two services will have very different scaling characteristics, which is why we design them as separate components.
 - Finally, we build a frontend that provides the user interface shown above.
@@ -68,6 +68,16 @@ While this improvement is fairly simple - and you certainly don’t need to be a
 If we stay too attached to our initial architectural design, we might instead try to “fix” performance by reaching for familiar tools: more efficient algorithms, stronger hardware, smarter caching, better garbage collection, or additional tuning knobs. All of these can help, but they operate within the same fundamental request–response paradigm.
 
 Being so accustomed to this model, it is easy to overlook that some systems behave very differently - and scale far better - once this paradigm itself is questioned or even abandoned.
+
+I’ve often noticed an almost instinctive tendency in many engineers - including myself - to look for algorithmic improvements at the code level as soon as a function or endpoint shows performance issues. And to be fair, this approach can be effective. It's not uncommon to find more efficient algorithms that significantly speed up execution.
+
+But looking at our example, let’s assume we implement a clever caching strategy that improves the performance of a problematic endpoint by a factor of two or three. What does that really achieve? Have we improved the user experience? Not meaningfully. The user still has to wait 20–30 seconds for the data to load. Have we made the system more scalable? Not really. If the data volume doubles or a new computationally expensive feature is introduced, we are likely to face the same issues again.
+
+While there are certainly cases where algorithmic improvements lead to dramatic gains, my experience suggests that far greater impact can usually be achieved by thinking at the system level. Questions like: _What data model should we use? Does our data flow make sense? Are we using the right technologies?_ - these tend to open the door to solutions with much stronger leverage on both performance and scalability.
+
+And that is exactly what our solution demonstrates. By replacing the request–response model with a full precomputation step, we enable the user to access all relevant data almost instantly. At the same time, the system becomes significantly more scalable. Assuming sufficient hardware, even a fivefold increase in data volume would likely have little to no impact on the user experience.
+
+And if that weren’t compelling enough, the solution is remarkably inexpensive: we don’t need to change the code itself - we only need to change when the code runs.
 
 ## Business is booming
 Thanks to our well-functioning piece of software, Aunt Emma’s business has been growing rapidly over the years. She has opened multiple new shops, hired dozens of new employees, and even bootstrapped a small business intelligence team that now works with our software full time.

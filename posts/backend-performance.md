@@ -82,11 +82,11 @@ And if that weren’t compelling enough, the solution is remarkably inexpensive:
 ## Business is booming
 Thanks to our well-functioning piece of software, Aunt Emma’s business has been growing rapidly over the years. She has opened multiple new shops, hired dozens of new employees, and even bootstrapped a small business intelligence team that now works with our software full time.
 
-Naturally, this growth is also reflected in our data. What used to be a manageable amount of information has turned into a steadily growing data stream. Megabytes turned into gigabytes. While we once completed all precomputations within minutes, each update to the database now triggers hours of processing.
+Naturally, this growth is also reflected in our data. What used to be a manageable amount of information has turned into a steadily growing data stream. Megabytes turned into gigabytes. While we once completed all precomputations within minutes, each update to the database now triggers hours of processing and risks OOM Errors.
 
 At this point, we clearly have a problem. We need to act - but how?
 
-Once again, there is no shortage of possible solutions. But instead of squeezing more performance out of our existing setup, let me propose another paradigm shift: **Batch Processing** (also known by the less glamorous name ETL).
+Once again, there is no shortage of possible solutions. But instead of squeezing more performance out of our existing setup, let me propose another paradigm shift: **Batch Processing** (also known by the less glamorous name "ETL").
 
 If I had to give a textbook overview about batch processing vs traditional backend development it might look something like this:
 
@@ -98,7 +98,7 @@ If I had to give a textbook overview about batch processing vs traditional backe
 | Logic         | Column-oriented & holistic                         | Row- / Object-oriented & single-case focused |
 | Performance   | Optimized for total runtime & resource utilization | Optimized for response time                  |
 
-While many backend developers are familiar with OLAP as a theoretical concept, in my experience very few are able to apply it effectively in practice. OLAP-style systems are not the norm in backend development - but they are the norm in data engineering.
+While backend developers may be familiar with OLAP as a theoretical concept, in my experience very few are able to apply it effectively in practice. OLAP-style systems are not the norm in backend development - but they are the norm in data engineering.
 And if it wasn’t clear already, this is what this article is really about: building a better practical understanding of when, how, and why we should incorporate patterns from OLAP systems into backend architectures.
 
 Coming back to our application, the obvious question now is: how do we actually apply these batch-processing principles? What needs to change - and how will it help us overcome our growing performance problems?
@@ -107,12 +107,12 @@ The first point - changing the trigger from request-driven to scheduled executio
 
 The reason is that traditional object-oriented, imperative code is typically single-case focused. One object often corresponds to a single row in the database. Each row is deserialized into an object, business logic is applied case by case, and the resulting target data structures are then serialized again and written back to the database - one row at a time.
 
-For problems like ours, this is a poor fit. In our case - and in fact in most precomputable scenarios - we want to apply largely the same transformations and algorithms to all rows in a dataset. We want to compute the same KPIs for all products.
+For problems like ours, this is a poor fit. Since we got rid of our request-response-model we no longer want to calculate our target values for a single specific product. We want to apply largely the same transformations and algorithms to all rows in a dataset. We want to compute the same KPIs for all products at the same time.
 
 Declarative, column-oriented logic is a much better match for this type of workload. By describing what should be computed instead of how to compute it, we enable the execution engine to reason about the computation as a whole. This allows for global optimizations such as reordering operations, pushing down filters, batching work, and executing transformations in parallel.
 In addition, column-oriented execution reduces serialization overhead, improves cache locality, and enables vectorized processing. The result is not only simpler code, but also significantly better resource utilization and throughput - especially at scale.
 
-So now we know when and why to turn to batch processing - but what does this mean for our specific setup? In practice, it often means moving away from Java. While the Java ecosystem certainly offers batch-processing frameworks, they are not commonly used.
+So now we know when and why to turn to batch processing - but what does this mean for our specific setup? In practice, it often means moving away from Java. While the Java ecosystem certainly offers batch-processing frameworks, they are not as commonly used.
 More typical approaches involve expressing large parts of the logic in SQL or using analytical libraries in Python such as Pandas, Polars, or DuckDB. SQL has the advantage of running directly inside the database engine, which can help avoid I/O-bound bottlenecks. However, once business logic reaches medium to high complexity, maintaining a large SQL-only codebase quickly becomes painful. 
 (I once had the pleasure of working with a 30,000+ line, undocumented PL/SQL codebase. It’s not fun. Don’t do it.)
 This is why I usually advocate for a Python-based approach. Modern analytical libraries provide an in-memory, column-oriented representation of data: so-called DataFrames. They allow us to express transformations in a declarative, SQL-like way, while still using Python’s language features to structure and modularize the code properly.
@@ -124,16 +124,16 @@ However, most popular programming languages have solid batch-processing options 
 Once again, we have successfully addressed a critical performance bottleneck and scaled our system accordingly 🥳
 But at her weekly bingo night, Aunt Emma proudly tells her friends about the software that completely transformed her business. Among them, purely by coincidence, happens to be the CTO of Walmart - who now wants us to build a similar solution for them.
 
-When gigabytes turn into terabytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go beyond the scope of this article - which is meant to provide backend developers with foundational concepts and guiding principles - I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
+When gigabytes turn into tera- or even petaBytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go beyond the scope of this article - which is meant to provide backend developers with foundational concepts and guiding principles - I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
 For now, here is a high-level overview of what becomes relevant at truly large scale:
 1. **Data Modelling**: 
 
-At large scale, we can apply a number of well-known storage strategies such as partitioning or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
+At large scale, we can apply a number of well-known storage strategies such as partitioning, Z-Ordering or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
 
-In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
+In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations, because they are hard to parallelize. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
 
-That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling.
-A useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns.
+That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling. You should know your system's query patterns well and decide where and how to denormalize based on that.
+Moreover, a useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns.
 
 In practice, this often results in multiple modeling layers - ranging from normalized core datasets to increasingly denormalized, query-optimized tables - each serving a distinct purpose within the overall architecture.
 
@@ -144,7 +144,6 @@ A file format that is still surprisingly unknown outside the world of data engin
 Parquet is a column-oriented, binary file format that stores rich metadata and applies advanced compression techniques such as run-length encoding and dictionary encoding. This makes it extremely efficient for analytical workloads and has turned it into the de facto standard file format in the big data ecosystem.
 
 If you have never worked with Parquet before, I highly encourage you to run a quick benchmark yourself. Generate a few gigabytes of synthetic data and compare reading and writing Parquet files to formats like CSV or to row-oriented databases in analytical queries. The difference in performance is usually dramatic. Feel free to use the [basic benchmarking notebook from this repo](../code/parquet_benchmark.ipynb).
-
 
 Of course, we cannot simply throw raw files onto a server and call that our persistence layer. Doing so would result in what is commonly referred to as a data lake - and while raw data lakes are extremely useful as ingestion and storage layers, they are a poor foundation for application-facing logic. Without structure, guarantees, or coordination, they quickly become chaotic to work with.
 

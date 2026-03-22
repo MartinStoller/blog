@@ -124,7 +124,7 @@ However, most popular programming languages have solid batch-processing options 
 Once again, we have successfully addressed a critical performance bottleneck and scaled our system accordingly 🥳
 But at her weekly bingo night, Aunt Emma proudly tells her friends about the software that completely transformed her business. Among them, purely by coincidence, happens to be the CTO of Walmart - who now wants us to build a similar solution for them.
 
-When gigabytes turn into tera- or even petaBytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go beyond the scope of this article - which is meant to provide backend developers with foundational concepts and guiding principles - I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
+When gigabytes turn into tera- or even petabytes, things change fundamentally. At this scale, we have to go all in on our OLAP-style thinking. While discussing such a system in depth would go beyond the scope of this article - which is meant to provide backend developers with foundational concepts and guiding principles - I will briefly outline the next set of challenges and ideas. I plan to dive into these topics in much more detail in future posts.
 For now, here is a high-level overview of what becomes relevant at truly large scale:
 1. **Data Modelling**: 
 

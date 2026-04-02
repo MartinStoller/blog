@@ -160,7 +160,7 @@ For now, here is a high-level overview of what becomes relevant at truly large s
     
     Here’s the hard truth: your team is very unlikely to build a system more efficient or reliable than Spark or Snowflake. By the time you realize it, you’ve spent months creating what these frameworks already provide out-of-the-box. The lesson is simple: at this scale, use battle-tested distributed compute engines from the start.
 
-If we want to adopt these technologies, a reasonable choice might be to use a fully managed lakehouse platform such as Databricks (see also: [When (not) to move into a lakehouse](posts/when-not-to-use-lakehouses.md)).
+If we want to adopt these technologies, a reasonable choice might be to use a fully managed lakehouse platform such as Databricks (see also: [When (not) to move into a lakehouse](./when-not-to-use-lakehouses.md)).
 Our data flow might then look something like this (note that you could use any of the big cloud providers):
 ![databricks_system.svg](../assets/aunt_emma/databricks_system.svg)
 

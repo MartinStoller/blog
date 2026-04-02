@@ -128,38 +128,44 @@ When gigabytes turn into tera- or even petabytes, things change fundamentally. A
 For now, here is a high-level overview of what becomes relevant at truly large scale:
 1. **Data Modelling**: 
 
-At large scale, we can apply a number of well-known storage strategies such as partitioning, Z-Ordering or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
-
-In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations, because they are hard to parallelize. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
-
-That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling. You should know your system's query patterns well and decide where and how to denormalize based on that.
-Moreover, a useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns.
-
-In practice, this often results in multiple modeling layers - ranging from normalized core datasets to increasingly denormalized, query-optimized tables - each serving a distinct purpose within the overall architecture.
+    At large scale, we can apply a number of well-known storage strategies such as partitioning, Z-Ordering or bucketing to retrieve and process data more efficiently. The more fundamental paradigm shift, however, lies elsewhere: denormalization.
+    
+    In distributed, scan-heavy analytical systems, joins quickly become one of the most expensive operations, because they are hard to parallelize. To optimize read performance and simplify large-scale transformations, denormalized data models therefore become extremely useful.
+    
+    That said, denormalization done right does not mean throwing all structure away and flattening everything indiscriminately. Instead, it requires a conscious decision about how much denormalization is needed and a deliberate, layered approach to data modeling. You should know your system's query patterns well and decide where and how to denormalize based on that.
+    Moreover, a useful rule of thumb is this: every denormalized data structure should be derived from a normalized one. The normalized model serves as the single source of truth, while denormalized tables are optimized, derived representations tailored to specific access patterns.
+    
+    In practice, this often results in multiple modeling layers - ranging from normalized core datasets to increasingly denormalized, query-optimized tables - each serving a distinct purpose within the overall architecture.
 
 2. **Persistence Technology**:
 
-A file format that is still surprisingly unknown outside the world of data engineering is Parquet. I say “surprisingly” because once you understand how it works, it feels like a complete game changer.
-
-Parquet is a column-oriented, binary file format that stores rich metadata and applies advanced compression techniques such as run-length encoding and dictionary encoding. This makes it extremely efficient for analytical workloads and has turned it into the de facto standard file format in the big data ecosystem.
-
-If you have never worked with Parquet before, I highly encourage you to run a quick benchmark yourself. Generate a few gigabytes of synthetic data and compare reading and writing Parquet files to formats like CSV or to row-oriented databases in analytical queries. The difference in performance is usually dramatic. Feel free to use the [basic benchmarking notebook from this repo](../code/parquet_benchmark.ipynb).
-
-Of course, we cannot simply throw raw files onto a server and call that our persistence layer. Doing so would result in what is commonly referred to as a data lake - and while raw data lakes are extremely useful as ingestion and storage layers, they are a poor foundation for application-facing logic. Without structure, guarantees, or coordination, they quickly become chaotic to work with.
-
-This is where lakehouse architectures come into play. By adding a metadata layer on top of file-based storage, lakehouses turn collections of Parquet files into something that behaves much more like a traditional database. Technologies such as Iceberg or Delta Lake provide schema management, versioning, transactional guarantees, and query planning - all while retaining the scalability and performance benefits of simple file-based storage.
-The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases - making it a natural fit for large-scale analytical workloads.
-
-In our case, switching to technologies like Iceberg or Delta Lake introduces an additional architectural challenge: these systems are storage layers, not query engines. Unlike a traditional database, they do not expose a JDBC interface themselves. This means that our Java backend can no longer query the data directly via a standard JDBC connection, as it likely did before. Instead, we need to introduce an analytical query engine - such as Trino, Spark, or a similar system - that understands the lakehouse metadata and provides a SQL interface on top of the file-based storage.
+    A file format that is still surprisingly unknown outside the world of data engineering is Parquet. I say “surprisingly” because once you understand how it works, it feels like a complete game changer.
+    
+    Parquet is a column-oriented, binary file format that stores rich metadata and applies advanced compression techniques such as run-length encoding and dictionary encoding. This makes it extremely efficient for analytical workloads and has turned it into the de facto standard file format in the big data ecosystem.
+    
+    If you have never worked with Parquet before, I highly encourage you to run a quick benchmark yourself. Generate a few gigabytes of synthetic data and compare reading and writing Parquet files to formats like CSV or to row-oriented databases in analytical queries. The difference in performance is usually dramatic. Feel free to use the [basic benchmarking notebook from this repo](../code/parquet_benchmark.ipynb).
+    
+    Of course, we cannot simply throw raw files onto a server and call that our persistence layer. Doing so would result in what is commonly referred to as a data lake - and while raw data lakes are extremely useful as ingestion and storage layers, they are a poor foundation for application-facing logic. Without structure, guarantees, or coordination, they quickly become chaotic to work with.
+    
+    This is where lakehouse architectures come into play. By adding a metadata layer on top of file-based storage, lakehouses turn collections of Parquet files into something that behaves much more like a traditional database. Technologies such as Iceberg or Delta Lake provide schema management, versioning, transactional guarantees, and query planning - all while retaining the scalability and performance benefits of simple file-based storage.
+    The result is a persistence layer that combines the flexibility and cost-efficiency of a data lake with many of the safety and usability features we associate with databases - making it a natural fit for large-scale analytical workloads.
+    
+    In our case, switching to technologies like Iceberg or Delta Lake introduces an additional architectural challenge: these systems are storage layers, not query engines. Unlike a traditional database, they do not expose a JDBC interface themselves. This means that our Java backend can no longer query the data directly via a standard JDBC connection, as it likely did before. Instead, we need to introduce an analytical query engine - such as Trino, Spark, or a similar system - that understands the lakehouse metadata and provides a SQL interface on top of the file-based storage.
 
 3. **Distributed query engines**:
 
-At terabyte scale and beyond, distributed compute engines become essential - not just for querying data, but also for processing it. Horizontal scaling is the only practical approach at these volumes, and there are many powerful options available. Open-source engines such as Trino and Spark, as well as managed services like BigQuery and Snowflake, are among the most widely used.
+    At terabyte scale and beyond, distributed compute engines become essential - not just for querying data, but also for processing it. Horizontal scaling is the only practical approach at these volumes, and there are many powerful options available. Open-source engines such as Trino and Spark, as well as managed services like BigQuery and Snowflake, are among the most widely used.
+    
+    A common pitfall I’ve seen in practice: a team of software engineers runs into memory errors and severe performance issues as data volumes grow. They try to fix the problem with the tools they know: optimizing memory usage with chunking, increasing parallelism, spinning up more or stronger instances. Before long, they’ve built their own Frankenstein-style distributed compute engine - complex, fragile, and hard to maintain.
+    
+    Here’s the hard truth: your team is very unlikely to build a system more efficient or reliable than Spark or Snowflake. By the time you realize it, you’ve spent months creating what these frameworks already provide out-of-the-box. The lesson is simple: at this scale, use battle-tested distributed compute engines from the start.
 
-A common pitfall I’ve seen in practice: a team of software engineers runs into memory errors and severe performance issues as data volumes grow. They try to fix the problem with the tools they know: optimizing memory usage with chunking, increasing parallelism, spinning up more or stronger instances. Before long, they’ve built their own Frankenstein-style distributed compute engine - complex, fragile, and hard to maintain.
+If we want to adopt these technologies, a reasonable choice might be to use a fully managed lakehouse platform such as Databricks (see also: [When (not) to move into a lakehouse](posts/when-not-to-use-lakehouses.md)).
+Our data flow might then look something like this (note that you could use any of the big cloud providers):
+![databricks_system.svg](../assets/aunt_emma/databricks_system.svg)
 
-Here’s the hard truth: your team is very unlikely to build a system more efficient or reliable than Spark or Snowflake. By the time you realize it, you’ve spent months creating what these frameworks already provide out-of-the-box. The lesson is simple: at this scale, use battle-tested distributed compute engines from the start.
-
+If we prefer a self-built lakehouse architecture, a typical AWS Stack would include S3 (raw storage) + Iceberg (open table format) + Glue (Query Engine, Metadata, Orchestration):
+![aws_system.svg](../assets/aunt_emma/aws_system.svg)
 
 ## Takeaway
 Let’s recap the main messages of this article:

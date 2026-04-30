@@ -77,9 +77,9 @@ Over the past few years, I’ve seen situations where organizations ignored each
 
     - You already experience - or expect to experience - performance issues with your current stack.
     - These issues are primarily caused by infrastructure limitations or increasing data volumes.
-    - You manage a large number of tables and data pipelines that require orchestration.
+    - You manage a large number of tables and data pipelines that require complex orchestration.
     - Multiple teams depend on the same data platform.
-    - Some of your datasets exceed 50 GB in size.
+    - Some of your datasets are very large (>50 GB).
     - Your workflows go beyond simple ingestion and querying. For example:
       - transforming and remodeling data for downstream users 
       - generating new datasets from existing ones 

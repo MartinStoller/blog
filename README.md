@@ -11,6 +11,7 @@ A personal blog focused on data engineering, high-load systems, PySpark and what
 - The case for TDD when building data pipelines
 - Functional column expressions: writing more mature PySpark code
 - Streaming vs Micro-Batching: A concept many stakeholders should better understand
+- Bridging the gap between OLAP and OLTP Systems: How to keep your analytics platform in sync with your transactional persistence layer (Lakebase, CDC, ...)
 
 ## License
 © 2026 Martin Stoller.  

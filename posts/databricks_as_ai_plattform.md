@@ -9,7 +9,7 @@ It's the point where "it works on my machine" needs to transition into a
 system that handles hundreds of thousands of files, obeys strict data governance, and provides clear ROI.
 Over the past two years, I've run this race twice: once with a custom, self-hosted stack and once on
 Databricks. On a technical level my takeaway is clear, but considering the economic implications might be at least as 
-relevant interesting.
+relevant.
 
 ### The Pain of Custom-Built: Orchestrating the Chaos
 In my first project, we went the "sovereign" route. We forked an open-source RAG project and started tailoring it to our needs.
@@ -33,7 +33,7 @@ And that is before we even account for the sheer engineering velocity and advanc
 When I moved to a similar project on Databricks, I didn't know what to expect at all. I only knew it as the Lakehouse
 and Big-Data Platform that it originally started out as (and still is).
 However, it didn't take long to experience how much the landscape changes when your RAG stack is natively integrated into your data stack. The advantages weren't just incremental; they were transformative:
-- **Data Proximity**: Once you get your raw source data into databricks everything becomes incredibly fast. Your data lake, data warehouse, Vector DB, Metastore & run time environment all live in the same place and are built for maximum reliability and scalability.
+- **Data Proximity**: Once you get your raw source data into Databricks everything becomes incredibly fast. Your data lake, data warehouse, Vector DB, Metastore & run time environment all live in the same place and are built for maximum reliability and scalability.
 - **Serverless Scale**: Scraping became a function of Spark UDFs. We didn't manage workers; we just defined the logic, and Spark handled the autoscaling.
 - **The Unity Catalog Edge**: Governance in RAG is notoriously difficult. Unity Catalog allowed us to
 define not just who can see the data, but who can execute agentic tools (like querying repo or table at query-time). It

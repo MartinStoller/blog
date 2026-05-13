@@ -36,7 +36,7 @@ However, it didn't take long to experience how much the landscape changes when y
 - **Data Proximity**: Once you get your raw source data into Databricks everything becomes incredibly fast. Your data lake, data warehouse, Vector DB, Metastore & run time environment all live in the same place and are built for maximum reliability and scalability.
 - **Serverless Scale**: Scraping became a function of Spark UDFs. We didn't manage workers; we just defined the logic, and Spark handled the autoscaling.
 - **The Unity Catalog Edge**: Governance in RAG is notoriously difficult. Unity Catalog allowed us to
-define not just who can see the data, but who can execute agentic tools (like querying repo or table at query-time). It
+define not just who can see the data, but who can execute agentic tools (like scraping a repo or table at query-time). It
 provided out-of-the-box data lineage, showing exactly which document influenced a specific LLM response.
 - **Scientific Evaluation**: We moved past "vibe-checking" answers. Using built-in feedback features and "LLM-as-a-judge" patterns, we could scientifically score retrieval quality. This removed the anxiety and guesswork from changing a chunking strategy or swapping a model.
 - **Guardrails and Security**: Databricks provided refreshingly simple yet powerful solutions for protecting against prompt injection, handling authentication and rate limiting.

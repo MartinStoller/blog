@@ -46,7 +46,7 @@ provided out-of-the-box data lineage, showing exactly which document influenced 
 Choosing a platform like Databricks does involve navigating the "vendor lock-in" conversation, 
 the weight of which depends entirely on your organization’s specific needs. There is also the "Blackbox" trade-off 
 to consider: in exchange for the simplicity, you do lose a degree of granular control over the 
-underlying infrastructure - a reality that can be frustrating for engineers who prefer to turn every knob themselves. 
+underlying infrastructure - a reality that can be frustrating for engineers who prefer to turn every knob themselves.
 
 However, in an enterprise context, the takeaway is hard to ignore: Databricks makes the development of Agentic RAG 
 applications simpler, faster, and more reliable. In my personal experience, the platform offers advantages in almost 

@@ -18,11 +18,11 @@ While we felt empowered by the lack of vendor lock-in, the reality was a constan
 
 Here are just a few of the battles we had to fight:
 - **The Scraping Bottleneck**: Scaling our logic to fetch and parse hundreds of thousands of files was extremely challenging. Beyond writing code that handles parallelism and memory management, you are suddenly responsible for the entire vertical stack: the relational DB, the Vector DB, network saturation, and the physical hardware limits of your Kubernetes nodes.
-- **OCR Fragmentation**: Extracting text from PDFs, PPTXs, and images required different libraries and custom "glue code." Comparing a new OCR technique for PNG files could take days of refactoring.
-- **Monitoring Void**: Building LLMOps from scratch—tracking latency, user feedback, and cost per request—took weeks of engineering effort. Without it, we were flying blind.
+- **OCR Fragmentation**: Extracting text from PDFs, PPTXs, and images required different libraries and custom "glue code." Comparing a new OCR technique for PNG files could take days of analysis and refactoring.
+- **Monitoring Void**: Building LLMOps from scratch - tracking latency, user feedback, and cost per request - took weeks of engineering effort. Without it, we were flying blind.
 
 I wasn't deeply involved in the economic side of things but if a customer would approach me with the idea of self-hosting
-again I would recommend a **Infrastructure Reality Check**: In a high-wage market like Germany, "saving money" on cloud
+again I would recommend an **Infrastructure Reality Check**: In a high-wage market like Germany, "saving money" on cloud
 licenses by using on-prem potentially backfires. If two senior engineers spend 50% of their
 time managing Kubernetes instead of building features, that "free" infrastructure is costing you
 €150,000+ a year in productivity.
@@ -30,7 +30,7 @@ While I recognize that privacy or regulatory requirements sometimes make self-ho
 And that is before we even account for the sheer engineering velocity and advanced tooling that a managed platform provides...
 
 ### The Databricks Shift: Data Proximity & Velocity
-When I moved to a similar project on Databricks, I didn't know what to expect at all. I only knew it as the Lakehouse
+When I moved to a similar project on Databricks, I didn't know what to expect at all. I only knew Databricks as the Lakehouse
 and Big-Data Platform that it originally started out as (and still is).
 However, it didn't take long to experience how much the landscape changes when your RAG stack is natively integrated into your data stack. The advantages weren't just incremental; they were transformative:
 - **Data Proximity**: Once you get your raw source data into Databricks everything becomes incredibly fast. Your data lake, data warehouse, Vector DB, Metastore & run time environment all live in the same place and are built for maximum reliability and scalability.

@@ -1,6 +1,6 @@
 | Date       | Target Audience                                                 |
 |------------|-----------------------------------------------------------------|
-| 13.03.2026 | Infrastructure decision makers, Software-, Data- & ML-Engineers |
+| 14.05.2026 | Infrastructure decision makers, Software-, Data- & ML-Engineers |
 
 # Is Databricks About to Become the Dominant RAG Platform?
 Building a proof-of-concept RAG system is a weekend project. Building a production-grade, agentic

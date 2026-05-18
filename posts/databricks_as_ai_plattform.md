@@ -55,7 +55,11 @@ every aspect, from development and monitoring to hosting and security.
 I struggle to find convincing arguments against using Databricks, which makes me see a future where Databricks could 
 emerge from the current AI tooling chaos as the undisputed market leader for building enterprise Agentic RAG systems.
 
+Due to my limited exposure to competing platforms, I can only speak to the self-hosted vs databricks comparison.
+Whether a competitor like Snowflake or Amazon has already built an even better platform I can't say.
+
 For those navigating strict regulatory constraints that forbid cloud processing, or for teams where the 
 "Databricks Premium" is a barrier, there is a middle ground. Many of the platform's core components - such as MLflow 
 for LLMOps and Unity Catalog for governance - are open source. You can adopt the architectural standards 
 of the dominant platform to maintain your engineering velocity without being fully locked into its cloud billing. 
+

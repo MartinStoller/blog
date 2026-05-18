@@ -2,7 +2,7 @@
 |------------|-----------------------------------------------------------------|
 | 14.05.2026 | Infrastructure decision makers, Software-, Data- & ML-Engineers |
 
-# Is Databricks About to Become the Dominant RAG Platform?
+# Why Managed AI Platforms Like Databricks Are Winning Enterprise RAG
 Building a proof-of-concept RAG system is a weekend project. Building a production-grade, agentic
 system that scales, stays secure, and remains maintainable is a multi-month engineering marathon.
 It's the point where "it works on my machine" needs to transition into a
@@ -17,7 +17,7 @@ We hosted it on-premise via Kubernetes, and managed everything from the vector d
 While we felt empowered by the lack of vendor lock-in, the reality was a constant battle against infrastructure friction.
 
 Here are just a few of the battles we had to fight:
-- **The Scraping Bottleneck**: Scaling our logic to fetch and parse hundreds of thousands of files was extremely challenging. Beyond writing code that handles parallelism and memory management, you are suddenly responsible for the entire vertical stack: the relational DB, the Vector DB, network saturation, and the physical hardware limits of your Kubernetes nodes.
+- **The Scraping Bottleneck**: Scaling our logic to fetch and parse hundreds of thousands of files was extremely challenging. Beyond writing code that handles parallelism and memory management, you are suddenly responsible for the entire vertical stack: the relational DB, the Vector DB, network saturation, and the physical hardware limits of your Kubernetes nodes. Having everything up and running was tricky. Processing >100,000 documents within hours instead of days was even harder and took us months.
 - **OCR Fragmentation**: Extracting text from PDFs, PPTXs, and images required different libraries and custom "glue code." Comparing a new OCR technique for PNG files could take days of analysis and refactoring.
 - **Monitoring Void**: Building LLMOps from scratch - tracking latency, user feedback, and cost per request - took weeks of engineering effort. Without it, we were flying blind.
 
@@ -32,21 +32,21 @@ And that is before we even account for the sheer engineering velocity and advanc
 ### The Databricks Shift: Data Proximity & Velocity
 When I moved to a similar project on Databricks, I didn't know what to expect at all. I only knew Databricks as the Lakehouse
 and Big-Data Platform that it originally started out as (and still is).
-However, it didn't take long to experience how much the landscape changes when your RAG stack is natively integrated into your data stack. The advantages weren't just incremental; they were transformative:
-- **Data Proximity**: Once you get your raw source data into Databricks everything becomes incredibly fast. Your data lake, data warehouse, Vector DB, Metastore & run time environment all live in the same place and are built for maximum reliability and scalability.
-- **Serverless Scale**: Scraping became a function of Spark UDFs. We didn't manage workers; we just defined the logic, and Spark handled the autoscaling.
-- **The Unity Catalog Edge**: Governance in RAG is notoriously difficult. Unity Catalog allowed us to
-define not just who can see the data, but who can execute agentic tools (like scraping a repo or table at query-time). It
-provided out-of-the-box data lineage, showing exactly which document influenced a specific LLM response.
+However, it didn't take long to experience how much the landscape changes when your RAG stack is natively integrated into your data stack. The advantages were quite impressive:
+- **Data Proximity**: Once you get your raw source data into Databricks many things become faster and simpler. Your data lake, data warehouse, Vector DB, Metastore & run time environment all live in the same place and are built for maximum reliability and scalability.
+- **Serverless Scale**: We moved much of the ingestion and document-processing pipeline into Spark-based workflows. That significantly reduced the operational burden around worker orchestration, autoscaling, and distributed processing.
+- **The Unity Catalog Edge**: Unity Catalog helped us treat RAG pipelines more like governed data products by providing centralized permissions, lineage metadata, and traceability between source documents, embeddings, and downstream responses.
 - **Scientific Evaluation**: We moved past "vibe-checking" answers. Using built-in feedback features and "LLM-as-a-judge" patterns, we could scientifically score retrieval quality. This removed the anxiety and guesswork from changing a chunking strategy or swapping a model.
-- **Guardrails and Security**: Databricks provided refreshingly simple yet powerful solutions for protecting against prompt injection, handling authentication and rate limiting.
-- **Engineering Velocity**: Because so many things on data, code and infrastructure level are being handled for you, development speed felt 10x faster.
+- **Guardrails and Security**: Though there are no perfect solutions for this, Databricks provided refreshingly simple yet powerful solutions for protecting against prompt injection, handling authentication and rate limiting.
+- **Engineering Velocity**: Many things on data, code and infrastructure level are being handled for you. This felt like a multiplier for development speed.
 
 ### Conclusion: Dominance or Just a Better Tool?
 Choosing a platform like Databricks does involve navigating the "vendor lock-in" conversation, 
 the weight of which depends entirely on your organization’s specific needs. There is also the "Blackbox" trade-off 
 to consider: in exchange for the simplicity, you do lose a degree of granular control over the 
 underlying infrastructure - a reality that can be frustrating for engineers who prefer to turn every knob themselves.
+
+Another advantage in my case was prior hands-on experience with Databricks and PySpark. That familiarity likely accelerated onboarding and development speed. Teams that are new to the platform should expect an initial learning curve before realizing the same productivity gains.
 
 However, in an enterprise context, the takeaway is hard to ignore: Databricks makes the development of Agentic RAG 
 applications simpler, faster, and more reliable. In my personal experience, the platform offers advantages in almost 

@@ -40,7 +40,7 @@ However, it didn't take long to experience how much the landscape changes when y
 - **Guardrails and Security**: Though there are no perfect solutions for this, Databricks provided well-integrated mechanisms for protecting against prompt injection, handling authentication and rate limiting.
 - **Engineering Velocity**: Many concerns across the data, infrastructure, and operational stack are abstracted away for you. This felt like a multiplier for development speed.
 
-### Conclusion
+### Discussion & Conclusion
 Choosing a platform like Databricks does involve navigating the "vendor lock-in" conversation, 
 the weight of which depends entirely on your organization’s specific needs. There is also the "black-box" trade-off 
 to consider: in exchange for the simplicity, you do lose a degree of granular control over the 

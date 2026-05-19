@@ -2,7 +2,7 @@
 |------------|-----------------------------------------------------------------|
 | 14.05.2026 | Infrastructure decision makers, Software-, Data- & ML-Engineers |
 
-# Why Managed AI Platforms Like Databricks Are Winning Enterprise RAG
+# Self-Hosting vs. Databricks in enterprise RAG: The hidden price of 'free' infrastructure
 Building a proof-of-concept RAG system is a weekend project. Building a production-grade, agentic
 system that scales, stays secure, and remains maintainable is a multi-month engineering marathon.
 It's the point where "it works on my machine" needs to transition into a

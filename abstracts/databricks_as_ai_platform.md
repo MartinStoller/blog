@@ -1,6 +1,6 @@
 **Self-Hosting vs Databricks in enterprise RAG: Die versteckten Kosten von 'gratis' Infrastruktur**
 
-In den letzten Jahren habe ich an zwei sehr ähnlichen agentic-RAG-Projekten gearbeitet. Technisch vergleichbares Zielbild, aber völlig unterschiedliche Realität im Engineering-Alltag.
+In den letzten Jahren habe ich an zwei ähnlichen agentic-RAG-Projekten gearbeitet. Technisch vergleichbares Zielbild, aber völlig unterschiedliche Realität im Engineering-Alltag.
 
 Einmal:
 Self-hosted, Kubernetes, eigener Ingestion-Stack, eigene OCR-Pipelines, eigenes Monitoring.

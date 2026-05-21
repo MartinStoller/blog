@@ -7,9 +7,9 @@ A personal blog focused on data engineering, high-load systems, PySpark and what
 - 👶 [Has AI made Junior Developers obsolete?](posts/junior-vs-ai.md)
 - 🌊🏡 [When (not) to use a Lakehouse](posts/when-not-to-use-lakehouses.md)
 - 🤖 [Self-Hosting vs. Databricks in enterprise RAG: The hidden price of 'free' infrastructure](posts/databricks_as_ai_plattform.md)
+- 🚦[The Case for TDD in Data Pipelines](posts/tdd-in-de.md)
 
 ### Ideas for future posts
-- The case for TDD when building data pipelines
 - Functional column expressions: writing more mature PySpark code
 - Streaming vs Micro-Batching: A concept many stakeholders should better understand
 - Bridging the gap between OLAP and OLTP Systems: How to keep your analytics platform in sync with your transactional persistence layer (Lakebase, CDC, ...)

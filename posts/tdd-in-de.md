@@ -14,8 +14,8 @@ But I don't want to stop at arguing for unit tests in general. In my most recent
 Test-Driven Development (TDD) to our data pipelines - something that initially felt almost unnatural in a data engineering context. 
 It ended up solving a surprising number of problems for us, and fundamentally changed how I think about building pipeline logic.
 
-### Data Engineers, Why Didn't We Test Already?
-I have worked at four different companies building data pipelines. None of them had a single unit test in place when I arrived.
+### Data Engineers, Why Don't We Test?
+I have worked at four different companies building data pipelines (among other things). None of them had a single unit test in place when I arrived.
 
 At the time, I did not spend much energy questioning why that was. But reflecting on it now, I believe there are several contributing factors.
 
@@ -27,7 +27,7 @@ At the time, I did not spend much energy questioning why that was. But reflectin
 ### Why we should test
 Let's talk about why each of these reasons is actually not a real justification to not write unittest:
 
-1. Culture or tradition is obviously a poor argument against unit testing. So let's move on...
+1. Culture or tradition is obviously a poor argument against unit testing. So let's move on to more rational arguments.
 2. It is true that many data pipelines are built using declarative languages or APIs such as SQL or Spark. However, these technologies are only declarative at the level of individual operations. As engineers, we still combine those operations into highly customized business logic, often spanning dozens or hundreds of transformations. At that level, data pipelines are fundamentally no different from traditional software systems. In both backend systems and data pipelines, the goal of unit testing is ultimately the same: identify the boundary between framework functionality and custom business logic - and test the custom logic aggressively.
 3. Data quality checks, sanity checks, and similar validations are important. However, they primarily assess the overall validity of a pipeline’s output in a broad sense.
     

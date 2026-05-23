@@ -42,7 +42,7 @@ Let's talk about why each of these reasons is actually not a real justification 
     
     Because they operate at such a high level, it is also difficult to design them in a way that reliably captures all relevant failure modes. They are very effective for simple constraints - such as ensuring non-nullability or basic schema validity - but become significantly less precise when it comes to verifying more complex business logic.
     
-    Another limitation is that they often fail too late. Ideally, we want to fail as early as possible. Relying solely on downstream sanity checks increases the likelihood that issues are only detected in production, where data is more complex, noisy, and unpredictable than in the mock datasets used during development.
+    Another limitation is that they often fail too late. Ideally, we want to fail as early as possible. Relying solely on downstream sanity checks increases the likelihood that issues are only detected in production, where data is more complex, noisy, and unpredictable than in the known datasets used during development.
 4. Pipeline logic can initially feel harder to test than traditional application code. However, this is not a fundamental limitation. With the right design principles, it becomes entirely manageable. We will explore these later.
 
 

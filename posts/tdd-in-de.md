@@ -1,6 +1,6 @@
 | Date       | Target Audience                                          |
 |------------|----------------------------------------------------------|
-| 14.05.2026 | Data Engineers & Everyone writing complex Data Pipelines |
+| 25.05.2026 | Data Engineers & Everyone writing complex Data Pipelines |
 
 
 # The Case for TDD in Data Pipelines
@@ -51,15 +51,15 @@ As mentioned above, non-trivial data pipelines and backend code are similar in t
 
 That is not to say that the development experience in these two worlds is identical.
 
-Generally speaking, backend systems often have higher technical complexity. You frequently have to deal with more abstraction layers, write more imperative code, handle concurrency or parallelism, work with a larger variety of entities and edge cases, and use patterns such as dependency injection, inheritance, or sophisticated state management.
+Generally speaking, backend systems often have **higher technical complexity**. You frequently have to deal with more abstraction layers, write more imperative code, handle concurrency or parallelism, work with a larger variety of entities and edge cases, and use patterns such as dependency injection, inheritance, or sophisticated state management.
 
-But because of that, backend development often also has more contextual clarity.
+But because of that, backend development often also has **more contextual clarity**.
 You have the freedom to create your own abstractions, tailor your data models, and structure your application in a way that makes the intent of the system easier to understand - both for humans and for machines. A feature might be technically difficult to implement, but can often still be described clearly in both code and human language.
 
-On the flip side, ETL pipelines often have lower technical depth. Partly because of the declarative nature of the dominant languages and frameworks. Partly because modern runtimes automatically handle many low-level concerns such as optimization, execution planning, and resource management for you.
+On the flip side, ETL pipelines often have **lower technical depth**. Partly because of the declarative nature of the dominant languages and frameworks. Partly because modern runtimes automatically handle many low-level concerns such as optimization, execution planning, and resource management for you.
 
 But that does not necessarily make data engineering simpler overall.
-The main challenge in batch processing is often the contextual complexity.
+The main challenge in batch processing is often the **contextual complexity**.
 
 Your inputs are usually large, complex entities that you have limited control over, because upstream systems, customers, or other teams dictate the shape and semantics of the data. Schemas evolve continuously. Business definitions change. Assumptions that were valid yesterday silently become invalid tomorrow - especially during active development.
 

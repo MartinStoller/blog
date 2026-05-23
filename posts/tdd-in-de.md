@@ -86,8 +86,12 @@ At the same time, I also told them that in practice I see several strong argumen
 - The development process itself often becomes significantly clearer when the test is written first. Counterintuitively, writing the test before the implementation can even be faster overall than writing only the implementation directly. While designing the test, you are forced to understand the data, think through edge cases, clarify assumptions, and define the expected behavior precisely. In other words: the contextual complexity becomes clearer, and what remains afterwards is often a relatively simple technical implementation. The more context-heavy a system is, the more valuable this becomes.
 - In the age of increasingly capable AI coding agents, well-written tests also become an extremely powerful form of specification. In some cases, the tests themselves already contain most of the context required for implementation. The engineer’s role shifts more toward precisely defining behavior and constraints than manually writing every line of implementation code.
 
+Summarizing, with TDD we usually get better tests, more reliable implementations and (potentially) a faster development process, while
+also documenting many assumptions in our code, which can be used both by developers, other stakeholders and AI.
 
 ### How we should test
+So far this was all a little abstract. Let's have a look at some concrete examples.
+
 Let's start by exploring why pipeline code can feel almost untestable. Consider the following code PySpark snippet:
 
 

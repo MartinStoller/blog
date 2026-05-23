@@ -1,3 +1,8 @@
+| Date       | Target Audience                                          |
+|------------|----------------------------------------------------------|
+| 14.05.2026 | Data Engineers & Everyone writing complex Data Pipelines |
+
+
 # The Case for TDD in Data Pipelines
 Claiming that unit tests are important, and that good test design and meaningful test coverage are desirable in software development, is among the least controversial statements you can make in software engineering.
 There may be disagreements about what "proper" coverage means, which parts of a system deserve the most attention, or how tests should be implemented in practice. 

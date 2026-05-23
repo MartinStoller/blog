@@ -54,7 +54,7 @@ That is not to say that the development experience in these two worlds is identi
 Generally speaking, backend systems often have **higher technical complexity**. You frequently have to deal with more abstraction layers, write more imperative code, handle concurrency or parallelism, work with a larger variety of entities and edge cases, and use patterns such as dependency injection, inheritance, or sophisticated state management.
 
 But because of that, backend development often also has **more contextual clarity**.
-You have the freedom to create your own abstractions, tailor your data models, and structure your application in a way that makes the intent of the system easier to understand - both for humans and for machines. A feature might be technically difficult to implement, but can often still be described clearly in both code and human language.
+You have the freedom to create your own abstractions, tailor your data models, and structure your application in a way that makes the intent of the system easier to understand - both for humans and agents. A feature might be technically difficult to implement, but can often still be described clearly in both code and human language.
 
 On the flip side, ETL pipelines often have **lower technical depth**. Partly because of the declarative nature of the dominant languages and frameworks. Partly because modern runtimes automatically handle many low-level concerns such as optimization, execution planning, and resource management for you.
 
@@ -67,9 +67,7 @@ It is the large number of hidden rules, semantic assumptions, and undocumented c
 
 Traditional backend systems often allow complexity to be isolated more effectively through abstractions and separation of concerns. When done well, a new engineer can contribute productively to a code base without fully understanding the business domain immediately.
 
-In data engineering, this is much harder.
-
-With column-oriented and transformation-heavy logic - as is common in data pipelines - reasoning locally about the effects of a change becomes difficult. Pipelines and their individual transformations are often deeply interconnected and dependent on each other.
+In data engineering, this is much harder. With column-oriented and transformation-heavy logic - as is common in data pipelines - reasoning locally about the effects of a change becomes difficult. Pipelines and their individual transformations are often deeply interconnected and dependent on each other.
 
 As a result, even small changes in code or business requirements can create surprisingly large ripple effects throughout the system.
 
@@ -86,7 +84,7 @@ At the same time, I also told them that in practice I see several strong argumen
 
 - Once the implementation is finished, most developers naturally want to move on. There is a strong psychological tendency to think: 
     "It works now, so why spend more time writing tests?" As a result, tests written afterwards are often fewer in number, lower in quality, or skipped entirely - especially under time pressure. 
-- The development process itself often becomes significantly clearer when the test is written first. Counterintuitively, writing the test before the implementation can even be faster overall than writing only the implementation directly. While designing the test, you are forced to understand the data, think through edge cases, clarify assumptions, and define the expected behavior precisely. In other words: the contextual complexity becomes clearer, and what remains afterwards is often “just” the technical implementation. The more context-heavy a system is, the more valuable this becomes.
+- The development process itself often becomes significantly clearer when the test is written first. Counterintuitively, writing the test before the implementation can even be faster overall than writing only the implementation directly. While designing the test, you are forced to understand the data, think through edge cases, clarify assumptions, and define the expected behavior precisely. In other words: the contextual complexity becomes clearer, and what remains afterwards is often a relatively simple technical implementation. The more context-heavy a system is, the more valuable this becomes.
 - In the age of increasingly capable AI coding agents, well-written tests also become an extremely powerful form of specification. In some cases, the tests themselves already contain most of the context required for implementation. The engineer’s role shifts more toward precisely defining behavior and constraints than manually writing every line of implementation code.
 
 

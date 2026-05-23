@@ -77,8 +77,8 @@ for many of these hidden assumptions and dependencies. Writing tests forces engi
 think about edge cases earlier, and clarify business semantics while implementing the logic itself.
 
 Technically, you could argue that it does not matter much whether tests are written before the implementation (TDD) or afterwards. And to some extent, I agree.
-
 As Tech Lead in my last project, I told my team that unit tests were mandatory, but that they could decide for themselves whether to write them before or after the implementation.
+
 At the same time, I also told them that in practice I see several strong arguments for writing tests rigorously before implementation:
 
 - Once the implementation is finished, most developers naturally want to move on. There is a strong psychological tendency to think: 

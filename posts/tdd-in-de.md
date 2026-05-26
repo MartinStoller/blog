@@ -237,6 +237,9 @@ def test_extract_cleaned_address_details():
 
 Another practical tip for testing: make sure you have a proper local Spark configuration for your tests. This mostly means allocating enough memory to your setup and reducing the default shuffle partitions to around 2 (instead of the default 200, which is therefore much less efficient).
 
+Moreover, you obviously don't have to hardcode your testdata into the test. Especially when reusing data or working with
+larger data structures you might want to load external files instead.
+
 **Testing SQL**
 
 Using PySpark, you can even test your SQL queries. The idea is similar. Let’s use the PySpark testing package instead of chispa this time:

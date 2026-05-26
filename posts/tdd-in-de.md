@@ -7,9 +7,7 @@
 Claiming that unit tests are important, and that good test design and meaningful test coverage are desirable in software development, is among the least controversial statements you can make in software engineering.
 There may be disagreements about what "proper" coverage means, which parts of a system deserve the most attention, or how tests should be implemented in practice. 
 There may be even teams that openly admit they do little or no unit testing at all due to time pressure, delivery constraints, or technical debt.
-But you will rarely hear a senior engineer explore a new code base and say:
-
-    "Interesting... you decided to test your application. I don't think we should do that."
+But you will rarely hear an experienced software engineer claim that testing would be unnecessary or undesirable.
 
 Yet for some reason, the world of data engineering often seems to ignore the existence of unit tests entirely.
 In my experience, testing is frequently not even discussed as an option when building ETL jobs, Spark transformations, or streaming pipelines. Data quality checks may exist. End-to-end validation may exist. But actual unit tests for transformation logic are surprisingly rare.
@@ -43,6 +41,7 @@ Let's talk about why each of these reasons is actually not a real justification 
     Because they operate at such a high level, it is also difficult to design them in a way that reliably captures all relevant failure modes. They are very effective for simple constraints - such as ensuring non-nullability or basic schema validity - but become significantly less precise when it comes to verifying more complex business logic.
     
     Another limitation is that they often fail too late. Ideally, we want to fail as early as possible. Relying solely on downstream sanity checks increases the likelihood that issues are only detected in production, where data is more complex, noisy, and unpredictable than in the known datasets used during development.
+    In data-intensive environments, failing late is particularly problematic because feedback cycles are slower, reruns are expensive, and downstream systems may already depend on corrupted outputs.
 4. Pipeline logic can initially feel harder to test than traditional application code. However, this is not a fundamental limitation. With the right design principles, it becomes entirely manageable. We will explore these later.
 
 
@@ -54,7 +53,7 @@ That is not to say that the development experience in these two worlds is identi
 Generally speaking, backend systems often have **higher technical complexity**. You frequently have to deal with more abstraction layers, write more imperative code, handle concurrency or parallelism, work with a larger variety of entities and edge cases, and use patterns such as dependency injection, inheritance, or sophisticated state management.
 
 But because of that, backend development often also has **more contextual clarity**.
-You have the freedom to create your own abstractions, tailor your data models, and structure your application in a way that makes the intent of the system easier to understand - both for humans and agents. A feature might be technically difficult to implement, but can often still be described clearly in both code and human language.
+You have the freedom to create your own abstractions, tailor your data models, and structure your application in a way that makes the intent of the system easier to understand - both for humans and agents.
 
 On the flip side, ETL pipelines often have **lower technical depth**. Partly because of the declarative nature of the dominant languages and frameworks. Partly because modern runtimes automatically handle many low-level concerns such as optimization, execution planning, and resource management for you.
 
@@ -89,34 +88,213 @@ At the same time, I also told them that in practice I see several strong argumen
 Summarizing, with TDD we usually get better tests, more reliable implementations and (potentially) a faster development process, while
 also documenting many assumptions in our code, which can be used both by developers, other stakeholders and AI.
 
+
 ### How we should test
-So far this was all a little abstract. Let's have a look at some concrete examples.
+So far this was all a little abstract. Let’s have a look at some concrete examples.
 
-Let's start by exploring why pipeline code can feel almost untestable. Consider the following code PySpark snippet:
+We start by exploring why pipeline code can feel hard to test. Similar to regular backend development, the testability of your code is an important indicator of its quality.
 
+Consider this example, where we want to convert German umlauts (ä, ö, ü to ae, oe, ue) and extract city and street from an address string:
 
-(mention proper libraries like chispa)
+So we want to transform this:
 
+| Cust_id | Address                             |
+|--------:|-------------------------------------|
+| 1 | Max-Schär-Str, 50733, Köln, Germany |
+| 2 | Eichenweg, München, Germany         |
+| 3 | Klötzlmüllerstr, Landshut, Germany  |
+
+to this:
+
+| Cust_id | street             | city     
+|--------:|--------------------|------------|
+| 1 | Max-Schaer-Str     | Koeln     |
+| 2 | Eichenweg          | Muenchen  |
+| 3 | Kloetzlmuellerstr  | Landshut  |
+
+A developer might attempt to solve this with the following function:
+```python
+def extract_cleaned_address_details(df: DataFrame) -> DataFrame:
+    # Replace German umlauts
+    replacements = {
+        "ä": "ae",
+        "ö": "oe",
+        "ü": "ue"
+    }
+
+    address_clean = reduce(
+        lambda col, kv: F.regexp_replace(col, kv[0], kv[1]),
+        replacements.items(),
+        F.col("Address")
+    )
+    
+    # Split by comma
+    parts = F.split(address_clean, r",\s*")
+    
+    # Build transformed dataframe
+    result = (
+        df.withColumn("parts", parts)
+          .withColumn("street", F.col("parts")[0])
+          .withColumn(
+              "city",
+              F.when(F.size("parts") == 4, F.col("parts")[2])
+               .otherwise(F.col("parts")[1])
+          )
+          .select("Cust_id", "street", "city")
+    )
+
+    return result
+```
+
+We can immediately see how this code is not easy to read (especially without comments helping out).
+This is mainly due to two things:
+
+1. Our function has two tasks: cleaning and splitting the string.
+2. The functionality for handling the umlauts returns a full DataFrame when it actually only needs to return a single Column.
+
+If we instead write the two tasks into separate functions and turn the umlaut parsing function into a column expression, we will immediately see how we introduce reusability, better readability, and testability:
+```python
+def parse_umlauts(col: Column) -> Column:
+    replacements = {
+        "ä": "ae",
+        "ö": "oe",
+        "ü": "ue"
+    }
+
+    return reduce(
+        lambda c, kv: F.regexp_replace(c, kv[0], kv[1]),
+        replacements.items(),
+        col
+    )
+
+def extract_cleaned_address_details(df: DataFrame) -> DataFrame:
+    parts = F.split(F.col("Address"), r",\s*")
+
+    return df.select(
+        "Cust_id",
+        parse_umlauts(parts[0]).alias("street"),
+        parse_umlauts(parts[2]).alias("city")
+    )
+```
+This is just a demo, so don't get hung up if you would have written these functions differently.
+The point is: be very careful about the single responsibility principle, and be aware of functions returning DataFrames when they could just return columns.
+
+During development, I always try to think: what is the minimum viable input and output of a function. This also helps avoid growing individual functions over time as new requirements are introduced.
+
+So now that we have testable code, how do we actually test it?
+
+PySpark does have a testing module, but generally I like to use the [chispa](https://github.com/MrPowers/chispa) library for most assertions.
+
+When writing tests, I usually start by classifying whether I am writing a test for a column expression or a DataFrame-returning function.
+
+This is because column expressions can be nicely asserted by comparing two columns of the same DataFrame like so:
+```python
+def test_parse_umlauts():
+    data = [
+        ("Köln", "Koeln"),
+        ("München", "Muenchen"),
+        ("Schär", "Schaer"),
+        ("Klötzlmüllerstr", "Kloetzlmuellerstr"),
+        (None, None)
+    ]
+
+    df = (
+        spark.createDataFrame(data, ["city", "expected_city"])
+        .withColumn("clean_city", parse_umlauts(F.col("city")))
+    )
+
+    assert_column_equality(df, "clean_city", "expected_city")
+```
+
+DataFrame functions, on the other hand, usually require asserting equality between two DataFrames:
+```python
+def test_extract_cleaned_address_details():
+    source_data = [
+        (1, "Max-Schär-Str, 50733, Köln, Germany"),
+        (2, "Eichenweg, 81122, München, Germany"),
+        (3, "Klötzlmüllerstr, 84034, Landshut, Germany"),
+        (4, None)
+    ]
+
+    source_df = spark.createDataFrame(source_data, ["Cust_id", "Address"])
+
+    actual_df = extract_cleaned_address_details(source_df)
+
+    expected_data = [
+        (1, "Max-Schaer-Str", "Koeln"),
+        (2, "Eichenweg", "Muenchen"),
+        (3, "Kloetzlmuellerstr", "Landshut"),
+        (4, None, None)
+    ]
+
+    expected_df = spark.createDataFrame(
+        expected_data,
+        ["Cust_id", "street", "city"]
+    )
+
+    assert_df_equality(actual_df, expected_df)
+```
+
+Another practical tip for testing: make sure you have a proper local Spark configuration for your tests. This mostly means allocating enough memory to your setup and reducing the default shuffle partitions to around 2 (instead of the default 200, which is therefore much less efficient).
+
+**Testing SQL**
+
+Using PySpark, you can even test your SQL queries. The idea is similar. Let’s use the PySpark testing package instead of chispa this time:
+```python
+from pyspark.testing import assertDataFrameEqual
+
+query = f"SELECT * from {df} where age > {age}"  # arbitrarily complex SQL query
+
+test_data = spark.createDataFrame(
+    [
+        (1, "Hans", 22),
+        (2, "Franz", 30),
+        (3, "Günther", None),
+    ],
+    ["id", "name", "age"],
+)
+
+expected = spark.createDataFrame(
+    [
+        (2, "Franz", 30),
+    ],
+    ["id", "name", "age"],
+)
+
+actual = spark.sql(query, df=test_data, age=25)
+assertDataFrameEqual(actual, expected)
+```
 
 ### The advantages of TDD specifically
 
 Unittests as a contract which data is expected by the pipeline. 
+
 https://www.youtube.com/watch?v=TbWcCyP2MgE
 was im TODO obsidian noch dazu steht
 
 tests catch bigs that have already happened and prevent them from happining again. dont claim in this articla tests would prevent all bugs
 
+### Managing Expectations
+In my experience, unit tests are sometimes misunderstood as a mechanism that somehow prevents new bugs from appearing altogether.
+
+That is usually not how testing works in practice.
+Most bugs are, by definition, unexpected. You typically did not write a test for a bug you could not yet anticipate.
+
+The primary value of unit tests is therefore not that they magically eliminate all future bugs, but that they document and preserve behavior that is already known and understood. Once a bug has been discovered and fixed, a corresponding test ensures that the same regression does not silently reappear later.
+
+This becomes especially important in ETL pipelines, where systems are often highly interconnected and tightly coupled. Seemingly small changes in one transformation can create unexpected side effects throughout the rest of the pipeline.
+In this kind of environment, a strong test suite becomes less about proving absolute correctness and more about creating confidence that changes do not unintentionally break existing behavior.
+
+Observability may ultimately matter more than unit testing in many data systems because real-world data is messy and unpredictable. But that does not make unit tests unimportant. It simply means that data engineering requires multiple complementary layers of validation rather than relying on a single strategy alone.
+
 ### Conclusion
-At the very least I advocate for having the same Testing Standards in Data Engineering as in "classical" Backend Development.
-The one uses JOINs, GROUP BYs and Window Functions as individual building blocks, the other uses loops, if-statements and third party API calls. 
-But in the end both build custom Software with custom logic and that needs to be tested regardless.
-In both cases unit tests are an irreplacable way to not only identify even subtle bugs but also locate them and thus drastically increase long-term 
-development speed as well as production stability.
+I advocate for applying at least similar testing standards in data engineering as we already expect in “classical” backend development.
 
-In my experience High test coverage can be even more important in data pipelines due to the high interdependence of units. 
-If input data, requirements or some assumption changes this can often affect multiple units in your code and helps avoiding the trap of a bugfix creating two new bugs.
-Therefore, TDD specifically can help a lot with keeping test coverage high and reducing bugs by providing clearity on the expected inputs and outputs before the actual implementations.
-Finally, it can provide your Coding Agent with essential context about your data, elevating it from a nice little helper to something implementing most - if not all - of your actual business logic.
+One world uses JOINs, GROUP BYs, and window functions as its primary building blocks. The other relies more heavily on loops, conditionals, state management, and third-party APIs. But in the end, both domains build custom software containing custom business logic — and custom logic needs to be tested regardless of the underlying technology.
 
-TDD for complex data pipelines is great! You should try it.
+For us, TDD specifically was surprisingly powerful and I am looking forward to gathering even more experience with it. 
 
+Of course, every system is different, and no engineering practice is universally optimal in every situation. My argument is not that TDD magically solves all problems in data engineering.
+But I do believe this:
+
+TDD is massively underrated in data pipelines. Most ETL teams probably have never seriously tried it. They should.

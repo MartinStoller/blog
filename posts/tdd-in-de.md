@@ -237,8 +237,9 @@ def test_extract_cleaned_address_details():
 
 Another practical tip for testing: make sure you have a proper local Spark configuration for your tests. This mostly means allocating enough memory to your setup and reducing the default shuffle partitions to around 2 (instead of the default 200, which is therefore much less efficient).
 
-Moreover, you obviously don't have to hardcode your testdata into the test. Especially when reusing data or working with
-larger data structures you might want to load external files instead.
+Moreover, you obviously do not have to hardcode your test data directly in the test. Especially when reusing data or working with larger datasets, it can make sense to load test fixtures from external files.
+However, in my experience, large or complex test datasets inside a unit test are often a warning sign. They can indicate that the function under test is doing too much, or that its logic is too hard to reason about in isolation.
+Keeping test data directly inside the test also improves readability and makes it easier to understand the intent at a glance. For that reason, I prefer this as the default approach, and only move test data into external fixtures when there is a clear benefit.
 
 **Testing SQL**
 

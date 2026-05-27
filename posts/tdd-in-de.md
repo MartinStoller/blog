@@ -1,6 +1,6 @@
 | Date       | Target Audience                                          |
 |------------|----------------------------------------------------------|
-| 25.05.2026 | Data Engineers & Everyone writing complex Data Pipelines |
+| 27.05.2026 | Data Engineers & Everyone writing complex Data Pipelines |
 
 
 # The Case for TDD in Data Pipelines
@@ -16,6 +16,49 @@ In this article, I want to explore why that is, how unit tests can be applied ef
 But I don't want to stop at arguing for unit tests in general. In my most recent project, we experimented with applying 
 Test-Driven Development (TDD) to our data pipelines - something that initially felt almost unnatural in a data engineering context. 
 It ended up solving a surprising number of problems for us, and fundamentally changed how I think about building pipeline logic.
+
+### TDD! What madness drove them in there?
+I am not going to lie: until about a year ago, I was also guilty of not prioritizing tests nearly enough.
+And even when building "classical" backend systems, I had never seriously considered using Test-Driven Development.
+
+That changed in my most recent project.
+
+We were building custom pricing models for tourism companies from scratch. Customers would provide highly individual input data about bookings, capacities, prices, seasonal trends, and more. 
+Based on that, we built fairly complex batch-processing pipelines that computed daily pricing updates for thousands of bookable units.
+
+The project followed a highly iterative process.
+We developed an initial prototype, reviewed bugs and unexpected behavior together with the customer, adjusted the business logic, 
+and gradually evolved the system into a production-ready MVP. From there, we kept refining and extending it until the 
+final product emerged. 
+
+This meant we constantly revisited the same functions over and over again. Over time, edge cases, dependencies, and hidden business rules started piling up. Eventually it became difficult to remember 
+why certain features had been implemented in the first place. Why exactly did we apply rule X only to the British market during weekends?
+Was this behavior intentional? Was it a workaround for an earlier issue? Or was it simply a bug nobody had noticed yet?
+
+Two weeks before go-live, everything looked great. The customer had only identified two remaining minor issues related to special pricing rules during the Christmas season. Everything else appeared stable.
+I pushed what was supposed to be one of our final fixes to the staging environment. That fix reintroduced an older issue.
+Fixing that issue caused another regression. Fixing that triggered even larger problems somewhere else in the pipeline.
+
+What followed were two consecutive 60-hour work weeks, multiple emergency meetings, and a painful attempt to reconstruct decisions and assumptions from months earlier.
+
+Thankfully, shortly before go-live, we managed to untangle the situation and stabilize the system again. 
+In the end, the problem turned out to be a combination of hidden regressions, deeply interconnected logic, and contradictory business requirements that had accumulated over time.
+
+After the successful launch, I spent some time reflecting on what had actually happened.
+What allowed a nearly finished system to destabilize so dramatically from what initially looked like a relatively small change?
+And more importantly:
+How could we prevent this from happening again - not only in this system, but in future data pipeline projects as well?
+
+My conclusion was that proper unit testing could have prevented a large part of this chaos.
+Not because tests magically eliminate bugs, but because they preserve knowledge.
+Every edge case, bug fix, business rule, and previously discovered failure mode could have been documented directly in the codebase as executable behavior. Instead of relying on tribal knowledge and memory, the system itself could have continuously verified whether those assumptions still held true.
+
+And that naturally led me toward TDD.
+
+Whenever a new ticket required changes to a transformation, we started translating the expected behavior into a test first. Over time, this not only made the system significantly more stable, but also made the business logic itself easier to understand and reason about.
+
+We tried it and it worked surprisingly well.
+Not only did it dramatically reduce regressions, it also introduced other benefits I had not even considered...
 
 ### Data Engineers, Why Don't We Test?
 I have worked at four different companies building data pipelines (among other things). None of them had a single unit test in place when I arrived.
@@ -44,7 +87,6 @@ Let's talk about why each of these reasons is actually not a real justification 
     In data-intensive environments, failing late is particularly problematic because feedback cycles are slower, reruns are expensive, and downstream systems may already depend on corrupted outputs.
 4. Pipeline logic can initially feel harder to test than traditional application code. However, this is not a fundamental limitation. With the right design principles, it becomes entirely manageable. We will explore these later.
 
-
 ### Technical vs contextual complexity (and how TDD helps with the latter)
 As mentioned above, non-trivial data pipelines and backend code are similar in the sense that both are software, and the arguments for unit testing largely apply to both in the same way.
 
@@ -56,7 +98,6 @@ But because of that, backend development often also has **more contextual clarit
 You have the freedom to create your own abstractions, tailor your data models, and structure your application in a way that makes the intent of the system easier to understand - both for humans and agents.
 
 On the flip side, ETL pipelines often have **lower technical depth**. Partly because of the declarative nature of the dominant languages and frameworks. Partly because modern runtimes automatically handle many low-level concerns such as optimization, execution planning, and resource management for you.
-
 But that does not necessarily make data engineering simpler overall.
 The main challenge in batch processing is often the **contextual complexity**.
 
@@ -66,8 +107,7 @@ It is the large number of hidden rules, semantic assumptions, and undocumented c
 
 Traditional backend systems often allow complexity to be isolated more effectively through abstractions and separation of concerns. When done well, a new engineer can contribute productively to a code base without fully understanding the business domain immediately.
 
-In data engineering, this is much harder. With column-oriented and transformation-heavy logic - as is common in data pipelines - reasoning locally about the effects of a change becomes difficult. Pipelines and their individual transformations are often deeply interconnected and dependent on each other.
-
+In data engineering, this is much harder. With column-oriented and holistic logic - as is common in data pipelines - reasoning locally about the effects of a change becomes difficult. Pipelines and their individual transformations are often deeply interconnected and dependent on each other.
 As a result, even small changes in code or business requirements can create surprisingly large ripple effects throughout the system.
 
 This is where unit tests become incredibly valuable.
@@ -87,7 +127,6 @@ At the same time, I also told them that in practice I see several strong argumen
 
 Summarizing, with TDD we usually get better tests, more reliable implementations and (potentially) a faster development process, while
 also documenting many assumptions in our code, which can be used both by developers, other stakeholders and AI.
-
 
 ### How we should test
 So far this was all a little abstract. Let’s have a look at some concrete examples.
@@ -270,14 +309,12 @@ assertDataFrameEqual(actual, expected)
 ```
 
 
-### The advantages of TDD specifically
+### How 
 
 Unittests as a contract which data is expected by the pipeline. 
 
 https://www.youtube.com/watch?v=TbWcCyP2MgE
 was im TODO obsidian noch dazu steht
-
-tests catch bigs that have already happened and prevent them from happining again. dont claim in this articla tests would prevent all bugs
 
 ### Managing Expectations
 In my experience, unit tests are sometimes misunderstood as a mechanism that somehow prevents new bugs from appearing altogether.
@@ -290,14 +327,13 @@ The primary value of unit tests is therefore not that they magically eliminate a
 This becomes especially important in ETL pipelines, where systems are often highly interconnected and tightly coupled. Seemingly small changes in one transformation can create unexpected side effects throughout the rest of the pipeline.
 In this kind of environment, a strong test suite becomes less about proving absolute correctness and more about creating confidence that changes do not unintentionally break existing behavior.
 
-Observability may ultimately matter more than unit testing in many data systems because real-world data is messy and unpredictable. But that does not make unit tests unimportant. It simply means that data engineering requires multiple complementary layers of validation rather than relying on a single strategy alone.
-
 ### Conclusion
+Observability may ultimately matter more than unit testing in many data systems because real-world data is messy and unpredictable. But that does not make unit tests unimportant. It simply means that data engineering requires multiple complementary layers of validation rather than relying on a single strategy alone.
 I advocate for applying at least similar testing standards in data engineering as we already expect in “classical” backend development.
 
-One world uses JOINs, GROUP BYs, and window functions as its primary building blocks. The other relies more heavily on loops, conditionals, state management, and third-party APIs. But in the end, both domains build custom software containing custom business logic — and custom logic needs to be tested regardless of the underlying technology.
+One world uses JOINs, GROUP BYs, and window functions as its primary building blocks. The other relies more heavily on loops, conditionals, state management, and third-party APIs. But in the end, both domains build custom software containing custom business logic - and custom logic needs to be tested regardless of the underlying technology.
 
-For us, TDD specifically was surprisingly powerful and I am looking forward to gathering even more experience with it. 
+Specifically writing Tests **before** their implementation worked very well for us. I am looking forward to gathering even more experience with TDD. 
 
 Of course, every system is different, and no engineering practice is universally optimal in every situation. My argument is not that TDD magically solves all problems in data engineering.
 But I do believe this:

@@ -308,14 +308,6 @@ actual = spark.sql(query, df=test_data, age=25)
 assertDataFrameEqual(actual, expected)
 ```
 
-
-### How 
-
-Unittests as a contract which data is expected by the pipeline. 
-
-https://www.youtube.com/watch?v=TbWcCyP2MgE
-was im TODO obsidian noch dazu steht
-
 ### Managing Expectations
 In my experience, unit tests are sometimes misunderstood as a mechanism that somehow prevents new bugs from appearing altogether.
 

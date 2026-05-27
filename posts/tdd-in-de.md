@@ -241,7 +241,7 @@ Moreover, you obviously do not have to hardcode your test data directly in the t
 However, in my experience, large or complex test datasets inside a unit test are often a warning sign. They can indicate that the function under test is doing too much, or that its logic is too hard to reason about in isolation.
 Keeping test data directly inside the test also improves readability and makes it easier to understand the intent at a glance. For that reason, I prefer this as the default approach, and only move test data into external fixtures when there is a clear benefit.
 
-**Testing SQL**
+##### Testing SQL
 
 Using PySpark, you can even test your SQL queries. The idea is similar. Let’s use the PySpark testing package instead of chispa this time:
 ```python
@@ -268,6 +268,7 @@ expected = spark.createDataFrame(
 actual = spark.sql(query, df=test_data, age=25)
 assertDataFrameEqual(actual, expected)
 ```
+
 
 ### The advantages of TDD specifically
 

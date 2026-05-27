@@ -71,7 +71,7 @@ At the time, I did not spend much energy questioning why that was. But reflectin
 4. Pipeline logic can also feel inherently harder to test. Inputs and outputs are often complex structures like DataFrames rather than simple scalar values or clearly isolated objects. That does introduce additional complexity, but it is far from unsolvable - and I will discuss practical ways to deal with it later on.
 
 ### Why we should test
-Let's talk about why each of these reasons is actually not a real justification to not write unittest:
+Let's talk about why each of these reasons is actually not a real justification to not write unit tests:
 
 1. Culture or tradition is obviously a poor argument against unit testing. So let's move on to more rational arguments.
 2. It is true that many data pipelines are built using declarative languages or APIs such as SQL or Spark. However, these technologies are only declarative at the level of individual operations. As engineers, we still combine those operations into highly customized business logic, often spanning dozens or hundreds of transformations. At that level, data pipelines are fundamentally no different from traditional software systems. In both backend systems and data pipelines, the goal of unit testing is ultimately the same: identify the boundary between framework functionality and custom business logic - and test the custom logic aggressively.
@@ -137,11 +137,11 @@ Consider this example, where we want to convert German umlauts (ä, ö, ü to ae
 
 So we want to transform this:
 
-| Cust_id | Address                             |
-|--------:|-------------------------------------|
-| 1 | Max-Schär-Str, 50733, Köln, Germany |
-| 2 | Eichenweg, München, Germany         |
-| 3 | Klötzlmüllerstr, Landshut, Germany  |
+| Cust_id | Address                                   |
+|--------:|-------------------------------------------|
+| 1 | Max-Schär-Str, 50733, Köln, Germany       |
+| 2 | Eichenweg, 80909, München, Germany        |
+| 3 | Klötzlmüllerstr, 84034, Landshut, Germany |
 
 to this:
 
@@ -282,7 +282,7 @@ Keeping test data directly inside the test also improves readability and makes i
 
 ##### Testing SQL
 
-Using PySpark, you can even test your SQL queries. The idea is similar. Let’s use the PySpark testing package instead of chispa this time:
+Using PySpark, you can even test your SQL queries. The concept is quite similar. Let’s use the PySpark testing package instead of chispa this time:
 ```python
 from pyspark.testing import assertDataFrameEqual
 
@@ -307,6 +307,7 @@ expected = spark.createDataFrame(
 actual = spark.sql(query, df=test_data, age=25)
 assertDataFrameEqual(actual, expected)
 ```
+Writing these tests before implementing the actual transformation forces you to treat your data schemas as a strict contract. By defining the exact input shapes and expected outputs upfront, you stop guessing how a transformation should behave. Instead, the test suite becomes the single source of truth for how data moves through your system – a contract that is automatically verified every time you run your CI/CD pipeline.
 
 ### Managing Expectations
 In my experience, unit tests are sometimes misunderstood as a mechanism that somehow prevents new bugs from appearing altogether.

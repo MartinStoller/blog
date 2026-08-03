@@ -55,10 +55,7 @@ Every edge case, bug fix, business rule, and previously discovered failure mode 
 
 And that naturally led me toward TDD.
 
-Whenever a new ticket required changes to a transformation, we started translating the expected behavior into a test first. Over time, this not only made the system significantly more stable, but also made the business logic itself easier to understand and reason about.
-
-We tried it and it worked surprisingly well.
-Not only did it dramatically reduce regressions, it also introduced other benefits I had not even considered...
+We tried it, and it worked surprisingly well. Whenever a ticket required changes to a transformation, we started by translating the expected behavior into a test. Over time, this made the system noticeably more stable and cut down on regressions. It also made the business logic itself easier to reason about and brought a few benefits I hadn't anticipated at all...
 
 ### Data Engineers, Why Don't We Test?
 I have worked at four different companies building data pipelines (among other things). None of them had a single unit test in place when I arrived.
